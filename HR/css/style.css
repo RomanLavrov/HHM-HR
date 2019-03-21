@@ -1,0 +1,738 @@
+﻿html {
+    font-family: Helvetica, sans-serif;
+}
+
+.table-striped td {
+    padding: 4px;
+}
+
+.auth_body {
+    background: #aaa;
+}
+
+.auth_form {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    color: #333;
+    left: 0;
+    background: white;
+    margin: auto;
+    width: 400px;
+    height: 360px;
+    padding: 20px;
+    border-radius: 1%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.row {
+    margin-left: 0;
+}
+
+.btn-user {
+    color: white;
+    height: 40px;
+    width: 40px;
+    background: dodgerblue;
+    border-radius: 100%;
+    border: none;
+}
+
+#nav-panel {
+    top: 60px;
+    position: fixed;
+    display: inline-block;
+    width: 80px;
+    background: #222;
+    height: 100vh;
+    color: white;
+    z-index: 99;
+}
+
+#title {
+    text-decoration: none;
+    color: white;
+}
+
+#title:hover {
+    color: red;
+}
+
+#content {
+    margin-top: 60px;
+    top: 60px;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    margin-left: 80px;
+}
+
+.btn-nav {
+    background: #222;
+    /*background-image: linear-gradient(#222,  #333,#333,#333,#333,#333,#333,  #222);*/
+    font-size: 0pt;
+    color: white;
+    width: 100%;
+    height: 80px;
+    border: none;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    transition: 0.5s;
+    z-index: 100;
+    margin: 0px;
+    color: #222;
+}
+
+.btn-nav div {
+    display: inline-block;
+}
+
+.btn-nav img {
+    height: 70px;
+    display: inline-block;
+    transition: 5s;
+    padding: 5px;
+}
+
+.btn-nav:focus {
+    background: #333;
+    /*background-image: linear-gradient(#222,  #333,#333,#333,#333,#333,#333,  #222);*/
+    border: none;
+    outline: 0;
+}
+
+.btn-nav:hover {
+    width: 200px;
+    color: white;
+    display: inline-block;
+    font-size: 12pt;
+}
+
+.btn-nav:hover img {
+    display: inline-block;
+}
+
+.btn-nav:hover div {
+    display: inline-block;
+}
+
+.button-add {
+    height: 60px;
+    width: 60px;
+    background: rgb(55, 170, 55);
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0px 9px 28px -9px rgba(0, 0, 0, 0.75);
+    background-image: url("/HR/images/plus.png");
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.button-add:focus,
+.btn-del-vacation:focus {
+    outline: 0;
+}
+
+.button-add:hover {
+    background: rgb(11, 201, 11);
+    background-image: url("/HR/images/plus.png");
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.category-id {
+    width: 1%;
+    text-align: center;
+}
+
+.category-id div {
+    margin-top: 5px;
+    height: 30px;
+    width: 30px;
+    color: dodgerblue;
+    border: 2px solid dodgerblue;
+    border-radius: 15px;
+    line-height: 26px;
+}
+
+.category-personal {
+    width: 4%;
+}
+
+.category-personalData {
+    width: 15%
+}
+
+.category-career {
+    width: 14%;
+}
+
+.category-passport {
+    width: 12%;
+}
+
+.category-children {
+    width: 15%;
+}
+
+.category-G17 {
+    width: 8%;
+}
+
+.category-HHM {
+    width: 8%
+}
+
+.deleteButton,
+.editButton {
+    background: rgb(218, 57, 49);
+    background-image: url("/HR/images/delete_employee.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    width: 50px;
+    height: 50px;
+    color: transparent;
+    border-radius: 25px;
+    border: 1px solid rgb(218, 57, 49);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 10px;
+}
+
+.editButton {
+    background: rgb(243, 146, 75);
+    border: 1px solid rgb(243, 146, 75);
+    background-image: url("/HR/images/edit_employee.png");
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+}
+
+.buttonImage {
+    display: block;
+    width: 40px;
+    height: 42px;
+    margin-top: 12px;
+    margin-left: 6px;
+    position: absolute;
+}
+
+.employee-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background: dodgerblue;
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    display: inline-block;
+}
+
+.employee-main {
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.employee-name {
+    vertical-align: middle;
+    width: 240px;
+    height: 40px;
+    text-align: left;
+    background: lightblue;
+    display: inline-block;
+    border: 1px solid lightblue;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.employee-name:hover {
+    background: rgb(123, 195, 219);
+}
+
+.employee-controls {
+    width: 120px;
+}
+
+.employee-controls button {
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    margin-right: 5px;
+    padding: 0;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.input1 {
+    display: none;
+}
+
+.input-label-select,
+.input-label-upload {
+    background: transparent;
+    color: white;
+    width: 100px;
+    height: 40px;
+    border: 1px solid dodgerblue;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.5;
+    display: table-cell;
+}
+
+.input-label-select:hover,
+.input-label-upload:hover {
+    background: dodgerblue;
+}
+
+.input-label-select {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    line-height: 38px;
+    float: left;
+}
+
+.input-label-upload {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.input2 {
+    display: none;
+}
+
+.input-label-text {
+    margin-top: 10px;
+    display: inline-block;
+    background: white;
+    width: 340px;
+    height: 40px;
+    vertical-align: middle;
+    line-height: 38px;
+    border-radius: 5px;
+}
+
+.input-buttons {
+    display: inline-block;
+}
+
+#header {
+    margin: 0;
+    height: 60px;
+    background: #222;
+    color: white;
+    font-size: 24pt;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+}
+
+#header-main {
+    width: 100%;
+    margin: 0;
+    height: 60px;
+    background: #222;
+    color: white;
+    font-size: 24pt;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+    position: fixed;
+    z-index: 100;
+}
+
+#personal-menu {
+    text-align: center;
+    background: #ccc;
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#personal-data {
+    background: #999;
+    text-align: left;
+}
+
+.personal-image {
+    width: auto;
+    height: auto;
+    margin: auto;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.personal-image img {
+    margin: auto;
+    margin-top: 20px;
+    display: block;
+}
+
+.personal-image button {
+    margin: auto;
+    display: block;
+    margin-top: 20px;
+    background: dodgerblue
+}
+
+.personal-image img {
+    height: 240px;
+    border-radius: 100%;
+}
+
+.personal-name {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.personal-details {
+    display: inline-block;
+}
+
+.personal-lastname {
+    display: inline-block;
+}
+
+.personal-categories-btn {
+    width: 98%;
+    height: 40px;
+    text-align: center;
+    font-size: 12pt;
+    background: #444;
+    color: white;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 20px;
+    outline: 0;
+    transition: 0.5s;
+    display: block;
+}
+
+.personal-categories-btn:hover {
+    background: #666;
+    color: white
+}
+
+.personal-bio {
+    background: #333;
+    margin-left: -15px;
+}
+
+.bio-description {
+    width: 35%;
+    min-width: min-content;
+    height: 40px;
+    margin: 5px;
+    line-height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 10px;
+    background: #555;
+    color: white;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.bio-value {
+    width: 60%;
+    height: 40px;
+    margin-top: 5px;
+    line-height: 40px;
+    font-size: 16px;
+    padding-left: 10px;
+    background: white;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.notFound {
+    width: 50%;
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.create-body {
+    background: #ddd;
+    padding-right: 40px;
+    padding-top: 15px;
+    height: 875px;
+}
+
+.create-personal,
+.create-personal-short {
+    width: 100%;
+    min-width: 360px;
+    height: auto;
+    vertical-align: top;
+    background: #ccc;
+    display: inline-block;
+    margin-bottom: 20px;
+    box-shadow: 10px 10px 46px -10px rgba(0, 0, 0, 0.75);
+}
+
+.create-personal-short {
+    height: auto;
+}
+
+.create-personal-header {
+    width: 100%;
+    height: 40px;
+    color: white;
+    font-size: 18pt;
+    padding-left: 15px;
+    background: dodgerblue;
+}
+
+.vacationMonthHeader {
+    text-align: center;
+}
+
+.vacationMonth {
+    width: 6%;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.vacationMonthTotal {
+    width: 10%;
+    background: #23A6D5;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.calendar-year {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.calendar-month {
+    width: 10%;
+    min-width: 260px;
+    height: 230px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+    display: inline-block;
+    background: #333;
+    color: white;
+    text-align: center;
+    margin-top: 5px;
+    vertical-align: top;
+}
+
+.calendar-month h1 {
+    background: dodgerblue;
+    font-size: 16pt;
+    margin-top: 0px;
+}
+
+.calendar-day,
+.calendar-day-header,
+.calendar-day-weekend,
+.calendar-day-vacation {
+    display: inline-block;
+    width: 11%;
+    height: 20px;
+    /*background: rgb(16, 102, 16);*/
+    margin-right: 3px;
+    margin-top: 3px;
+    border-radius: 4px;
+    transition: 0.5s;
+    cursor: pointer;
+    line-height: 20px;
+}
+
+.calendar-day:hover {
+    background: #19a719;
+}
+
+.calendar-day-header {
+    background: rgb(11, 100, 96);
+    margin-bottom: 10px;
+}
+
+.calendar-day-weekend {
+    /*background: #c54e46;*/
+    color: rgb(238, 90, 90);
+}
+
+.calendar-day-weekend:hover {
+    background: white;
+}
+
+.calendar-day-vacation {
+    background: #219b21;
+    line-height: 18px;
+    border: 1px solid lightgreen
+}
+
+.reference-text {
+    text-decoration: none;
+    color: white;
+}
+
+.reference-text:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.table td {
+    vertical-align: top;
+}
+
+.toolTip {
+    height: 30px;
+    width: auto;
+    padding-left: 7px;
+    padding-right: 7px;
+    background: dodgerblue;
+    color: white;
+    transition: 0.5s;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+}
+
+#btn-add {
+    background: transparent;
+    border: 1px solid #99ced3;
+    color: white;
+    transition: 1s;
+}
+
+#btn-save-vacation {
+    background-image: urL("/HR/images/save.png");
+    background-size: 65%
+}
+
+#btn-add:hover {
+    background: #99ced3;
+    border: 1px solid #99ced3;
+    color: #222;
+}
+
+#btn-cancel {
+    background: transparent;
+    border: 1px solid #edb5bf;
+    color: white;
+    transition: 1s;
+}
+
+#btn-cancel:hover {
+    background: #edb5bf;
+    border: 1px solid #edb5bf;
+    color: #222;
+}
+
+.btn-del-vacation {
+    height: 60px;
+    width: 60px;
+    background: rgb(252, 71, 71);
+    border-radius: 20px;
+    background-image: url("/HR/images/delete.png");
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    box-shadow: 10px 10px 46px -10px rgba(0, 0, 0, 0.75);
+}
+
+.btn-del-vacation:hover {
+    background: red;
+    background-image: url("/HR/images/delete.png");
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.vacation-number{
+    background: dodgerblue;
+    height:100%;
+    text-align: center;
+    line-height: 150px;
+    color:white;
+    font-size: 26pt;
+}
+
+#personal-main {
+    height: 85vh;
+    background: #5F6366
+}
+
+#personal-details {
+    height: 85vh;
+    padding: 0;
+    background: #ccc;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#personal-details-header {
+    margin-bottom: 20px;
+}
+
+/*-----Animated Background-----*/
+
+.login-body {
+    width: 100wh;
+    height: 100vh;
+    color: #fff;
+    background: linear-gradient(45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    background-size: 300% 100%;
+    -webkit-animation: Gradient 20s ease infinite;
+    -moz-animation: Gradient 20s ease infinite;
+    animation: Gradient 20s ease infinite;
+}
+
+.vacation-submit {}
+
+@-webkit-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-moz-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
