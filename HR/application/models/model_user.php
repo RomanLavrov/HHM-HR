@@ -12,6 +12,7 @@ class User_Model extends Model
 		$count = count($result);
 		return $count;
 	}
+	
 	public function insert_user($data)
 	{
 		$this->db->insert('user', $data);

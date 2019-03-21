@@ -1,5 +1,5 @@
 <div class="create-body">
-    <form action="/uploadPhoto" method="post" enctype="multipart/form-data">
+    <form action="/HR/uploadPhoto" method="post" enctype="multipart/form-data">
         <input class="input1" id="imageUpload" type="file" name="fileToUpload">
         <input class="input2" id="imageButton" type="submit" value="Upload Image" name="photo">
     </form>

@@ -12,7 +12,6 @@ class Controller_Create extends Controller
             $LastName = $_POST["LastName"];
             $Photo = $_POST["Photo"];
 
-
             $BirthDate = $_POST["BirthDate"];
             $CivilState = $_POST["CivilState"];
             $Address = $_POST["Address"];
@@ -135,7 +134,6 @@ class Controller_Create extends Controller
             if ($query->execute()) {
                 header('location: /HR/main');
             }
-
         }
 
         session_start();

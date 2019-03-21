@@ -23,6 +23,6 @@ class Controller_Register extends Controller
             );
             $this->model->insert_user($data);
         }
-        header('location:register');
+        header('location:HR/register');
     }
 }
