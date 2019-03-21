@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/HR/css/style.css">
 </head>
 
-<body class="auth_body">
+<body class="login-body">
     <?php include 'application/views/'.$content_view; ?>
 </body>
 

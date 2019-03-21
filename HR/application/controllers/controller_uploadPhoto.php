@@ -4,7 +4,6 @@ class Controller_UploadPhoto extends Controller
 {
     public function action_index()
     {
-        session_start();
         $user_photo = "image/user.png";
         $target_dir = "employeePhoto/";
         $upload_err = "";
