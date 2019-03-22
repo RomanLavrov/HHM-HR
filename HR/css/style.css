@@ -648,7 +648,6 @@ background-position: center;
 }
 
 .btn-del-vacation {
-
     height: 100%;
     width: 60px;
     background: transparent;
@@ -661,27 +660,36 @@ background-position: center;
 }
 
 .btn-del-vacation:hover {
-    background-color: red;
+    background-color: rgb(241, 81, 81);
 
+}
+
+
+.create-personal:hover .vacation-number{
+    height:0px;   
+}
+
+.create-personal:hover .vacation-bucket{
+    height: 150px;
 }
 
 .vacation-number, .vacation-bucket{
     width:60px;
-    min-height: 0px;
+    height: 150px;
     background: dodgerblue;
     text-align: center;
     line-height: 150px;
     color:white;
-    font-size: 26pt;
-    transition: all 0.4s linear;
+    font-size: 26pt;  
     overflow-y: hidden;
+    transition:  0.5s;
 }
 
 .vacation-bucket{
     float:left;
     height:0px;
     background-image: url("/HR/images/delete.png");
-    background: lightcoral;
+    background: rgb(189, 82, 82);
 }
 
 #personal-main {

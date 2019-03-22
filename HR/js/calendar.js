@@ -76,6 +76,13 @@ function assignVacationDelete(){
 }
 
 function deleteAnimation (){
+/*
+      var vac = document.getElementsByClassName("create-personal");
+      var vacArray = Array.from(vac);
+      vacArray.forEach(function(element){
+            console.log(element.childNodes);
+      });
+
       var card = document.getElementsByClassName("vacation-label");
       var cardArray = Array.from(card);
       cardArray.forEach(function(element){
@@ -93,7 +100,7 @@ function deleteAnimation (){
                   element.childNodes[1].style.height = "150px";                 
             }          
       });
-           
+           */
       
 }
 
