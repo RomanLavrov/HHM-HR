@@ -10,8 +10,8 @@ toolTip.style.visibility = "hidden";
 document.body.appendChild(toolTip);
 
 assignVacationDelete();
-//createDeleteBucket();      
-deleteAnimation();
+
+SetVacationNumber();
 
 
 dayArray.forEach(element => {
@@ -60,8 +60,8 @@ function createVacationForm() {
       var vacationDiv = document.createElement("div");
       vacationDiv.innerHTML = document.getElementById("vacation").innerHTML;
       document.getElementById("vacation-parent").appendChild(vacationDiv);
-      assignVacationDelete();      
-      createDeleteBucket();      
+      assignVacationDelete();     
+      SetVacationNumber(); 
 }     
 
 function assignVacationDelete(){
@@ -69,38 +69,22 @@ function assignVacationDelete(){
       var arrayDelete = Array.from(buttonDeleteVacation);
       arrayDelete.forEach(function (element) {
             element.onclick = function () {
-                  var div = element.parentNode
+                  var panel = element.parentNode;
+                  var card = panel.parentNode.parentNode;
+                  var cardHolder = card.parentNode;
+                  var div = cardHolder.parentNode;
                   div.parentNode.removeChild(div);
             }
       });
 }
 
-function deleteAnimation (){
-/*
-      var vac = document.getElementsByClassName("create-personal");
-      var vacArray = Array.from(vac);
-      vacArray.forEach(function(element){
-            console.log(element.childNodes);
+function SetVacationNumber(){
+      var number = document.getElementsByClassName("vacation-number");
+      var numberArray = Array.from(number);
+      var counter = 1;
+      numberArray.forEach(function(element){
+            element.innerText = counter++;
       });
-
-      var card = document.getElementsByClassName("vacation-label");
-      var cardArray = Array.from(card);
-      cardArray.forEach(function(element){
-            element.onmouseover = function(){
-                  console.log(element.childNodes[1]);
-                  element.childNodes[1].style.height = "0px";  
-                  element.childNodes[3].style.height = "150px";                                  
-            }            
-      });
-
-      cardArray.forEach(function(element){            
-            element.onmouseleave = function(){
-                  console.log(element.childNodes[1]);
-                  element.childNodes[3].style.height = "0px";
-                  element.childNodes[1].style.height = "150px";                 
-            }          
-      });
-           */
-      
 }
+
 
