@@ -47,4 +47,4 @@
       </tbody>
 </table>
 
-<script src="/HR/JS/vacation.js"></script>
+<script src="/HR/js/vacation.js"></script>
