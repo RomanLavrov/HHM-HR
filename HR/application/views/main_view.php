@@ -13,7 +13,7 @@
             </tr>
       </thead>
       <tbody>
-      <?php $counter=1?>
+            <?php $counter=1?>
             <?php foreach ($this->list as $employee): ?>
             <tr>
                   <td class="category-id">
@@ -34,23 +34,24 @@
                                     </div>
                               </div>
 
-                               <div class="employee-controls">
+                              <div class="employee-controls">
                                     <form action="/HR/edit" method="post">
                                           <input type="hidden" name="idEmployee"
                                                 value=<?php print htmlentities($employee->Id);?>>
                                           <input class="editButton" type="submit">
+                                    </form>
+                                    <form action="/HR/calendar" method="post">
+                                          <input type="hidden" name="idEmployee"
+                                                value=<?php print htmlentities($employee->Id);?>>
+                                          <input class="vacationButton" type="submit">
                                     </form>
                                     <form action="/HR/delete" method="post">
                                           <input type="hidden" name="idEmployee"
                                                 value=<?php print htmlentities($employee->Id);?>>
                                           <input class="deleteButton" type="submit">
                                     </form>
-                                    <form action="/HR/calendar" method="post">
-                                    <input type="hidden" name="idEmployee"
-                                                value=<?php print htmlentities($employee->Id);?>>
-                                                <input class="vacationButton" type="submit">
-                                    </form>
-                              </div> 
+                                   
+                              </div>
                         </div>
                   </td>
 

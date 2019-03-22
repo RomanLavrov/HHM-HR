@@ -14,28 +14,23 @@
 
 <body>
       <div id="header-main" class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                   <a id="title" href="/HR/main">HHM Mitarbeiter</a>
             </div>
             <div class="col-md-6">
-
+                  <input class="searchbar" type="text" placeholder="Suche">
             </div>
-
             <div class="col-md-2">
                   <div class="dropdown">
-                        <!-- <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               <?php echo htmlspecialchars($_SESSION["username"]); ?>
-                        </button> -->
+                        </button>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left"
                               aria-labelledby="dropdownMenuButton">
 
-                              <!--TODO Add ability to change password
-                    <a class="dropdown-item" href="reset-password.php">Change Password</a>
-                    -->
                               <a class="dropdown-item" href="/HR/logout">Sign Out Account</a>
                         </div>
-
                   </div>
             </div>
       </div>
