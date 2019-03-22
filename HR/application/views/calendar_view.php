@@ -48,7 +48,9 @@
 
                   <?php endforeach;?>
                   <?php endif;?>
-                  <div class="create-personal" id="vacation-parent"></div>
+
+                  <div  id="vacation-parent"></div>
+
                   <input type="hidden" name=<?php print htmlentities("Id")?> id=""
                         value=<?php print htmlentities($this->employee->Id)?>>
 
@@ -88,9 +90,10 @@
       </div>
 </div>
 
-<div id="vacation" class="create-personal" style="visibility:collapse; ">
+<div id="vacation" style="visibility:collapse;">
+      <div class="create-personal">
       <div class="row">
-            <div class="col-md-2" style="margin: 0px;  padding:0px;">
+            <div class="col-md-2" style="margin: 0px;  padding:0px; ">
                   <div class="vacation-label">
                         <div class="vacation-number">
                               <?php print htmlentities($vacationCounter++)?>
@@ -110,4 +113,7 @@
                   <div class="bio-value">0 tage</div>
             </div>
       </div>
-      <script src="/HR/js/calendar.js"></script>
+      </div>
+</div>
+
+<script src="/HR/js/calendar.js"></script>

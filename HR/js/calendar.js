@@ -59,7 +59,6 @@ function createVacationForm() {
       vacationDiv.innerHTML = document.getElementById("vacation").innerHTML;
       document.getElementById("vacation-parent").appendChild(vacationDiv);
       assignVacationDelete();      
-      createDeleteBucket();      
 }     
 
 function assignVacationDelete(){
@@ -67,7 +66,10 @@ function assignVacationDelete(){
       var arrayDelete = Array.from(buttonDeleteVacation);
       arrayDelete.forEach(function (element) {
             element.onclick = function () {
-                  var div = element.parentNode
+                  var panel = element.parentNode;
+                  var card = panel.parentNode.parentNode;
+                  var cardHolder = card.parentNode;
+                  var div = cardHolder.parentNode;
                   div.parentNode.removeChild(div);
             }
       });
