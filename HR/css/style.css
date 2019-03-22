@@ -58,10 +58,24 @@
 #title {
     text-decoration: none;
     color: white;
+    /* text-shadow:
+    0 0 6px rgba(202,228,225,0.98),
+    0 0 30px rgba(202,228,225,0.42),
+    0 0 12px rgba(30,132,242,0.58),
+    0 0 22px rgba(30,132,242,0.84),
+    0 0 38px rgba(30,132,242,0.88),
+    0 0 60px rgba(30,132,242,1); */
 }
 
 #title:hover {
-    color: red;
+    color:red;
+    /*color: rgb(117, 117, 255);
+     text-shadow:
+    0 0 30px rgba(137, 198, 255, 0.42),
+    0 0 12px rgba(30,132,242,0.58),
+    0 0 22px rgba(30,132,242,0.84),
+    0 0 38px rgba(30,132,242,0.88),
+    0 0 60px rgba(30,132,242,1); */
 }
 
 #content {
@@ -242,22 +256,29 @@
     margin-right: 20px;
 }
 
+
+
 .employee-name {
     padding-left: 0;
     vertical-align: middle;
     width: 240px;
-    height: 40px;
+    height: 50px;
+    padding:5px;
     text-align: left;
     background: lightblue;
     display: inline-block;
     border: 1px solid lightblue;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: box-shadow .2s ease, transform .5s ease, margin-top .2s ease;
+    cursor: pointer;
 }
 
 .employee-name:hover {
-    background: rgb(123, 195, 219);
+    background: rgb(195, 219, 228);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.35), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
 }
+
 
 .employee-controls {
     width: 120px;
@@ -541,9 +562,9 @@
 }
 
 .calendar-year {
-    display: block;
-    margin: 0 auto 20px auto;
-    max-width: 1100px;
+display: block;
+margin: 0 auto 20px auto;
+max-width: 1100px;
 }
 
 .calendar-month {
@@ -581,7 +602,9 @@
     transition: 0.5s;
     cursor: pointer;
     line-height: 20px;
+    text-decoration: none;
 }
+
 
 .calendar-day:hover {
     background: #19a719;

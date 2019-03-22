@@ -23,10 +23,10 @@
 
             <div class="col-md-2">
                   <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        <!-- <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               <?php echo htmlspecialchars($_SESSION["username"]); ?>
-                        </button>
+                        </button> -->
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left"
                               aria-labelledby="dropdownMenuButton">
 
