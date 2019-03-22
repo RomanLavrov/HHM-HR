@@ -13,7 +13,6 @@ assignVacationDelete();
 
 SetVacationNumber();
 
-
 dayArray.forEach(element => {
       if (element.innerText == "0") {
             element.style.visibility = "hidden";
@@ -53,18 +52,18 @@ dayArray.forEach(element => {
       var btnAddVacation = document.getElementById("btn-add-vacation");
       btnAddVacation.onclick = function () {
             createVacationForm();
-      }     
+      }
 });
 
 function createVacationForm() {
       var vacationDiv = document.createElement("div");
       vacationDiv.innerHTML = document.getElementById("vacation").innerHTML;
       document.getElementById("vacation-parent").appendChild(vacationDiv);
-      assignVacationDelete();     
-      SetVacationNumber(); 
-}     
+      assignVacationDelete();
+      SetVacationNumber();
+}
 
-function assignVacationDelete(){
+function assignVacationDelete() {
       var buttonDeleteVacation = document.getElementsByClassName("btn-del-vacation");
       var arrayDelete = Array.from(buttonDeleteVacation);
       arrayDelete.forEach(function (element) {
@@ -78,13 +77,11 @@ function assignVacationDelete(){
       });
 }
 
-function SetVacationNumber(){
+function SetVacationNumber() {
       var number = document.getElementsByClassName("vacation-number");
       var numberArray = Array.from(number);
       var counter = 1;
-      numberArray.forEach(function(element){
+      numberArray.forEach(function (element) {
             element.innerText = counter++;
       });
 }
-
-

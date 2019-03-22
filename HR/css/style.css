@@ -10,7 +10,8 @@
     background: #aaa;
 }
 
-.auth_form, .register-form {
+.auth_form,
+.register-form {
     position: absolute;
     top: 0;
     right: 0;
@@ -135,7 +136,8 @@
     background-position: 50%;
 }
 
-.button-add:focus, .btn-del-vacation:focus {
+.button-add:focus,
+.btn-del-vacation:focus {
     outline: 0;
 }
 
@@ -189,7 +191,8 @@
     width: 8%
 }
 
-.deleteButton, .editButton {
+.deleteButton,
+.editButton {
     background: rgb(218, 57, 49);
     background-image: url("/HR/images/delete_employee.png");
     background-repeat: no-repeat;
@@ -230,6 +233,7 @@
     /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
    */
     display: inline-block;
+    padding-left:0
 }
 
 .employee-main {
@@ -239,6 +243,7 @@
 }
 
 .employee-name {
+    padding-left: 0;
     vertical-align: middle;
     width: 240px;
     height: 40px;
@@ -272,7 +277,8 @@
     display: none;
 }
 
-.input-label-select, .input-label-upload {
+.input-label-select,
+.input-label-upload {
     background: transparent;
     color: white;
     width: 100px;
@@ -286,7 +292,8 @@
     display: table-cell;
 }
 
-.input-label-select:hover, .input-label-upload:hover {
+.input-label-select:hover,
+.input-label-upload:hover {
     background: dodgerblue;
 }
 
@@ -468,7 +475,8 @@
     height: 875px;
 }
 
-.create-personal, .create-personal-short {
+.create-personal,
+.create-personal-short {
     width: 100%;
     min-width: 360px;
     height: auto;
@@ -496,19 +504,31 @@
     text-align: center;
 }
 
-.vacationMonth {
-    width: 6%;
+.vacationMonth,
+.vacationMonth-work,
+.vacationMonth-rest, 
+.vacationMonthTotal {
+    width: 5%;
+    min-width: 60px;;
     text-align: center;
     display: table-cell;
-    vertical-align: middle;
+    line-height: 40px;
+    border: 1px solid #ccc;
+}
+
+.vacationMonth-work {
+    background: lightblue;
+}
+
+.vacationMonth-rest {
+    background: lightcoral;
+    color: white;
 }
 
 .vacationMonthTotal {
-    width: 10%;
+    width: 4%;
     background: #23A6D5;
     text-align: center;
-    display: table-cell;
-    vertical-align: middle;
 }
 
 .vacation-bucket {
@@ -545,7 +565,10 @@
     margin-top: 0px;
 }
 
-.calendar-day, .calendar-day-header, .calendar-day-weekend, .calendar-day-vacation {
+.calendar-day,
+.calendar-day-header,
+.calendar-day-weekend,
+.calendar-day-vacation {
     display: inline-block;
     width: 11%;
     height: 20px;
@@ -662,7 +685,8 @@
     height: 150px;
 }
 
-.vacation-number, .vacation-bucket {
+.vacation-number,
+.vacation-bucket {
     width: 60px;
     height: 150px;
     background: dodgerblue;
@@ -720,9 +744,11 @@
     0% {
         background-position: 0% 50%
     }
+
     50% {
         background-position: 100% 50%
     }
+
     100% {
         background-position: 0% 50%
     }
@@ -732,9 +758,11 @@
     0% {
         background-position: 0% 50%
     }
+
     50% {
         background-position: 100% 50%
     }
+
     100% {
         background-position: 0% 50%
     }
@@ -744,9 +772,11 @@
     0% {
         background-position: 0% 50%
     }
+
     50% {
         background-position: 100% 50%
     }
+
     100% {
         background-position: 0% 50%
     }

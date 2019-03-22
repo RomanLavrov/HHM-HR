@@ -1,8 +1,11 @@
 <table class="table table-striped table-bordered table-light">
+
       <thead class="thead-dark">
             <tr class="vacationMonthHeader">
                   <th>Mitarbeiter</th>
                   <th>Zusammen</th>
+                  <th>Zugewiesen</th>
+                  <th>Nicht Zugewiesen</th>
                   <th>Januar</th>
                   <th>Februar</th>
                   <th>März</th>
@@ -34,6 +37,8 @@
                         </form>
                   </td>
                   <td class="vacationMonthTotal"><?php print htmlentities($employee->Total);?></td>
+                  <td class="vacationMonthTotal"><?php print htmlentities($employee->Used);?></td>
+                  <td class="vacationMonthTotal"><?php print htmlentities($employee->NotUsed);?></td>
                   <?php foreach ($employee->Duration as $duration): ?>
                   <td class="vacationMonth"><?php print htmlentities($duration);?></td>
                   <?php endforeach?>
@@ -41,3 +46,5 @@
             <?php endforeach;?>
       </tbody>
 </table>
+
+<script src="/HR/JS/vacation.js"></script>

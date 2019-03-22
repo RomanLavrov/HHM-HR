@@ -8,6 +8,8 @@ class EmployeeVacation
     public $Photo;
     public $Vacations = array();   
     public $Total;
+    public $Used;
+    public $NotUsed;
 }
 
 class Vacation
@@ -61,7 +63,9 @@ class Controller_Vacations extends Controller
                     }                    
                   
                     $empVacation->Duration = $this->getDuration($empVacation->Vacations);
-                    $empVacation->Total = $this->getSumDuration($empVacation->Vacations);
+                    $empVacation->Total = 30;
+                    $empVacation->Used =  $this->getSumDuration($empVacation->Vacations);
+                    $empVacation->NotUsed = 30 - $this->getSumDuration($empVacation->Vacations);
                     $empArray[] = $empVacation;
                 }
             }
