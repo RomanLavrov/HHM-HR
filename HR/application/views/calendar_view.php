@@ -1,5 +1,5 @@
 <div class="row" style="width:100%">
-      <div class="col-md-3">
+      <div class="col-md-3" style="min-width: 370px">
             <div class="create-personal">
                   <div class="create-personal-header">Mitarbeiter</div>
                   <div class="personal-image">
@@ -16,8 +16,8 @@
                   <?php foreach ($this->employee->Vacations as $vacation): ?>
 
                   <div class="create-personal">
-                        <div class="row">
-                              <div class="col-md-2" style="margin: 0px; padding:0px;">
+                        <div class="row" style="padding: 0 10px 0 0; ">
+                              <div class="col-md-2" style="margin: 0px; padding:0px; ">
                                     <div class="vacation-label">
                                           <div class="vacation-number">
                                                 <?php print htmlentities($vacationCounter++)?>
@@ -29,7 +29,7 @@
                                     </div>
                               </div>
 
-                              <div class="col-md-10" style="margin-left:0px; padding-left:5px;">
+                              <div class="col-md-10" style="margin-left:0px; padding-left:0px; padding-right:15px;">
                                     <div class="bio-description">Start</div>
                                     <input class="bio-value" type="date"
                                           name=<?php print htmlentities("Start" . $vacationCounter)?> id=""
@@ -92,7 +92,7 @@
 
 <div id="vacation" style="visibility:collapse;">
       <div class="create-personal">
-      <div class="row">
+      <div class="row"  style="padding: 0 10px 0 0; ">
             <div class="col-md-2" style="margin: 0px;  padding:0px; ">
                   <div class="vacation-label">
                         <div class="vacation-number">
@@ -104,7 +104,7 @@
                         </div>
                   </div>
             </div>
-            <div class="col-md-10" style="margin-left:0px; padding-left:5px;">
+            <div class="col-md-10" style="margin:0; padding-left:0">
                   <div class="bio-description">Start</div>
                   <input class="bio-value" type="date" name=<?php print htmlentities("Start" . $vacationCounter)?>>
                   <div class="bio-description">End</div>

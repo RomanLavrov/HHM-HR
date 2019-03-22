@@ -11,6 +11,8 @@ document.body.appendChild(toolTip);
 
 assignVacationDelete();
 
+SetVacationNumber();
+
 
 dayArray.forEach(element => {
       if (element.innerText == "0") {
@@ -58,7 +60,8 @@ function createVacationForm() {
       var vacationDiv = document.createElement("div");
       vacationDiv.innerHTML = document.getElementById("vacation").innerHTML;
       document.getElementById("vacation-parent").appendChild(vacationDiv);
-      assignVacationDelete();      
+      assignVacationDelete();     
+      SetVacationNumber(); 
 }     
 
 function assignVacationDelete(){
@@ -72,6 +75,15 @@ function assignVacationDelete(){
                   var div = cardHolder.parentNode;
                   div.parentNode.removeChild(div);
             }
+      });
+}
+
+function SetVacationNumber(){
+      var number = document.getElementsByClassName("vacation-number");
+      var numberArray = Array.from(number);
+      var counter = 1;
+      numberArray.forEach(function(element){
+            element.innerText = counter++;
       });
 }
 

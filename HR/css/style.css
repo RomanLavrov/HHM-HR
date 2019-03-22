@@ -26,8 +26,8 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.register-form{
-    height:460px;
+.register-form {
+    height: 460px;
 }
 
 .row {
@@ -74,7 +74,8 @@
 
 .btn-nav {
     background: #222;
-    /*background-image: linear-gradient(#222,  #333,#333,#333,#333,#333,#333,  #222);*/
+    /*background-image: linear-gradient(#222, #333,#333,#333,#333,#333,#333, #222);
+   */
     font-size: 0pt;
     color: white;
     width: 100%;
@@ -101,7 +102,8 @@
 
 .btn-nav:focus {
     background: #333;
-    /*background-image: linear-gradient(#222,  #333,#333,#333,#333,#333,#333,  #222);*/
+    /*background-image: linear-gradient(#222, #333,#333,#333,#333,#333,#333, #222);
+   */
     border: none;
     outline: 0;
 }
@@ -133,8 +135,7 @@
     background-position: 50%;
 }
 
-.button-add:focus,
-.btn-del-vacation:focus {
+.button-add:focus, .btn-del-vacation:focus {
     outline: 0;
 }
 
@@ -188,8 +189,7 @@
     width: 8%
 }
 
-.deleteButton,
-.editButton {
+.deleteButton, .editButton {
     background: rgb(218, 57, 49);
     background-image: url("/HR/images/delete_employee.png");
     background-repeat: no-repeat;
@@ -227,7 +227,8 @@
     height: 40px;
     border-radius: 20px;
     background: dodgerblue;
-    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   */
     display: inline-block;
 }
 
@@ -271,8 +272,7 @@
     display: none;
 }
 
-.input-label-select,
-.input-label-upload {
+.input-label-select, .input-label-upload {
     background: transparent;
     color: white;
     width: 100px;
@@ -286,8 +286,7 @@
     display: table-cell;
 }
 
-.input-label-select:hover,
-.input-label-upload:hover {
+.input-label-select:hover, .input-label-upload:hover {
     background: dodgerblue;
 }
 
@@ -469,8 +468,7 @@
     height: 875px;
 }
 
-.create-personal,
-.create-personal-short {
+.create-personal, .create-personal-short {
     width: 100%;
     min-width: 360px;
     height: auto;
@@ -513,20 +511,18 @@
     vertical-align: middle;
 }
 
-.vacation-bucket{
-display: inline;
-background: lightcoral;
-transition:1s;
-background-image: url("/HR/images/delete.png");
-background-position: center;
-
+.vacation-bucket {
+    display: inline;
+    background: lightcoral;
+    transition: 1s;
+    background-image: url("/HR/images/delete.png");
+    background-position: center;
 }
 
 .calendar-year {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
+    margin: 0 auto 20px auto;
+    max-width: 1100px;
 }
 
 .calendar-month {
@@ -549,14 +545,12 @@ background-position: center;
     margin-top: 0px;
 }
 
-.calendar-day,
-.calendar-day-header,
-.calendar-day-weekend,
-.calendar-day-vacation {
+.calendar-day, .calendar-day-header, .calendar-day-weekend, .calendar-day-vacation {
     display: inline-block;
     width: 11%;
     height: 20px;
-    /*background: rgb(16, 102, 16);*/
+    /*background: rgb(16, 102, 16);
+   */
     margin-right: 3px;
     margin-top: 3px;
     border-radius: 4px;
@@ -575,7 +569,8 @@ background-position: center;
 }
 
 .calendar-day-weekend {
-    /*background: #c54e46;*/
+    /*background: #c54e46;
+   */
     color: rgb(238, 90, 90);
 }
 
@@ -659,31 +654,29 @@ background-position: center;
     box-shadow: 10px 10px 46px -10px rgba(0, 0, 0, 0.75);
 }
 
-
-
-.create-personal:hover .vacation-number{
-    height:0px;   
+.create-personal:hover .vacation-number {
+    height: 0px;
 }
 
-.create-personal:hover .vacation-bucket{
+.create-personal:hover .vacation-bucket {
     height: 150px;
 }
 
-.vacation-number, .vacation-bucket{
-    width:60px;
+.vacation-number, .vacation-bucket {
+    width: 60px;
     height: 150px;
     background: dodgerblue;
     text-align: center;
     line-height: 150px;
-    color:white;
-    font-size: 26pt;  
+    color: white;
+    font-size: 26pt;
     overflow-y: hidden;
-    transition:  0.8s;
+    transition: 0.8s;
 }
 
-.vacation-bucket{
-    float:left;
-    height:0px;
+.vacation-bucket {
+    float: left;
+    height: 0px;
     background-image: url("/HR/images/delete.png");
     background: rgb(190, 75, 75);
 }
@@ -694,7 +687,7 @@ background-position: center;
 
 #personal-main {
     height: 85vh;
-    background: #5F6366
+    background: #5F6366;
 }
 
 #personal-details {
@@ -727,11 +720,9 @@ background-position: center;
     0% {
         background-position: 0% 50%
     }
-
     50% {
         background-position: 100% 50%
     }
-
     100% {
         background-position: 0% 50%
     }
@@ -741,11 +732,9 @@ background-position: center;
     0% {
         background-position: 0% 50%
     }
-
     50% {
         background-position: 100% 50%
     }
-
     100% {
         background-position: 0% 50%
     }
@@ -755,11 +744,9 @@ background-position: center;
     0% {
         background-position: 0% 50%
     }
-
     50% {
         background-position: 100% 50%
     }
-
     100% {
         background-position: 0% 50%
     }

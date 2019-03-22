@@ -12,7 +12,7 @@ class Controller_Editvacations extends Controller
     {
         require_once "config.php";
         print_r (array_chunk($_POST, 3, true));
-        $dataArray = (array_chunk($_POST, 3, true));
+        $dataArray = (array_chunk($_POST, 2, true));
 
         $idEmployee = $_POST['Id'];
 
