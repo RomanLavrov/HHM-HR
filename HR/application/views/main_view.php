@@ -21,7 +21,7 @@
                               <?php print htmlentities($counter++);?>
                         </div>
                   </td>
-                  <td class="category-personal">
+                  <td class="category-personal border-right">
                         <div class="employee-main">
                               <div class="employee-name">
                                     <img class="employee-photo" src=<?php print htmlentities($employee->Photo);?>
@@ -34,7 +34,7 @@
                                     </div>
                               </div>
 
-                              <div class="employee-controls">
+                              <!-- <div class="employee-controls">
                                     <form action="/HR/edit" method="post">
                                           <input type="hidden" name="idEmployee"
                                                 value=<?php print htmlentities($employee->Id);?>>
@@ -46,7 +46,7 @@
                                                 value=<?php print htmlentities($employee->Id);?>>
                                           <input class="deleteButton" type="submit">
                                     </form>
-                              </div>
+                              </div> -->
                         </div>
                   </td>
 
