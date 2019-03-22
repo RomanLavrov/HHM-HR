@@ -508,6 +508,7 @@
 .vacationMonth-work,
 .vacationMonth-rest, 
 .vacationMonthTotal {
+    color:white;
     width: 5%;
     min-width: 60px;;
     text-align: center;
@@ -677,11 +678,11 @@
     box-shadow: 10px 10px 46px -10px rgba(0, 0, 0, 0.75);
 }
 
-.create-personal:hover .vacation-number {
+.vacation-label:hover .vacation-number {
     height: 0px;
 }
 
-.create-personal:hover .vacation-bucket {
+.vacation-label:hover .vacation-bucket {
     height: 150px;
 }
 
@@ -737,8 +738,6 @@
     -moz-animation: Gradient 20s ease infinite;
     animation: Gradient 20s ease infinite;
 }
-
-.vacation-submit {}
 
 @-webkit-keyframes Gradient {
     0% {

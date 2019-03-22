@@ -1,4 +1,3 @@
-
 var month = document.getElementsByClassName("vacationMonth");
 
 var monthArray = Array.from (month);
