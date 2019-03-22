@@ -14,7 +14,7 @@ class Controller_Register extends Controller
 
             if ($user_password !== $user_password_confirm){
                 echo("False");
-                $this->view->generate('register_view.php', 'auth_view.php');                
+                $this->view->generate('register_view.php', 'auth_view.php');
             }
             else{
                 $password= password_hash($user_password, PASSWORD_DEFAULT);

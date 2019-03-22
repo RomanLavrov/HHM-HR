@@ -513,6 +513,15 @@
     vertical-align: middle;
 }
 
+.vacation-bucket{
+display: inline;
+background: lightcoral;
+transition:1s;
+background-image: url("/HR/images/delete.png");
+background-position: center;
+
+}
+
 .calendar-year {
     display: block;
     margin-left: auto;
@@ -639,12 +648,12 @@
 }
 
 .btn-del-vacation {
-    height: 60px;
+
+    height: 100%;
     width: 60px;
-    background: rgb(252, 71, 71);
-    border-radius: 20px;
+    background: transparent;
     background-image: url("/HR/images/delete.png");
-    background-size: 70%;
+    background-size: 90%;
     background-repeat: no-repeat;
     background-position: center;
     border: none;
@@ -652,20 +661,27 @@
 }
 
 .btn-del-vacation:hover {
-    background: red;
-    background-image: url("/HR/images/delete.png");
-    background-size: 70%;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-color: red;
+
 }
 
-.vacation-number{
+.vacation-number, .vacation-bucket{
+    width:60px;
+    min-height: 0px;
     background: dodgerblue;
-    height:100%;
     text-align: center;
     line-height: 150px;
     color:white;
     font-size: 26pt;
+    transition: all 0.4s linear;
+    overflow-y: hidden;
+}
+
+.vacation-bucket{
+    float:left;
+    height:0px;
+    background-image: url("/HR/images/delete.png");
+    background: lightcoral;
 }
 
 #personal-main {

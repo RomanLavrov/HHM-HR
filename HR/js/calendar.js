@@ -10,6 +10,8 @@ toolTip.style.visibility = "hidden";
 document.body.appendChild(toolTip);
 
 assignVacationDelete();
+//createDeleteBucket();      
+deleteAnimation();
 
 
 dayArray.forEach(element => {
@@ -58,7 +60,8 @@ function createVacationForm() {
       var vacationDiv = document.createElement("div");
       vacationDiv.innerHTML = document.getElementById("vacation").innerHTML;
       document.getElementById("vacation-parent").appendChild(vacationDiv);
-      assignVacationDelete();            
+      assignVacationDelete();      
+      createDeleteBucket();      
 }     
 
 function assignVacationDelete(){
@@ -68,7 +71,29 @@ function assignVacationDelete(){
             element.onclick = function () {
                   var div = element.parentNode
                   div.parentNode.removeChild(div);
-                  //alert(element.parentNode.innerText);
             }
       });
 }
+
+function deleteAnimation (){
+      var card = document.getElementsByClassName("vacation-label");
+      var cardArray = Array.from(card);
+      cardArray.forEach(function(element){
+            element.onmouseover = function(){
+                  console.log(element.childNodes[1]);
+                  element.childNodes[1].style.height = "0px";  
+                  element.childNodes[3].style.height = "150px";                                  
+            }            
+      });
+
+      cardArray.forEach(function(element){            
+            element.onmouseleave = function(){
+                  console.log(element.childNodes[1]);
+                  element.childNodes[3].style.height = "0px";
+                  element.childNodes[1].style.height = "150px";                 
+            }          
+      });
+           
+      
+}
+

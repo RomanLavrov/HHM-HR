@@ -15,15 +15,20 @@
                   <?php if (sizeof($this->employee->Vacations) > 0): ?>
                   <?php foreach ($this->employee->Vacations as $vacation): ?>
 
-                  <button class="btn-del-vacation" type="button"></button>
-
                   <div class="create-personal">
                         <div class="row">
                               <div class="col-md-2" style="margin: 0px; padding:0px;">
-                                    <div class="vacation-number">
-                                          <?php print htmlentities($vacationCounter++)?>
-                                    </div>                                    
+                                    <div class="vacation-label">
+                                          <div class="vacation-number">
+                                                <?php print htmlentities($vacationCounter++)?>
+                                          </div>
+                                          
+                                          <div class="vacation-bucket">
+                                                <button class="btn-del-vacation" type="button"></button>
+                                          </div>
+                                    </div>
                               </div>
+
                               <div class="col-md-10" style="margin-left:0px; padding-left:5px;">
                                     <div class="bio-description">Start</div>
                                     <input class="bio-value" type="date"
@@ -41,6 +46,7 @@
                         </div>
                   </div>
 
+                  <!--
                   <div class="create-personal">
                         <div class="create-personal-header">
                               Ferien: <?php print htmlentities($vacationCounter++)?>
@@ -58,7 +64,8 @@
                         <div class="bio-value">
                               <?php print htmlentities((((new DateTime(($vacation->StartDate)))->modify('-1 day'))->diff(new DateTime($vacation->EndDate)))->format('%d tage'))?>
                         </div>
-                  </div>
+                  </div>-->
+
                   <?php endforeach;?>
                   <?php endif;?>
                   <div class="create-personal" id="vacation-parent"></div>
