@@ -10,8 +10,6 @@ toolTip.style.visibility = "hidden";
 document.body.appendChild(toolTip);
 
 assignVacationDelete();
-//createDeleteBucket();      
-deleteAnimation();
 
 
 dayArray.forEach(element => {
@@ -75,32 +73,4 @@ function assignVacationDelete(){
       });
 }
 
-function deleteAnimation (){
-/*
-      var vac = document.getElementsByClassName("create-personal");
-      var vacArray = Array.from(vac);
-      vacArray.forEach(function(element){
-            console.log(element.childNodes);
-      });
-
-      var card = document.getElementsByClassName("vacation-label");
-      var cardArray = Array.from(card);
-      cardArray.forEach(function(element){
-            element.onmouseover = function(){
-                  console.log(element.childNodes[1]);
-                  element.childNodes[1].style.height = "0px";  
-                  element.childNodes[3].style.height = "150px";                                  
-            }            
-      });
-
-      cardArray.forEach(function(element){            
-            element.onmouseleave = function(){
-                  console.log(element.childNodes[1]);
-                  element.childNodes[3].style.height = "0px";
-                  element.childNodes[1].style.height = "150px";                 
-            }          
-      });
-           */
-      
-}
 

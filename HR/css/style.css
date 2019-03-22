@@ -659,10 +659,6 @@ background-position: center;
     box-shadow: 10px 10px 46px -10px rgba(0, 0, 0, 0.75);
 }
 
-.btn-del-vacation:hover {
-    background-color: rgb(241, 81, 81);
-
-}
 
 
 .create-personal:hover .vacation-number{
@@ -682,15 +678,20 @@ background-position: center;
     color:white;
     font-size: 26pt;  
     overflow-y: hidden;
-    transition:  0.5s;
+    transition:  0.8s;
 }
 
 .vacation-bucket{
     float:left;
     height:0px;
     background-image: url("/HR/images/delete.png");
-    background: rgb(189, 82, 82);
+    background: rgb(190, 75, 75);
 }
+
+.btn-del-vacation:hover {
+    background-color: rgb(240, 60, 60);
+}
+
 
 #personal-main {
     height: 85vh;
