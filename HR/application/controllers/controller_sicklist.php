@@ -2,6 +2,7 @@
 
 class EmployeeSick
 {
+
     public $ID;
     public $Name;
     public $LastName;
@@ -13,7 +14,6 @@ class EmployeeSick
 
 class Controller_SickList extends Controller
 {
-
     public function action_index()
     {
         session_start();
@@ -38,11 +38,7 @@ class Controller_SickList extends Controller
 
             $emp->Duration = $this->getDuration($emp->Sick);
             $emp->Total    = $this->getSumDuration($emp->Sick);
-            $emp->Used     = "0";
-            $emp->NotUsed  = "0";
-
-            $empArray[] = $emp;
-
+            $empArray[]    = $emp;
         }
 
         $this->view->list = $empArray;
@@ -92,7 +88,7 @@ class Controller_SickList extends Controller
                 $period[$month]     = intval(date_diff($dateStart, $dateEnd, 0)->format('%a')) + 1 - $difference;
             }
         }
-        //cho (array_sum($period));
+        //echo (array_sum($period));
         return ($period);
     }
 }

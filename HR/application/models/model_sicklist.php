@@ -41,7 +41,6 @@ class SickList_Model extends Model
 
     public function get_Employees()
     {
-
         $sqlEmployee   = "SELECT * FROM Employee";
         $employeeArray = array();
 
@@ -60,5 +59,24 @@ class SickList_Model extends Model
         }
 
         return $employeeArray;
-    }
+      }
+
+      public function get_EmployeeSickLeaves($id){
+            $sqlSickList = "SELECT * FROM SickList WHERE `idEmployee` == $id";
+            $sickArray   = array();
+            $this->PDO = $pdo;
+    
+            if ($querySickLeaves = $pdo->prepare($sqlSickList)) {
+                if ($querySickLeaves->execute()) {
+                    while ($row = $querySickLeaves->fetch()) {
+                        $sickLeaves             = new SickLeave;
+                        $sickLeaves->idEmployee = $row["idEmployee"];
+                        $sickLeaves->StartDate  = $row["StartDate"];
+                        $sickLeaves->EndDate    = $row["EndDate"];                    
+                        $sickArray[]            = $sickLeaves;
+                    }
+                }
+            }
+            return $sickArray;
+      }
 }

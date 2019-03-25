@@ -4,8 +4,6 @@
             <tr class="vacationMonthHeader">
                   <th>Mitarbeiter</th>
                   <th>Zusammen</th>
-                  <th>Zugewiesen</th>
-                  <th>Nicht Zugewiesen</th>
                   <th>Januar</th>
                   <th>Februar</th>
                   <th>März</th>
@@ -25,20 +23,20 @@
             <?php foreach ($this->list as $employee): ?>
             <tr>
                   <td>
-                        <form action="/HR/calendar" method="post">
+                        <form action="/HR/sick" method="post">
                               <button class="employee-name" type="submit">
-<img class="employee-photo" src=<?php print htmlentities($employee->Photo);?>
+                                    <img class="employee-photo" src=<?php print htmlentities($employee->Photo);?>
                                           alt="">
                                     <div style="display:inline-block"><?php print htmlentities($employee->Name);?></div>
-                                    <div style="display:inline-block"><?php print htmlentities($employee->LastName);?></div>
-                                    <input name="idEmployee" type="hidden" value=<?php print htmlentities($employee->ID);?>>
+                                    <div style="display:inline-block"><?php print htmlentities($employee->LastName);?>
+                                    </div>
+                                    <input name="idEmployee" type="hidden"
+                                          value=<?php print htmlentities($employee->ID);?>>
                               </button>
 
                         </form>
                   </td>
                   <td class="vacationMonthTotal"><?php print htmlentities($employee->Total);?></td>
-                  <td class="vacationMonthTotal"><?php print htmlentities($employee->Used);?></td>
-                  <td class="vacationMonthTotal"><?php print htmlentities($employee->NotUsed);?></td>
                   <?php foreach ($employee->Duration as $duration): ?>
                   <td class="vacationMonth"><?php print htmlentities($duration);?></td>
                   <?php endforeach?>
