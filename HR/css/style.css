@@ -207,12 +207,12 @@
 
 .deleteButton,
 .editButton,
-.vacationButton {
+.vacationButton,
+.sickButton {
     background: rgb(218, 57, 49);
     background-image: url("/HR/images/delete_employee.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-position-x: 12px;
     background-size: 80%;
     border-radius:5px;
     width: 50px;
@@ -248,9 +248,18 @@
     background-size: 80%;
 }
 .vacationButton{
-    background-image: url("/HR/images/Vacations.png");
+    background-image: url("/HR/images/vacation_small.png");
+    background-position: center;
     background-color: dodgerblue;
+    background-size: 32px;
     border: 1px solid dodgerblue;
+}
+
+.sickButton{
+    background-image: url("/HR/images/sick_small.png");
+    background-position: center;
+    background-size: 32px;
+    background-color: red;
 }
 .buttonImage {
     display: block;

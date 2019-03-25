@@ -45,6 +45,10 @@
                                                 value=<?php print htmlentities($employee->Id);?>>
                                           <input class="vacationButton" type="submit">
                                     </form>
+                                    <form action="/HR/sick">
+                                          <input type="hidden" name="idEmployee" value=<?php print htmlentities($employee->Id);?>>
+                                          <input class="sickButton" type="submit">
+                                    </form>
                                     <form action="/HR/delete" method="post">
                                           <input type="hidden" name="idEmployee"
                                                 value=<?php print htmlentities($employee->Id);?>>
