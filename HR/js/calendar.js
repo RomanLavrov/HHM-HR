@@ -11,7 +11,9 @@ document.body.appendChild(toolTip);
 
 assignVacationDelete();
 
-SetVacationNumber();
+setVacationNumber();
+
+setVacationsScroll();
 
 dayArray.forEach(element => {
       if (element.innerText == "0") {
@@ -24,7 +26,7 @@ dayArray.forEach(element => {
             element.className = "calendar-day-vacation";
       }
 
-      element.onmouseover = function () {
+      element.onmouseover = function (e) {
             showTooltip(this);
       }
 
@@ -34,13 +36,16 @@ dayArray.forEach(element => {
 
       function showTooltip(element) {
             toolTip.innerText = element.dataset.today;
+            toolTip.style.left = event.pageX - 100 + 'px';
+            toolTip.style.top = event.pageY - 50 + 'px';
             if (element.dataset.vacation == "true") {
                   toolTip.innerText = element.dataset.today + "  Ferien";
                   toolTip.style.border = '2px solid yellow';
             }
-            toolTip.style.visibility = "visible";
-            toolTip.style.left = event.pageX - 100 + 'px';
-            toolTip.style.top = event.pageY - 50 + 'px';
+            setTimeout(function(){
+                  toolTip.style.visibility = "visible";
+                  toolTip.style.opacity = '1';
+            },500);
             toolTip.style.zIndex = 100;
       }
 
@@ -55,12 +60,35 @@ dayArray.forEach(element => {
       }
 });
 
+function setVacationsScroll(){
+      $('.vacations-scroll').on('mousewheel', function (e) {
+            var neededCard = $(".create-personal-vacation").first();
+            var offset = neededCard.outerHeight(true);
+            var initPos = $('.vacations-scroll').scrollTop();
+      
+            e.preventDefault();
+      
+            if ( e.originalEvent.deltaY > 0 ) {
+                  scrollThere(initPos + offset, 250);
+            } else if ( e.originalEvent.deltaY <= 0 ) {
+                  scrollThere(initPos - offset, 250);
+            }
+          
+      }); 
+}
+
+function scrollThere(pixels, speed) {
+      $('.vacations-scroll').stop().animate(
+            { scrollTop: pixels },
+            speed, 
+            'swing' 
+      );
+} 
+
 function createVacationForm() {
-      var vacationDiv = document.createElement("div");
-      vacationDiv.innerHTML = document.getElementById("vacation").innerHTML;
-      document.getElementById("vacation-parent").appendChild(vacationDiv);
+      $("#vacation-parent").append($('#vacation').html());
       assignVacationDelete();
-      SetVacationNumber();
+      setVacationNumber();
 }
 
 function assignVacationDelete() {
@@ -77,7 +105,7 @@ function assignVacationDelete() {
       });
 }
 
-function SetVacationNumber() {
+function setVacationNumber() {
       var number = document.getElementsByClassName("vacation-number");
       var numberArray = Array.from(number);
       var counter = 1;

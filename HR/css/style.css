@@ -544,9 +544,20 @@
     vertical-align: top;
     background: #ccc;
     display: inline-block;
-    margin-bottom: 20px;
+    margin: 5px 10px 10px 0px;
     box-shadow: 10px 10px 46px -10px rgba(0, 0, 0, 0.75);
 }
+
+.create-personal-vacation {
+    width: 100%;
+    min-width: 360px;
+    height: auto;
+    vertical-align: top;
+    background: #ccc;
+    display: inline-block;
+    margin: 5px 10px 10px 5px;
+}
+
 
 .create-personal-short {
     height: auto;
@@ -634,8 +645,7 @@ max-width: 1100px;
     display: inline-block;
     width: 11%;
     height: 20px;
-    /*background: rgb(16, 102, 16);
-   */
+    /* background: rgb(16, 102, 16); */
     margin-right: 3px;
     margin-top: 3px;
     border-radius: 4px;
@@ -645,10 +655,44 @@ max-width: 1100px;
     text-decoration: none;
 }
 
+/* .calendar-day,
+.calendar-day-header,
+.calendar-day-weekend,
+.calendar-day-vacation:hover .toolTip-content{
+    visibility: visible;
+    opacity: 1;
+    transition: .25s all ease;
+    transition-delay: 0s;
+} */
 
 .calendar-day:hover {
     background: #19a719;
 }
+
+/* .toolTip-content{
+    visibility: hidden;
+    position: absolute;
+    opacity: 0;
+    background: #fff;
+    color:red;
+    z-index: 155;
+    transition: .25s all ease;
+    transition-delay: 0s;
+    padding: 0 15px;
+    margin: 16px;
+    font-size: 15px;  
+    width: 350px;
+} 
+
+.toolTip-content::after{
+    content: "";
+    position: absolute;
+    border-width: 10px;
+    border-style: solid;
+    top: 100%;
+    left: 25px;
+    border-color: #000000 transparent transparent transparent;
+}*/
 
 .calendar-day-header {
     background: rgb(11, 100, 96);
@@ -690,9 +734,9 @@ max-width: 1100px;
     width: auto;
     padding-left: 7px;
     padding-right: 7px;
+    visibility: hidden;
     background: dodgerblue;
     color: white;
-    transition: 0.5s;
     text-align: center;
     line-height: 30px;
     border-radius: 5px;
@@ -771,6 +815,26 @@ max-width: 1100px;
 
 .btn-del-vacation:hover {
     background-color: rgb(240, 60, 60);
+}
+
+.vacations-scroll{
+    overflow: auto;
+    padding: .5rem;
+    height: 21rem;
+    min-height:18vh;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    background: #ccc;
+    box-shadow: 10px 10px 46px -10px rgba(0, 0, 0, 0.75);
+    margin-bottom: 1em;
+}
+
+.vacations-scroll::-webkit-scrollbar{
+    display: none;
+}
+
+.create-personal-vacation:last-child{
+    margin-bottom: 0px;
 }
 
 #personal-main {

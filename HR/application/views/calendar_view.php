@@ -11,51 +11,52 @@
                   <div class="bio-value"><?php print htmlentities($this->employee->LastName)?></div>
             </div>
             <form action="/HR/editvacations" method="post">
-                  <?php $vacationCounter = 1?>
-                  <?php if (sizeof($this->employee->Vacations) > 0): ?>
-                  <?php foreach ($this->employee->Vacations as $vacation): ?>
+                  <div class="vacations-scroll">
+                        <?php $vacationCounter = 1?>
+                        <?php if (sizeof($this->employee->Vacations) > 0): ?>
+                        <?php foreach ($this->employee->Vacations as $vacation): ?>
 
-                  <div class="create-personal">
-                        <div class="row" style="padding: 0 10px 0 0; ">
-                              <div class="col-md-2" style="margin: 0px; padding:0px; ">
-                                    <div class="vacation-label">
-                                          <div class="vacation-number">
-                                                <?php print htmlentities($vacationCounter++)?>
-                                          </div>
+                        <div class="create-personal-vacation" style="box-shadow: none;">
+                              <div class="row" style="padding: 0 10px 0 0;">
+                                    <div class="col-md-2" style="margin: 0px; padding:0px; ">
+                                          <div class="vacation-label">
+                                                <div class="vacation-number">
+                                                      <?php print htmlentities($vacationCounter++)?>
+                                                </div>
 
-                                          <div class="vacation-bucket">
-                                                <button class="btn-del-vacation" type="button"></button>
+                                                <div class="vacation-bucket">
+                                                      <button class="btn-del-vacation" type="button"></button>
+                                                </div>
                                           </div>
                                     </div>
-                              </div>
 
-                              <div class="col-md-10" style="margin-left:0px; padding-left:0px; padding-right:15px;">
-                                    <div class="bio-description">Start</div>
-                                    <input class="bio-value" type="date"
-                                          name=<?php print htmlentities("Start" . $vacationCounter)?> id=""
-                                          value=<?php print htmlentities(($vacation->StartDate))?>>
-                                    <div class="bio-description">End</div>
-                                    <input class="bio-value" type="date"
-                                          name=<?php print htmlentities("End" . $vacationCounter)?> id=""
-                                          value=<?php print htmlentities(($vacation->EndDate))?>>
-                                    <div class="bio-description">Dauer</div>
-                                    <div class="bio-value">
-                                          <?php print htmlentities((((new DateTime(($vacation->StartDate)))->modify('-1 day'))->diff(new DateTime($vacation->EndDate)))->format('%d tage'))?>
+                                    <div class="col-md-10" style="margin-left:0px; padding-left:0px;">
+                                          <div class="bio-description">Start</div>
+                                          <input class="bio-value" type="date"
+                                                name=<?php print htmlentities("Start" . $vacationCounter)?> id=""
+                                                value=<?php print htmlentities(($vacation->StartDate))?>>
+                                          <div class="bio-description">End</div>
+                                          <input class="bio-value" type="date"
+                                                name=<?php print htmlentities("End" . $vacationCounter)?> id=""
+                                                value=<?php print htmlentities(($vacation->EndDate))?>>
+                                          <div class="bio-description">Dauer</div>
+                                          <div class="bio-value">
+                                                <?php print htmlentities((((new DateTime(($vacation->StartDate)))->modify('-1 day'))->diff(new DateTime($vacation->EndDate)))->format('%d tage'))?>
+                                          </div>
                                     </div>
                               </div>
                         </div>
+
+                        <?php endforeach;?>
+                        <?php endif;?>
+
+                        <div  id="vacation-parent"></div>
                   </div>
-
-                  <?php endforeach;?>
-                  <?php endif;?>
-
-                  <div  id="vacation-parent"></div>
-
                   <input type="hidden" name=<?php print htmlentities("Id")?> id=""
                         value=<?php print htmlentities($this->employee->Id)?>>
 
                   <button id="btn-add-vacation" class="button-add" type="button"></button>
-                  <button id="btn-save-vacation" class="button-add" type="submit"></button>
+                  <button id="btn-save-vacation" class="button-add" type="submit"></button>                
             </form>
 
       </div>
@@ -91,7 +92,7 @@
 </div>
 
 <div id="vacation" style="visibility:collapse;">
-      <div class="create-personal">
+      <div class="create-personal-vacation" style="box-shadow: none;">
       <div class="row"  style="padding: 0 10px 0 0; ">
             <div class="col-md-2" style="margin: 0px;  padding:0px; ">
                   <div class="vacation-label">
@@ -104,7 +105,7 @@
                         </div>
                   </div>
             </div>
-            <div class="col-md-10" style="margin:0; padding-left:0">
+            <div class="col-md-10" style="margin:0; padding-left:0;">
                   <div class="bio-description">Start</div>
                   <input class="bio-value" type="date" name=<?php print htmlentities("Start" . $vacationCounter)?>>
                   <div class="bio-description">End</div>
