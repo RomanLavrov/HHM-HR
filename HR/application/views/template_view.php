@@ -44,8 +44,10 @@
                               </a>
                         </button>
                         <button class="btn-nav">
-                              <img src="/HR/images/SickList.png" alt="">
-                              <div>Sick List</div>
+                              <a class="reference-text" href="/HR/sicklist">
+                                    <img src="/HR/images/SickList.png" alt="">
+                                    <div>Sick List</div>
+                              </a>
                         </button>
                         <button class="btn-nav">
                               <a class="reference-text" href="/HR/vacations">
