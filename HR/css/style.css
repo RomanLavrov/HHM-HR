@@ -223,8 +223,17 @@
     margin-top: 10px;
     display:inline-block;
     margin-right:10px;
+    transition: 0.2s;
     float:left;
 }
+
+.deleteButton:hover,
+.editButton:hover,
+.vacationButton:hover,
+.sickButton:hover{
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 24px 0 rgba(0, 0, 0, 0.19);
+}
+
 .searchbar{
     width: 420px;
     background:white;
