@@ -70,31 +70,39 @@ function setVacationsScroll(){
             var neededCard = $("#vacations-scroll > .create-personal-vacation").last();
             var offset = neededCard.outerHeight(true);
             var initPos = vacationsPanel.scrollTop();
-            var scrollSpeed = 300;
 
             e.preventDefault();
       
             if ( e.originalEvent.deltaY > 0 ) {
-                  scrollThere(initPos + offset, scrollSpeed);
+                  scrollTo(initPos + offset);
             } else if ( e.originalEvent.deltaY <= 0 ) {
-                  scrollThere(initPos - offset, scrollSpeed);
+                  scrollTo(initPos - offset);
             }
-          
       }); 
 }
 
-function scrollThere(pixels, speed) {
-      vacationsPanel.stop().animate(
+function scrollTo(pixels, speed = 300) {
+            vacationsPanel.animate(
             { scrollTop: pixels },
             speed, 
-            'swing' 
+            'swing'
       );
 } 
+
+function scrollToLastVacation(){
+      var allCards = $("#vacations-scroll > .create-personal-vacation");
+      var templateCard = allCards.last();
+      var offset = templateCard.outerHeight(true);
+      var initPos = vacationsPanel.scrollTop();
+      var pixels = allCards.length * offset;
+      scrollTo(pixels);
+}
 
 function createVacationForm() {
       vacationsPanel.append($('#vacation').html());
       assignVacationDelete();
       setVacationNumber();
+      scrollToLastVacation();
 }
 
 function assignVacationDelete() {
