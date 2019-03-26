@@ -107,7 +107,7 @@ class Controller_Vacations extends Controller
             //-----If vacation is during a month-----
             if ($dateStart->format('m') == $dateEnd->format('m')) {
                 $interval = date_diff($dateStart, $dateEnd, 0);
-                $period[$month-1] = intval($interval->format('%a')) + 1;               
+                $period[$month-1] += intval($interval->format('%a')) + 1;               
             } 
             else //-----If vacations is splitted between two months-----
             {                                 
