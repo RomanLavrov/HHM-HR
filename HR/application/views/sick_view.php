@@ -12,8 +12,8 @@
             </div>
             <form action="/HR/editSick" method="post">
                   <?php $vacationCounter = 1?>
-                  <?php if (sizeof($this->employee->Vacations) > 0): ?>
-                  <?php foreach ($this->employee->Vacations as $vacation): ?>
+                  <?php if (sizeof($this->employee->SickList) > 0): ?>
+                  <?php foreach ($this->employee->SickList as $vacation): ?>
 
                   <div class="create-personal">
                         <div class="row" style="padding: 0 10px 0 0; ">

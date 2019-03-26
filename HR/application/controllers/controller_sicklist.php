@@ -1,8 +1,8 @@
 <?php
+session_start();
 
 class EmployeeSick
 {
-
     public $ID;
     public $Name;
     public $LastName;
@@ -16,7 +16,6 @@ class Controller_SickList extends Controller
 {
     public function action_index()
     {
-        session_start();
         $this->model = new SickList_Model;
 
         $sick      = $this->model->get_SickLeaves();

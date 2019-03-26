@@ -6,32 +6,40 @@ class SickLeave
     public $EndDate;
 }
 
-class Employee{
-      public $Id;
-      public $Name;
-      public $LastName;
-      public $Photo;
+class Employee
+{
+    public $Id;
+    public $Name;
+    public $LastName;
+    public $Photo;
 }
 
 class SickList_Model extends Model
 {
     public $PDO;
 
-    public function get_SickLeaves()
-    {
+    public function __construct(){
         require_once "config.php";
+        $this->PDO   = $pdo;
+    }
 
-        $sqlSickList = "SELECT * FROM SickList";
+    public function get_SickLeaves($id=-1)
+    {
+        if ($id==-1){
+            $sqlSickList = "SELECT * FROM SickList";
+        }
+        else {
+            $sqlSickList = "SELECT * FROM SickList WHERE `idEmployee` = $id";
+        }
         $sickArray   = array();
-        $this->PDO = $pdo;
 
-        if ($querySickLeaves = $pdo->prepare($sqlSickList)) {
+        if ($querySickLeaves = $this->PDO->prepare($sqlSickList)) {
             if ($querySickLeaves->execute()) {
                 while ($row = $querySickLeaves->fetch()) {
                     $sickLeaves             = new SickLeave;
                     $sickLeaves->idEmployee = $row["idEmployee"];
                     $sickLeaves->StartDate  = $row["StartDate"];
-                    $sickLeaves->EndDate    = $row["EndDate"];                    
+                    $sickLeaves->EndDate    = $row["EndDate"];
                     $sickArray[]            = $sickLeaves;
                 }
             }
@@ -39,14 +47,20 @@ class SickList_Model extends Model
         return $sickArray;
     }
 
-    public function get_Employees()
+    public function get_Employees($id = -1)
     {
-        $sqlEmployee   = "SELECT * FROM Employee";
+        if ($id == -1){
+            $sqlEmployees = "SELECT * FROM Employee";
+        }
+        else{
+            $sqlEmployees = "SELECT * FROM Employee WHERE `id`= $id";
+        }
+
         $employeeArray = array();
 
-        if ($queryEmployee = $this->PDO->prepare($sqlEmployee)) {
-            if ($queryEmployee->execute()) {
-                while ($row = $queryEmployee->fetch()) {
+        if ($queryEmployees = $this->PDO->prepare($sqlEmployees)) {
+            if ($queryEmployees->execute()) {
+                while ($row = $queryEmployees->fetch()) {
                     $employee           = new Employee;
                     $employee->Id       = $row["id"];
                     $employee->Name     = $row["Name"];
@@ -59,28 +73,33 @@ class SickList_Model extends Model
         }
 
         return $employeeArray;
-      }
+    }  
 
-      public function get_EmployeeSickLeaves($id){
-            $sqlSickList = "SELECT * FROM SickList WHERE `idEmployee` == $id";
-            $sickArray   = array();
-            $this->PDO = $pdo;
-    
-            if ($querySickLeaves = $pdo->prepare($sqlSickList)) {
-                if ($querySickLeaves->execute()) {
-                    while ($row = $querySickLeaves->fetch()) {
-                        $sickLeaves             = new SickLeave;
-                        $sickLeaves->idEmployee = $row["idEmployee"];
-                        $sickLeaves->StartDate  = $row["StartDate"];
-                        $sickLeaves->EndDate    = $row["EndDate"];                    
-                        $sickArray[]            = $sickLeaves;
-                    }
-                }
-            }
-            return $sickArray;
-      }
+    public function Delete($idEmployee, $TableName){
+        $sqlDelete = "DELETE FROM $TableName WHERE idEmployee = $idEmployee";
 
-      public function model_test(){
-          echo("Model connected");
-      }
+        if ($query = $this->PDO->prepare($sqlDelete)){
+            $query->execute();
+        }
+    }
+
+    public function Insert($idEmployee, $StartDate, $EndDate, $TableName){
+
+        if($TableName == "`SickList`"){
+            $sqlInsert = "INSERT INTO `SickList` (`idSickList`, `idEmployee`, `StartDate`, `EndDate`) VALUES(NULL, :idEmployee, :StartDate, :EndDate);";
+        }
+        if ($TableName == "`Vacations`"){
+            $sqlInsert = "INSERT INTO `Vacations` (`idVacations`, `idEmployee`, `StartDate`, `EndDate`) VALUES (NULL, :idEmployee, :StartDate, :EndDate);";
+
+        }
+        $queryInsert = $this->PDO->prepare($sqlInsert);
+
+        $queryInsert->bindParam(":idEmployee", $idEmployee, PDO::PARAM_STR);
+        $queryInsert->bindParam(":StartDate", $StartDate, PDO::PARAM_STR);
+        $queryInsert->bindParam(":EndDate", $EndDate, PDO::PARAM_STR);
+
+        if ($queryInsert->execute()){
+           // echo( "inserted ".$StartDate);
+        }
+    }
 }
