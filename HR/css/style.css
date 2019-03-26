@@ -873,6 +873,10 @@ max-width: 1100px;
     animation: Gradient 20s ease infinite;
 }
 
+.empty-body{
+    background-color: #ccc;
+}
+
 @-webkit-keyframes Gradient {
     0% {
         background-position: 0% 50%
