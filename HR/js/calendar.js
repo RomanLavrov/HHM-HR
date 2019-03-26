@@ -26,6 +26,10 @@ dayArray.forEach(element => {
             element.className = "calendar-day-vacation";
       }
 
+      if (element.dataset.sickleave == "true"){
+            element.className = "calendar-day-sick";
+      }
+
       element.onmouseover = function (e) {
             showTooltip(this);
       }

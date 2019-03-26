@@ -641,7 +641,8 @@ max-width: 1100px;
 .calendar-day,
 .calendar-day-header,
 .calendar-day-weekend,
-.calendar-day-vacation {
+.calendar-day-vacation,
+.calendar-day-sick {
     display: inline-block;
     width: 11%;
     height: 20px;
@@ -709,10 +710,16 @@ max-width: 1100px;
     background: white;
 }
 
-.calendar-day-vacation {
+.calendar-day-vacation,
+.calendar-day-sick {
     background: #219b21;
     line-height: 18px;
     border: 1px solid lightgreen
+}
+
+.calendar-day-sick{
+    background: rgb(172, 61, 187);
+    border:1px solid rgb(190, 62, 163);
 }
 
 .reference-text {

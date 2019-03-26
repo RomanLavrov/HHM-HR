@@ -10,7 +10,7 @@
                   <div class="bio-description">Vorname</div>
                   <div class="bio-value"><?php print htmlentities($this->employee->LastName)?></div>
             </div>
-            <form action="/HR/editvacations" method="post">
+            <form action="/HR/editSick" method="post">
                   <?php $vacationCounter = 1?>
                   <?php if (sizeof($this->employee->Vacations) > 0): ?>
                   <?php foreach ($this->employee->Vacations as $vacation): ?>
@@ -74,10 +74,10 @@
                               <?php foreach ($month->MonthDays as $week): ?>
                               <div>
                                     <?php foreach ($week as $day): ?>
-                                    <div class="calendar-day" data-weekday=<?php echo ($day->WeekDay) ?>
-                                          data-today=<?php echo ($day->Today) ?>
-                                          data-vacation=<?php echo ($day->Vacation) ?>
-                                          data-sickleave=<?php echo ($day->SickLeave) ?>>
+                                    <div class="calendar-day" data-weekday=<?php print htmlentities ($day->WeekDay);?>
+                                          data-today=<?php print htmlentities ($day->Today);?>
+                                          data-vacation="false"
+                                          data-sickleave=<?php print htmlentities ($day->SickLeave);?>>
                                           <?php echo ($day->Date) ?>
                                     </div>
                                     <?php endforeach?>

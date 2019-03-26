@@ -160,12 +160,10 @@ class Controller_Sick extends Controller
                    
                     foreach($employee->Vacations as $vacation){
                         if (strtotime($dayData->Today) >= strtotime($vacation->StartDate) && strtotime($dayData->Today) <= strtotime($vacation->EndDate)){
-                            $dayData->Vacation = "true";
+                            $dayData->SickLeave = "true";
                         }
                     }
-                    $dayData->SickLeave = "false";
-
-                    //$week[] = $day;
+                    $dayData->Vacation = "false";
                     $week[] = $dayData;
                 }
                 if (count($week) < 7) {

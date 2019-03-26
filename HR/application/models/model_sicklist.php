@@ -79,4 +79,8 @@ class SickList_Model extends Model
             }
             return $sickArray;
       }
+
+      public function model_test(){
+          echo("Model connected");
+      }
 }
