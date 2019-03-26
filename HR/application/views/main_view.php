@@ -13,7 +13,7 @@
             </tr>
       </thead>
       <tbody>
-            <?php $counter=1?>
+            <?php $counter = 1?>
             <?php foreach ($this->list as $employee): ?>
             <tr>
                   <td class="category-id">
@@ -45,8 +45,9 @@
                                                 value=<?php print htmlentities($employee->Id);?>>
                                           <input class="vacationButton" type="submit">
                                     </form>
-                                    <form action="/HR/sick">
-                                          <input type="hidden" name="idEmployee" value=<?php print htmlentities($employee->Id);?>>
+                                    <form action="/HR/sick" method="post">
+                                          <input type="hidden" name="idEmployee"
+                                                value=<?php print htmlentities($employee->Id);?>>
                                           <input class="sickButton" type="submit">
                                     </form>
                                     <form action="/HR/delete" method="post">
@@ -54,7 +55,7 @@
                                                 value=<?php print htmlentities($employee->Id);?>>
                                           <input class="deleteButton" type="submit">
                                     </form>
-                                   
+
                               </div>
                         </div>
                   </td>
@@ -143,7 +144,10 @@
                   <th>Geburtstag</th>
                   </thead>
       <tbody>
-            <?php foreach ($employee->Children as $child): {if(isset($child->Name))?>
+            <?php foreach ($employee->Children as $child): {if (isset($child->Name)) {
+        ;
+    }
+        ?>
             <tr>
                   <td>
                         <?php print htmlentities($child->ChildName);?>
