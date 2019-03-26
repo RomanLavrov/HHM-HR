@@ -11,7 +11,7 @@
                   <div class="bio-value"><?php print htmlentities($this->employee->LastName)?></div>
             </div>
             <form action="/HR/editvacations" method="post">
-                  <div class="vacations-scroll">
+                  <div id="vacations-scroll">
                         <?php $vacationCounter = 1?>
                         <?php if (sizeof($this->employee->Vacations) > 0): ?>
                         <?php foreach ($this->employee->Vacations as $vacation): ?>
@@ -50,7 +50,7 @@
                         <?php endforeach;?>
                         <?php endif;?>
 
-                        <div  id="vacation-parent"></div>
+                        <!-- <div  id="vacation-parent"></div> -->
                   </div>
                   <input type="hidden" name=<?php print htmlentities("Id")?> id=""
                         value=<?php print htmlentities($this->employee->Id)?>>

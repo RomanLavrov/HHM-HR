@@ -1,6 +1,7 @@
 var day = document.getElementsByClassName('calendar-day');
 
 var dayArray = Array.from(day);
+var vacationsPanel = $("#vacations-scroll");
 
 var toolTip = document.createElement("div");
 toolTip.className = "toolTip";
@@ -65,24 +66,25 @@ dayArray.forEach(element => {
 });
 
 function setVacationsScroll(){
-      $('.vacations-scroll').on('mousewheel', function (e) {
-            var neededCard = $(".create-personal-vacation").first();
+      vacationsPanel.on('mousewheel', function (e) {
+            var neededCard = $("#vacations-scroll > .create-personal-vacation").last();
             var offset = neededCard.outerHeight(true);
-            var initPos = $('.vacations-scroll').scrollTop();
-      
+            var initPos = vacationsPanel.scrollTop();
+            var scrollSpeed = 300;
+
             e.preventDefault();
       
             if ( e.originalEvent.deltaY > 0 ) {
-                  scrollThere(initPos + offset, 250);
+                  scrollThere(initPos + offset, scrollSpeed);
             } else if ( e.originalEvent.deltaY <= 0 ) {
-                  scrollThere(initPos - offset, 250);
+                  scrollThere(initPos - offset, scrollSpeed);
             }
           
       }); 
 }
 
 function scrollThere(pixels, speed) {
-      $('.vacations-scroll').stop().animate(
+      vacationsPanel.stop().animate(
             { scrollTop: pixels },
             speed, 
             'swing' 
@@ -90,7 +92,7 @@ function scrollThere(pixels, speed) {
 } 
 
 function createVacationForm() {
-      $("#vacation-parent").append($('#vacation').html());
+      vacationsPanel.append($('#vacation').html());
       assignVacationDelete();
       setVacationNumber();
 }
