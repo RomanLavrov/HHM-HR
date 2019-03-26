@@ -555,7 +555,11 @@
     vertical-align: top;
     background: #ccc;
     display: inline-block;
-    margin: 5px 10px 10px 5px;
+    margin: 10px 10px 5px 5px;
+}
+
+#vacations-scroll > .create-personal-vacation:first-child {
+    margin-top:0px;
 }
 
 
@@ -824,7 +828,7 @@ max-width: 1100px;
     background-color: rgb(240, 60, 60);
 }
 
-.vacations-scroll{
+#vacations-scroll{
     overflow: auto;
     padding: .5rem;
     height: 21rem;
@@ -836,12 +840,8 @@ max-width: 1100px;
     margin-bottom: 1em;
 }
 
-.vacations-scroll::-webkit-scrollbar{
+#vacations-scroll::-webkit-scrollbar{
     display: none;
-}
-
-.create-personal-vacation:last-child{
-    margin-bottom: 0px;
 }
 
 #personal-main {

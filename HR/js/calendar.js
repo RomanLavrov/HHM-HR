@@ -1,6 +1,7 @@
 var day = document.getElementsByClassName('calendar-day');
 
 var dayArray = Array.from(day);
+var vacationsPanel = $("#vacations-scroll");
 
 var toolTip = document.createElement("div");
 toolTip.className = "toolTip";
@@ -65,34 +66,43 @@ dayArray.forEach(element => {
 });
 
 function setVacationsScroll(){
-      $('.vacations-scroll').on('mousewheel', function (e) {
-            var neededCard = $(".create-personal-vacation").first();
+      vacationsPanel.on('mousewheel', function (e) {
+            var neededCard = $("#vacations-scroll > .create-personal-vacation").last();
             var offset = neededCard.outerHeight(true);
-            var initPos = $('.vacations-scroll').scrollTop();
-      
+            var initPos = vacationsPanel.scrollTop();
+
             e.preventDefault();
       
             if ( e.originalEvent.deltaY > 0 ) {
-                  scrollThere(initPos + offset, 250);
+                  scrollTo(initPos + offset);
             } else if ( e.originalEvent.deltaY <= 0 ) {
-                  scrollThere(initPos - offset, 250);
+                  scrollTo(initPos - offset);
             }
-          
       }); 
 }
 
-function scrollThere(pixels, speed) {
-      $('.vacations-scroll').stop().animate(
+function scrollTo(pixels, speed = 300) {
+            vacationsPanel.animate(
             { scrollTop: pixels },
             speed, 
-            'swing' 
+            'swing'
       );
 } 
 
+function scrollToLastVacation(){
+      var allCards = $("#vacations-scroll > .create-personal-vacation");
+      var templateCard = allCards.last();
+      var offset = templateCard.outerHeight(true);
+      var initPos = vacationsPanel.scrollTop();
+      var pixels = allCards.length * offset;
+      scrollTo(pixels);
+}
+
 function createVacationForm() {
-      $("#vacation-parent").append($('#vacation').html());
+      vacationsPanel.append($('#vacation').html());
       assignVacationDelete();
       setVacationNumber();
+      scrollToLastVacation();
 }
 
 function assignVacationDelete() {
