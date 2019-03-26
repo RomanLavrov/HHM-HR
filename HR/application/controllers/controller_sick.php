@@ -32,9 +32,8 @@ class Employee{
     public $Vacations;
 }
 
-class Vacation
+class Sick
 {
-    public $idVacation;
     public $idEmployee;
     public $StartDate;
     public $EndDate;
@@ -56,25 +55,21 @@ class Controller_Sick extends Controller
             $employeeId = $_POST['idEmployee'];                  
         }
 
-        $sqlVacations = "SELECT * FROM `hhmeweme_HR`.`Vacations` WHERE idEmployee = $employee->Id";
+        $sql = "SELECT * FROM `hhmeweme_HR`.`SickList` WHERE idEmployee = $employee->Id";
         $vacArray = array();
 
-        $this->model = new SickList_Model;
-        $sickArray = $this->model->get_EmployeeSickLeaves($employeeId);
 
-        if ($queryVacation = $pdo->prepare($sqlVacations)) {
-            if ($queryVacation->execute()) {
-                while ($rowVacation = $queryVacation->fetch()) {                    
-                    $vacation = new Vacation;
-                    $vacation->idVacation = $rowVacation['idVacations'];
-                    $vacation->idEmployee = $rowVacation['idEmployee'];
-                    $vacation->StartDate = $rowVacation['StartDate'];
-                    $vacation->EndDate = $rowVacation['EndDate'];
+        if ($query = $pdo->prepare($sql)) {
+            if ($query->execute()) {
+                while ($row = $query->fetch()) {                    
+                    $vacation = new Sick;
+                    $vacation->idEmployee = $row['idEmployee'];
+                    $vacation->StartDate = $row['StartDate'];
+                    $vacation->EndDate = $row['EndDate'];
                     $vacArray[] = $vacation;
                 }
             }
         }
-        $vacArray = $sickArray();
         $sqlEmployee = "SELECT * FROM `hhmeweme_HR`.`Employee` WHERE id = $employee->Id";
         if ($queryEmployee = $pdo->prepare($sqlEmployee)){
             if ($queryEmployee->execute()){
