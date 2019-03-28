@@ -20,17 +20,17 @@
             "observed": "2019-01-22",
             "public": false
       }, {
-            "name": "Міжнародний жіночий день",
+            "name": "Internationaler_Frauentag",
             "date": "2019-03-08",
             "observed": "2019-03-08",
             "public": true
       }, {
-            "name": "Великдень",
+            "name": "Ostern",
             "date": "2019-04-21",
             "observed": "2019-04-21",
             "public": true
       }, {
-            "name": "День міжнародної солідарності трудящих",
+            "name": "Tag_der_Arbeit",
             "date": "2019-05-01",
             "observed": "2019-05-01",
             "public": true
@@ -40,27 +40,27 @@
             "observed": "2019-05-02",
             "public": false
       }, {
-            "name": "День перемоги над нацизмом у Другій світовій війні",
+            "name": "Tag_der_Befreiung",
             "date": "2019-05-09",
             "observed": "2019-05-09",
             "public": true
       }, {
-            "name": "Трійця",
+            "name": "Pfingstmontag",
             "date": "2019-06-09",
             "observed": "2019-06-09",
             "public": true
       }, {
-            "name": "День Конституції",
+            "name": "Tag_der_Verfassung",
             "date": "2019-06-28",
             "observed": "2019-06-28",
             "public": true
       }, {
-            "name": "День Незалежності",
+            "name": "Tag_der_Unabhängigkeit",
             "date": "2019-08-24",
             "observed": "2019-08-24",
             "public": true
       }, {
-            "name": "День захисника України",
+            "name": "Tag_des_Verteidigers_der_Ukraine",
             "date": "2019-10-14",
             "observed": "2019-10-14",
             "public": true
