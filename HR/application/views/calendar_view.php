@@ -75,10 +75,11 @@
                               <?php foreach ($month->MonthDays as $week): ?>
                               <div>
                                     <?php foreach ($week as $day): ?>
-                                    <div class="calendar-day" data-weekday=<?php echo ($day->WeekDay) ?>
-                                          data-today=<?php echo ($day->Today) ?>
-                                          data-vacation=<?php echo ($day->Vacation) ?>
-                                          data-sickleave=<?php echo ($day->SickLeave) ?>>
+                                    <div class="calendar-day" data-weekday=<?php echo ($day->WeekDay)?>
+                                          data-today=<?php echo ($day->Today)?>
+                                          data-vacation=<?php echo ($day->Vacation)?>
+                                          data-sickleave=<?php echo ($day->SickLeave)?>
+                                          data-holiday=<?php echo($day->Holiday)?>>
                                           <?php echo ($day->Date) ?>
                                     </div>
                                     <?php endforeach?>
