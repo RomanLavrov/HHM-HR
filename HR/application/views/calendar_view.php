@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css">
 <div class="row" style="width:100%">
       <div class="col-md-3" style="min-width: 370px">
             <div class="create-personal">
@@ -29,19 +30,21 @@
                                                 </div>
                                           </div>
                                     </div>
-
                                     <div class="col-md-10" style="margin-left:0px; padding-left:0px;">
                                           <div class="bio-description">Start</div>
-                                          <input class="bio-value" type="date"
-                                                name=<?php print htmlentities("Start" . $vacationCounter)?> id=""
-                                                value=<?php print htmlentities(($vacation->StartDate))?>>
+                                          <div class='bio-value bio-value-datepicker'>
+                                                <input class="form-control" type="text"
+                                                      name=<?php print htmlentities("Start" . $vacationCounter)?>
+                                                      value='<?php print htmlentities(($vacation->StartDate))?>'>
+                                          </div>
                                           <div class="bio-description">End</div>
-                                          <input class="bio-value" type="date"
-                                                name=<?php print htmlentities("End" . $vacationCounter)?> id=""
-                                                value=<?php print htmlentities(($vacation->EndDate))?>>
-                                          <div class="bio-description">Dauer</div>
-                                          <div class="bio-value">
-                                                <?php print htmlentities((((new DateTime(($vacation->StartDate)))->modify('-1 day'))->diff(new DateTime($vacation->EndDate)))->format('%d tage'))?>
+                                          <div class='bio-value bio-value-datepicker'>
+                                                <input class="form-control" type="text"
+                                                      name=<?php print htmlentities("End" . $vacationCounter)?>
+                                                      value=<?php print htmlentities(($vacation->StartDate))?>>
+                                          </div>
+                                          <div class="bio-value-duration">
+                                                <?php print htmlentities((((new DateTime(($vacation->StartDate)))->modify('-1 day'))->diff(new DateTime($vacation->EndDate)))->format('%d Tage'))?>
                                           </div>
                                     </div>
                               </div>
@@ -107,14 +110,22 @@
             </div>
             <div class="col-md-10" style="margin:0; padding-left:0;">
                   <div class="bio-description">Start</div>
-                  <input class="bio-value" type="date" name=<?php print htmlentities("Start" . $vacationCounter)?>>
+                  <div class="bio-value bio-value-datepicker">
+                        <input class="form-control" type="text" name=<?php print htmlentities("Start" . $vacationCounter)?>>
+                  </div>
                   <div class="bio-description">End</div>
-                  <input class="bio-value" type="date" name=<?php print htmlentities("End" . $vacationCounter)?>>
-                  <div class="bio-description">Dauer</div>
-                  <div class="bio-value">0 tage</div>
+                  <div class="bio-value bio-value-datepicker">
+                        <input class="form-control" type="text" name=<?php print htmlentities("End" . $vacationCounter)?>>
+                  </div>
+                  <!-- <div class="bio-description">Dauer</div> -->
+                  <div class="bio-value-duration">
+                        0 Tage
+                        <!-- <?php print htmlentities((((new DateTime(($vacation->StartDate)))->modify('-1 day'))->diff(new DateTime($vacation->EndDate)))->format('%d Tage'))?> -->
+                  </div>
             </div>
       </div>
       </div>
 </div>
 
 <script src="/HR/js/calendar.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>

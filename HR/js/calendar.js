@@ -10,6 +10,8 @@ toolTip.style.position = "absolute";
 toolTip.style.visibility = "hidden";
 document.body.appendChild(toolTip);
 
+assignDatePicker();
+
 assignVacationDelete();
 
 setVacationNumber();
@@ -65,6 +67,19 @@ dayArray.forEach(element => {
       }
 });
 
+function assignDatePicker(){
+      $('body').on('focus','.bio-value-datepicker input', function(){
+            $(this).datepicker({
+                  format: 'dd-MM-yyyy',
+                  todayHighlight: true,
+                  autoclose: true,
+                  assumeNearbyYear: true,
+                  clearBtn: true,
+                  weekStart: 1
+            });
+        });
+}
+
 function setVacationsScroll(){
       vacationsPanel.on('mousewheel', function (e) {
             var neededCard = $("#vacations-scroll > .create-personal-vacation").last();
@@ -81,7 +96,7 @@ function setVacationsScroll(){
       }); 
 }
 
-function scrollTo(pixels, speed = 300) {
+function scrollTo(pixels, speed = 400) {
             vacationsPanel.animate(
             { scrollTop: pixels },
             speed, 
