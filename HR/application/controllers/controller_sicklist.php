@@ -1,8 +1,8 @@
 <?php
+session_start();
 
 class EmployeeSick
 {
-
     public $ID;
     public $Name;
     public $LastName;
@@ -16,7 +16,6 @@ class Controller_SickList extends Controller
 {
     public function action_index()
     {
-        session_start();
         $this->model = new SickList_Model;
 
         $sick      = $this->model->get_SickLeaves();
@@ -77,7 +76,7 @@ class Controller_SickList extends Controller
             //-----If vacation is during a month-----
             if ($dateStart->format('m') == $dateEnd->format('m')) {
                 $interval           = date_diff($dateStart, $dateEnd, 0);
-                $period[$month - 1] = intval($interval->format('%a')) + 1;
+                $period[$month - 1] += intval($interval->format('%a')) + 1  ;
             } else //-----If vacations is splitted between two months-----
             {
                 $lastMonthDay = date("Y-m-t", strtotime($vacation->StartDate));
@@ -88,6 +87,7 @@ class Controller_SickList extends Controller
                 $period[$month]     = intval(date_diff($dateStart, $dateEnd, 0)->format('%a')) + 1 - $difference;
             }
         }
+
         //echo (array_sum($period));
         return ($period);
     }

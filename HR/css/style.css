@@ -910,6 +910,9 @@ max-width: 1100px;
     background: dodgerblue;
     color:white;
 } */
+.empty-body{
+    background-color: #ccc;
+}
 
 @-webkit-keyframes Gradient {
     0% {
