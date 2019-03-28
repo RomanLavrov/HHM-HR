@@ -1,5 +1,5 @@
 <?php
-include "application\models\model_sicklist.php";
+include "application/models/model_sicklist.php";
 session_start();
 
 class Calendar
