@@ -65,12 +65,7 @@
                               <div class="btn-nav-text">Add Worker</div>
 
                         </div>
-                        <div class="btn-nav-panel">
-                              <div class="btn-nav-image">
-                                    <img src="/HR/images/SickList.png" alt="">
-                              </div>
-                              <div class="btn-nav-text">Test</div>
-                        </div>
+                 
                   </div>
             </div>
             <div id="content">

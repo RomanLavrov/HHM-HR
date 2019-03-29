@@ -24,11 +24,16 @@
 .btn-nav-image img{
     width:60px;
 }
+
 .btn-nav-panel:hover {
     color:white;
     width: 240px;
     padding-left: 80px;
     background-color: #333;
+}
+.btn-nav-panel:hover  .btn-nav-image{
+    background-color: #333;
+
 }
 
 .table-striped td {
