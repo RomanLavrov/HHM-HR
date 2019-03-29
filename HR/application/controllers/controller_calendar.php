@@ -29,7 +29,6 @@ class Holiday
     public $Date;
     public $Observed;
     public $Public;
-
 }
 
 class Employee
