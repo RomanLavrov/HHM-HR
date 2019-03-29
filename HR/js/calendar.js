@@ -10,7 +10,17 @@ toolTip.style.position = "absolute";
 toolTip.style.visibility = "hidden";
 document.body.appendChild(toolTip);
 
-assignDatePicker();
+
+$('document').ready(function(){
+      var array = Array.from($('.bio-value-datepicker input'));
+      array.forEach(element=>{
+            element.onchange = onInputDateChanged;
+      })
+});
+
+changeVacationDateFormat();
+
+//assignDatePicker();
 
 assignVacationDelete();
 
@@ -109,7 +119,7 @@ dayArray.forEach(element => {
 function assignDatePicker(){
       $('body').on('focus','.bio-value-datepicker input', function(){
             $(this).datepicker({
-                  format: 'dd-MM-yyyy',
+                  format: 'MM dd, yyyy',
                   todayHighlight: true,
                   autoclose: true,
                   assumeNearbyYear: true,
@@ -179,5 +189,52 @@ function setVacationNumber() {
       var counter = 1;
       numberArray.forEach(function (element) {
             element.innerText = counter++;
+      });
+}
+
+function onInputDateChanged(input){
+      input.value = '2019-01-01';
+      // var vacationCard = $(this).closest('.create-personal-vacation');
+      // var vacNum = vacationCard.get(0).dataset.vacationNumber;
+      // var startInput = vacationCard.find(`input[name='Start${vacNum}']`);
+      // var endInput = vacationCard.find(`input[name='End${vacNum}']`);
+      // var startDate = startInput.datepicker('getDate');
+      // var endDate = endInput.datepicker('getDate');
+      // startInput.value = endDate.toLocaleString();
+      // if(startDate > endDate)
+      // {
+      //       // startInput.value = getFormattedDateString(endDate);
+      //       // endInput.value = getFormattedDateString(startDate);
+            
+      //       startInput.datepicker({
+      //             setDate: endDate,
+      //             altFormat: 'MM dd, yyyy'
+      //       });
+      //       endInput.datepicker({
+      //             setDate: startDate,
+      //             altFormat: 'MM dd, yyyy'
+      //       });
+
+      //       // startInput.datepicker('setDate', endDate);
+      //       // endInput.datepicker('setDate', startDate);
+      // }
+}
+
+function changeVacationDateFormat(){
+      var array = Array.from($('.bio-value-datepicker input'));
+      array.forEach(element=>{
+            var dateStr = element.value;
+            var date = new Date(dateStr);
+            var dateValue = getFormattedDateString(date);
+            element.value = dateValue;
+            //element.value = `${date.getDay()}-${date.getMonth()}-${date.getFullYear()}`;
+      })
+}
+
+function getFormattedDateString(date){
+      return date.toLocaleString('en-us', {
+            day: '2-digit',
+            month: 'long' ,
+            year: 'numeric'
       });
 }
