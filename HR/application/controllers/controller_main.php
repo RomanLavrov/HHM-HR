@@ -53,7 +53,7 @@ class Controller_Main extends Controller
         $empArray = array();
         $childArray = array();
 
-       // if (isset($_SESSION['loggedin'])) {
+        if (isset($_SESSION['loggedin'])) {
 
             $sqlChildren = "SELECT * FROM Children";
             if($queryChildren = $pdo->prepare($sqlChildren)){
@@ -133,8 +133,9 @@ class Controller_Main extends Controller
             $this->view->list = $empArray;
 
             $this->view->generate('main_view.php', 'template_view.php');
-        /*} else {
+        } else {
             header('Location: /HR/login');
-        }*/
+        }
+    
     }
 }
