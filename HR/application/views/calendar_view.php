@@ -17,12 +17,13 @@
                         <?php if (sizeof($this->employee->Vacations) > 0): ?>
                         <?php foreach ($this->employee->Vacations as $vacation): ?>
 
-                        <div class="create-personal-vacation" style="box-shadow: none;">
+                        <div class="create-personal-vacation" style="box-shadow: none;" 
+                              data-vacation-number=<?php print htmlentities($vacationCounter)?>>
                               <div class="row" style="padding: 0 10px 0 0;">
                                     <div class="col-md-2" style="margin: 0px; padding:0px; ">
                                           <div class="vacation-label">
                                                 <div class="vacation-number">
-                                                      <?php print htmlentities($vacationCounter++)?>
+                                                      <?php print htmlentities($vacationCounter)?>
                                                 </div>
 
                                                 <div class="vacation-bucket">
@@ -41,7 +42,7 @@
                                           <div class='bio-value bio-value-datepicker'>
                                                 <input class="form-control" type="text"
                                                       name=<?php print htmlentities("End" . $vacationCounter)?>
-                                                      value=<?php print htmlentities(($vacation->StartDate))?>>
+                                                      value='<?php print htmlentities(($vacation->EndDate))?>'>
                                           </div>
                                           <div class="bio-value-duration">
                                                 <?php print htmlentities((((new DateTime(($vacation->StartDate)))->modify('-1 day'))->diff(new DateTime($vacation->EndDate)))->format('%d Tage'))?>
@@ -129,4 +130,4 @@
 </div>
 
 <script src="/HR/js/calendar.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script> -->
