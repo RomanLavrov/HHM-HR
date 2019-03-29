@@ -37,30 +37,40 @@
       <div class="row" style="width: 100%">
             <div>
                   <div id="nav-panel">
-                        <button class="btn-nav">
-                              <a class="reference-text" href="/HR/main">
+                        <div class="btn-nav-panel">
+                              <a class="btn-nav-image" href="/HR/main">
                                     <img src="/HR/images/all_employee.png" alt="">
-                                    <div>All workers</div>
                               </a>
-                        </button>
-                        <button class="btn-nav">
-                              <a class="reference-text" href="/HR/sicklist">
+                              <div class="btn-nav-text">Alle Mitarbeiter</div>
+
+                        </div>
+                        <div class="btn-nav-panel">
+                              <a class="btn-nav-image" href="/HR/sicklist">
                                     <img src="/HR/images/SickList.png" alt="">
-                                    <div>Sick List</div>
                               </a>
-                        </button>
-                        <button class="btn-nav">
-                              <a class="reference-text" href="/HR/vacations">
+                              <div class="btn-nav-text">Krankenstand</div>
+
+                        </div>
+                        <div class="btn-nav-panel">
+                              <a class="btn-nav-image" href="/HR/vacations">
                                     <img src="/HR/images/Vacations.png" alt="">
-                                    <div>Ferien</div>
                               </a>
-                        </button>
-                        <button class="btn-nav">
-                              <a class="reference-text" href="/HR/create">
-                                    <img src="/HR/images/add_employee.png" alt="">
-                                    <div>Add Worker</div>
+                              <div class="btn-nav-text">Ferien</div>
+
+                        </div>
+                        <div class="btn-nav-panel">
+                              <a class="btn-nav-image" href="/HR/create">
+                                    <img src="/HR/images/add_employee.png" alt=""/>
                               </a>
-                        </button>
+                              <div class="btn-nav-text">Add Worker</div>
+
+                        </div>
+                        <div class="btn-nav-panel">
+                              <div class="btn-nav-image">
+                                    <img src="/HR/images/SickList.png" alt="">
+                              </div>
+                              <div class="btn-nav-text">Test</div>
+                        </div>
                   </div>
             </div>
             <div id="content">

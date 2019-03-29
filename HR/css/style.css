@@ -2,6 +2,35 @@
     font-family: Helvetica, sans-serif;
 }
 
+.btn-nav-panel{
+    background: #222;
+    width: 80px;
+    height: 80px;
+    color: transparent;
+    transition: 0.5s;
+    text-align: center;
+    line-height: 80px;
+}
+
+.btn-nav-image {
+    background: #222;
+    width: 80px;
+    display: inline-block;
+    position: fixed;
+    transition: 0.5s;
+    left: 0px;
+}
+
+.btn-nav-image img{
+    width:60px;
+}
+.btn-nav-panel:hover {
+    color:white;
+    width: 240px;
+    padding-left: 80px;
+    background-color: #333;
+}
+
 .table-striped td {
     padding: 4px;
 }
@@ -10,8 +39,7 @@
     background: #aaa;
 }
 
-.auth_form,
-.register-form {
+.auth_form, .register-form {
     position: absolute;
     top: 0;
     right: 0;
@@ -68,7 +96,7 @@
 }
 
 #title:hover {
-    color:red;
+    color: red;
     /*color: rgb(117, 117, 255);
      text-shadow:
     0 0 30px rgba(137, 198, 255, 0.42),
@@ -87,57 +115,6 @@
     margin-left: 80px;
 }
 
-.btn-nav {
-    background: #222;
-    /*background-image: linear-gradient(#222, #333,#333,#333,#333,#333,#333, #222);
-   */
-    font-size: 0pt;
-    color: white;
-    width: 100%;
-    height: 80px;
-    border: none;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    transition: 0.5s;
-    z-index: 100;
-    margin: 0px;
-    color: #222;
-}
-
-.btn-nav div {
-    display: inline-block;
-}
-
-.btn-nav img {
-    height: 70px;
-    display: inline-block;
-    transition: 5s;
-    padding: 5px;
-}
-
-.btn-nav:focus {
-    background: #333;
-    /*background-image: linear-gradient(#222, #333,#333,#333,#333,#333,#333, #222);
-   */
-    border: none;
-    outline: 0;
-}
-
-.btn-nav:hover {
-    width: 200px;
-    color: white;
-    display: inline-block;
-    font-size: 12pt;
-}
-
-.btn-nav:hover img {
-    display: inline-block;
-}
-
-.btn-nav:hover div {
-    display: inline-block;
-}
-
 .button-add {
     height: 60px;
     width: 60px;
@@ -150,8 +127,7 @@
     background-position: 50%;
 }
 
-.button-add:focus,
-.btn-del-vacation:focus {
+.button-add:focus, .btn-del-vacation:focus {
     outline: 0;
 }
 
@@ -205,49 +181,44 @@
     width: 8%
 }
 
-.deleteButton,
-.editButton,
-.vacationButton,
-.sickButton {
+.deleteButton, .editButton, .vacationButton, .sickButton {
     background: rgb(218, 57, 49);
     background-image: url("/HR/images/delete_employee.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 80%;
-    border-radius:5px;
+    border-radius: 5px;
     width: 50px;
     height: 50px;
     color: transparent;
     border: 1px solid rgb(218, 57, 49);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 10px;
-    display:inline-block;
-    margin-right:10px;
+    display: inline-block;
+    margin-right: 10px;
     transition: 0.2s;
-    float:left;
+    float: left;
 }
 
-.deleteButton:hover,
-.editButton:hover,
-.vacationButton:hover,
-.sickButton:hover{
+.deleteButton:hover, .editButton:hover, .vacationButton:hover, .sickButton:hover {
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 24px 0 rgba(0, 0, 0, 0.19);
 }
 
-.searchbar{
+.searchbar {
     width: 420px;
-    background:white;
+    background: white;
     font-size: 14pt;
-    height:30px;
+    height: 30px;
     line-height: 60px;
     border-radius: 15px;
-    border:none;
-    padding-left:15px;
+    border: none;
+    padding-left: 15px;
 }
 
-.searchbar:focus{
-    outline:none;
+.searchbar:focus {
+    outline: none;
 }
+
 .editButton {
     background: rgb(243, 146, 75);
     border: 1px solid rgb(243, 146, 75);
@@ -256,7 +227,8 @@
     background-position: center;
     background-size: 80%;
 }
-.vacationButton{
+
+.vacationButton {
     background-image: url("/HR/images/vacation_small.png");
     background-position: center;
     background-color: dodgerblue;
@@ -264,12 +236,13 @@
     border: 1px solid dodgerblue;
 }
 
-.sickButton{
+.sickButton {
     background-image: url("/HR/images/sick_small.png");
     background-position: center;
     background-size: 32px;
     background-color: red;
 }
+
 .buttonImage {
     display: block;
     width: 40px;
@@ -287,7 +260,7 @@
     /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
    */
     display: inline-block;
-    padding-left:0
+    padding-left: 0
 }
 
 .employee-main {
@@ -296,14 +269,12 @@
     margin-right: 20px;
 }
 
-
-
 .employee-name {
     padding-left: 0;
     vertical-align: middle;
     width: 240px;
     height: 50px;
-    padding:5px;
+    padding: 5px;
     text-align: left;
     background: lightblue;
     display: inline-block;
@@ -318,7 +289,6 @@
     background: rgb(195, 219, 228);
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.35), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
 }
-
 
 .employee-controls {
     width: auto;
@@ -338,8 +308,7 @@
     display: none;
 }
 
-.input-label-select,
-.input-label-upload {
+.input-label-select, .input-label-upload {
     background: transparent;
     color: white;
     width: 100px;
@@ -353,8 +322,7 @@
     display: table-cell;
 }
 
-.input-label-select:hover,
-.input-label-upload:hover {
+.input-label-select:hover, .input-label-upload:hover {
     background: dodgerblue;
 }
 
@@ -521,14 +489,14 @@
     display: inline-block;
 }
 
-.bio-value-duration{
+.bio-value-duration {
     width: 80%;
     margin: 0 auto;
     height: 40px;
     margin-top: 5px;
     line-height: 40px;
     font-size: 20px;
-    color:rgb(50, 50, 50);
+    color: rgb(50, 50, 50);
     text-align: center;
     font-weight: 400;
     font-style: italic;
@@ -539,11 +507,13 @@
     border-color: white;
     /* background: white; */
 }
-.bio-value-duration:hover{
+
+.bio-value-duration:hover {
     cursor: pointer;
 }
 
 /* bootstrap styles override */
+
 .bio-value-datepicker input.form-control {
     border: 0;
     box-shadow: none;
@@ -568,8 +538,7 @@
     height: 875px;
 }
 
-.create-personal,
-.create-personal-short {
+.create-personal, .create-personal-short {
     width: 100%;
     min-width: 360px;
     height: auto;
@@ -590,10 +559,9 @@
     margin: 10px 10px 5px 5px;
 }
 
-#vacations-scroll > .create-personal-vacation:first-child {
-    margin-top:0px;
+#vacations-scroll>.create-personal-vacation:first-child {
+    margin-top: 0px;
 }
-
 
 .create-personal-short {
     height: auto;
@@ -612,13 +580,11 @@
     text-align: center;
 }
 
-.vacationMonth,
-.vacationMonth-work,
-.vacationMonth-rest, 
-.vacationMonthTotal {
-    color:white;
+.vacationMonth, .vacationMonth-work, .vacationMonth-rest, .vacationMonthTotal {
+    color: white;
     width: 5%;
-    min-width: 60px;;
+    min-width: 60px;
+    ;
     text-align: center;
     display: table-cell;
     line-height: 50px;
@@ -649,9 +615,9 @@
 }
 
 .calendar-year {
-display: block;
-margin: 0 auto 20px auto;
-max-width: 1100px;
+    display: block;
+    margin: 0 auto 20px auto;
+    max-width: 1100px;
 }
 
 .calendar-month {
@@ -674,11 +640,7 @@ max-width: 1100px;
     margin-top: 0px;
 }
 
-.calendar-day,
-.calendar-day-header,
-.calendar-day-weekend,
-.calendar-day-vacation,
-.calendar-day-sick {
+.calendar-day, .calendar-day-header, .calendar-day-weekend, .calendar-day-vacation, .calendar-day-sick {
     display: inline-block;
     width: 11%;
     height: 20px;
@@ -746,16 +708,15 @@ max-width: 1100px;
     background: white;
 }
 
-.calendar-day-vacation,
-.calendar-day-sick {
+.calendar-day-vacation, .calendar-day-sick {
     background: #219b21;
     line-height: 18px;
     border: 1px solid lightgreen
 }
 
-.calendar-day-sick{
+.calendar-day-sick {
     background: rgb(172, 61, 187);
-    border:1px solid rgb(190, 62, 163);
+    border: 1px solid rgb(190, 62, 163);
 }
 
 .reference-text {
@@ -836,8 +797,7 @@ max-width: 1100px;
     height: 150px;
 }
 
-.vacation-number,
-.vacation-bucket {
+.vacation-number, .vacation-bucket {
     width: 60px;
     height: 150px;
     background: dodgerblue;
@@ -860,11 +820,11 @@ max-width: 1100px;
     background-color: rgb(240, 60, 60);
 }
 
-#vacations-scroll{
+#vacations-scroll {
     overflow: auto;
     padding: .5rem;
     height: 21rem;
-    min-height:18vh;
+    min-height: 18vh;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;
     background: #ccc;
@@ -872,7 +832,7 @@ max-width: 1100px;
     margin-bottom: 1em;
 }
 
-#vacations-scroll::-webkit-scrollbar{
+#vacations-scroll::-webkit-scrollbar {
     display: none;
 }
 
@@ -906,11 +866,13 @@ max-width: 1100px;
 }
 
 /* bootstrap datepicker custom */
+
 /* .datepicker table tr td.active.active{
     background: dodgerblue;
     color:white;
 } */
-.empty-body{
+
+.empty-body {
     background-color: #ccc;
 }
 
@@ -918,11 +880,9 @@ max-width: 1100px;
     0% {
         background-position: 0% 50%
     }
-
     50% {
         background-position: 100% 50%
     }
-
     100% {
         background-position: 0% 50%
     }
@@ -932,11 +892,9 @@ max-width: 1100px;
     0% {
         background-position: 0% 50%
     }
-
     50% {
         background-position: 100% 50%
     }
-
     100% {
         background-position: 0% 50%
     }
@@ -946,11 +904,9 @@ max-width: 1100px;
     0% {
         background-position: 0% 50%
     }
-
     50% {
         background-position: 100% 50%
     }
-
     100% {
         background-position: 0% 50%
     }

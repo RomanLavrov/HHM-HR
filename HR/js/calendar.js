@@ -18,6 +18,29 @@ setVacationNumber();
 
 setVacationsScroll();
 
+//------------------------
+cardInteraction();
+dateSwap();
+//------------------------
+
+function dateSwap(){
+    var input = document.getElementsByClassName("form-control");
+    var inputArray = Array.from(input);
+    inputArray.forEach(element=>{
+          element.onchange = function(){
+                alert(element.value);
+          }
+    })
+}
+
+function cardInteraction(){
+      var card = document.getElementsByClassName("create-personal-vacation");
+      var cardArray = Array.from(card);
+      cardArray.forEach(element=>{
+            console.log(element.childNodes);
+      })
+}
+
 dayArray.forEach(element => {
       if (element.innerText == "0") {
             element.style.visibility = "hidden";

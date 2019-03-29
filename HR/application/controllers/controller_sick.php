@@ -4,8 +4,6 @@ session_start();
 
 class Calendar
 {
-    //public $WeekDay = array("MO", "DI", "MI", "DO", "FR", "SA", "SO");
-    //public $Month = array("Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember");
     public $Year  = array();
     public $Month = array();
 }
