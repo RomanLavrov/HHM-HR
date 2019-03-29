@@ -77,7 +77,8 @@
                                     <div class="calendar-day" data-weekday=<?php print htmlentities ($day->WeekDay);?>
                                           data-today=<?php print htmlentities ($day->Today);?>
                                           data-vacation="false"
-                                          data-sickleave=<?php print htmlentities ($day->SickLeave);?>>
+                                          data-sickleave=<?php print htmlentities ($day->SickLeave);?>
+                                          data-holiday = <?php print htmlentities ($day->Holiday)?>>
                                           <?php echo ($day->Date) ?>
                                     </div>
                                     <?php endforeach?>

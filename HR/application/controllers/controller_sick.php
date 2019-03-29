@@ -23,6 +23,16 @@ class Day
     public $WeekDay;
     public $Vacation;
     public $SickLeave;
+    public $Holiday;
+}
+
+
+class Holiday
+{
+    public $Name;
+    public $Date;
+    public $Observed;
+    public $Public;
 }
 
 class EmployeeSick
@@ -107,6 +117,39 @@ class Controller_Sick extends Controller
         return ($d1->Date < $d2->Date) ? -1 : 1;
     }
 
+    public function get_Holidays()
+    {
+        $jsonHolidays = file_get_contents("application\json\holidays.json", "r");
+        $holidays     = json_decode($jsonHolidays, true);
+        $holidayArray = array();
+
+        foreach ($holidays as $holiday) {
+            for ($i = 0; $i < sizeof($holiday); $i++) {
+                $h              = $holiday[$i];
+                $day            = new Holiday;
+                $day->Name      = $h['name'];
+                $day->Date      = $h['date'];
+                $day->Observed  = $h['observed'];
+                $day->Public    = $h['public'];
+                $holidayArray[] = $day;
+            }
+        }
+
+        return $holidayArray;
+    }
+
+    public function checkHoliday($date)
+    {
+        $d_date = DateTime::createFromFormat('d-F-Y', $date);
+
+        foreach ($this->get_Holidays() as $holiday) {
+            if ($holiday->Date == $d_date->format("Y-m-d") && $holiday->Public == true) {
+                return $holiday->Name;
+            }    
+        }
+        return "false";
+    }
+
     public function getMonth($firstDay, $monthLength, $currentMonth, $employee)
     {
         $month = array();
@@ -132,6 +175,7 @@ class Controller_Sick extends Controller
                     $dayData->Today     = date("d-F-Y", strtotime((string) $day . "-" . (string) $currentMonth . "-" . (string) $this->currentYear));
                     $dayData->WeekDay   = $dayOfWeek;
                     $dayData->SickLeave = "false";
+                    $dayData->Holiday = $this->checkHoliday($dayData->Today);
                     $dayToCompare       = strtotime((string) $day . "-" . (string) $currentMonth . "-" . (string) $this->currentYear);
                     $dayToday           = strtotime("today");
 

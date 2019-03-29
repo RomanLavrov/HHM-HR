@@ -34,10 +34,8 @@ dayArray.forEach(element => {
       }
 
       if (element.dataset.vacation == "true") {
-            element.className = "calendar-day-vacation";    
-     
+            element.className = "calendar-day-vacation";        
       }
-
 
       if (element.dataset.weekday == "6" || element.dataset.weekday == "7") {
             element.className = "calendar-day-weekend";
@@ -46,7 +44,7 @@ dayArray.forEach(element => {
       if (element.dataset.sickleave == "true"){
             element.className = "calendar-day-sick";
       }
-      
+
       if (element.dataset.holiday != "false"){
             element.className = "calendar-day-weekend";
       }
@@ -68,19 +66,19 @@ dayArray.forEach(element => {
                   toolTip.style.border = '2px solid yellow';
             }
             if (element.dataset.holiday != "false"){
-
                   var holidayName = element.dataset.holiday.replaceAll ("_", " ");
                   while (holidayName.includes("_")) {
                         holidayName = holidayName.replace ("_", " ");
                   }
                   toolTip.innerText = element.dataset.today  + " " + holidayName;
                   toolTip.style.border = '2px solid yellow';
-
             }
+
             setTimeout(function(){
                   toolTip.style.visibility = "visible";
                   toolTip.style.opacity = '1';
             },500);
+            
             toolTip.style.zIndex = 100;
       }
 
