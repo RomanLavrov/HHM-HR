@@ -29,6 +29,9 @@ setVacationNumber();
 setVacationsScroll();
 
 //------------------------
+$('.input-daterange').datepicker({
+      language: "de"
+});
 cardInteraction();
 dateSwap();
 //------------------------
@@ -89,7 +92,7 @@ dayArray.forEach(element => {
                   toolTip.style.border = '2px solid yellow';
             }
             if (element.dataset.holiday != "false"){
-                  var holidayName = element.dataset.holiday.replaceAll ("_", " ");
+                  var holidayName = element.dataset.holiday.replace ("_", " ");
                   while (holidayName.includes("_")) {
                         holidayName = holidayName.replace ("_", " ");
                   }
