@@ -29,6 +29,32 @@ setVacationNumber();
 
 setVacationsScroll();
 
+//------------------------
+$('.input-daterange').datepicker({
+      language: "de"
+});
+cardInteraction();
+dateSwap();
+//------------------------
+
+function dateSwap(){
+    var input = document.getElementsByClassName("form-control");
+    var inputArray = Array.from(input);
+    inputArray.forEach(element=>{
+          element.onchange = function(){
+                alert(element.value);
+          }
+    })
+}
+
+function cardInteraction(){
+      var card = document.getElementsByClassName("create-personal-vacation");
+      var cardArray = Array.from(card);
+      cardArray.forEach(element=>{
+            console.log(element.childNodes);
+      })
+}
+
 dayArray.forEach(element => {
       if (element.innerText == "0") {
             element.style.visibility = "hidden";
@@ -67,7 +93,7 @@ dayArray.forEach(element => {
                   toolTip.style.border = '2px solid yellow';
             }
             if (element.dataset.holiday != "false"){
-                  var holidayName = element.dataset.holiday.replaceAll ("_", " ");
+                  var holidayName = element.dataset.holiday.replace ("_", " ");
                   while (holidayName.includes("_")) {
                         holidayName = holidayName.replace ("_", " ");
                   }

@@ -141,7 +141,7 @@ class Controller_Calendar extends Controller
 
     public function get_Holidays()
     {
-        $jsonHolidays = file_get_contents("application\json\holidays.json", "r");
+        $jsonHolidays = file_get_contents("application/json/holidays.json", "r");
         $holidays     = json_decode($jsonHolidays, true);
         $holidayArray = array();
 
