@@ -11,16 +11,17 @@ toolTip.style.visibility = "hidden";
 document.body.appendChild(toolTip);
 
 
-$('document').ready(function(){
-      var array = Array.from($('.bio-value-datepicker input'));
-      array.forEach(element=>{
-            element.onchange = onInputDateChanged;
-      })
-});
+
+var che = document.getElementsByClassName("bio-value bio-value-datepicker");
+var array = Array.from(che);
+array.forEach(element=>{
+      element.onchange = onInputDateChanged;
+})
+
 
 changeVacationDateFormat();
 
-//assignDatePicker();
+assignDatePicker();
 
 assignVacationDelete();
 
@@ -170,7 +171,7 @@ function setVacationNumber() {
 }
 
 function onInputDateChanged(input){
-      input.value = '2019-01-01';
+      input.target.value = 'qwerty';
       // var vacationCard = $(this).closest('.create-personal-vacation');
       // var vacNum = vacationCard.get(0).dataset.vacationNumber;
       // var startInput = vacationCard.find(`input[name='Start${vacNum}']`);
