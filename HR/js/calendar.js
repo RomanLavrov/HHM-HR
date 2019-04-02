@@ -64,9 +64,11 @@ dayArray.forEach(element => {
       }
 });
 
-//------------------------
+//-----------------------
 $('.input-daterange').datepicker({
-      language: "de"
+      format: "dd-MM-yyyy",
+      language: "de",
+      clearBtn: true
 });
 
 cardInteraction();
@@ -193,12 +195,6 @@ function createVacationForm() {
       else{
             scrollToLastVacation();
       }
-      scrollToLastVacation();
-      $('.input-daterange').datepicker({
-            format: "dd-MM-yyyy",
-            language: "de",
-            clearBtn: true
-      });
 }
 
 function assignVacationDelete() {
@@ -225,33 +221,6 @@ function setVacationNumber() {
       });
 }
 
-function onInputDateChanged(input){
-      input.target.value = 'qwerty';
-      // var vacationCard = $(this).closest('.create-personal-vacation');
-      // var vacNum = vacationCard.get(0).dataset.vacationNumber;
-      // var startInput = vacationCard.find(`input[name='Start${vacNum}']`);
-      // var endInput = vacationCard.find(`input[name='End${vacNum}']`);
-      // var startDate = startInput.datepicker('getDate');
-      // var endDate = endInput.datepicker('getDate');
-      // startInput.value = endDate.toLocaleString();
-      // if(startDate > endDate)
-      // {
-      //       // startInput.value = getFormattedDateString(endDate);
-      //       // endInput.value = getFormattedDateString(startDate);
-            
-      //       startInput.datepicker({
-      //             setDate: endDate,
-      //             altFormat: 'MM dd, yyyy'
-      //       });
-      //       endInput.datepicker({
-      //             setDate: startDate,
-      //             altFormat: 'MM dd, yyyy'
-      //       });
-
-      //       // startInput.datepicker('setDate', endDate);
-      //       // endInput.datepicker('setDate', startDate);
-      // }
-}
 
 function changeVacationDateFormat(){
       var array = Array.from($('.bio-value-datepicker input'));
