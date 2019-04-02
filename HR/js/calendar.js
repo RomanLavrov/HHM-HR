@@ -11,16 +11,17 @@ toolTip.style.visibility = "hidden";
 document.body.appendChild(toolTip);
 
 
-$('document').ready(function(){
-      var array = Array.from($('.bio-value-datepicker input'));
-      array.forEach(element=>{
-            element.onchange = onInputDateChanged;
-      })
-});
+
+var che = document.getElementsByClassName("bio-value bio-value-datepicker");
+var array = Array.from(che);
+array.forEach(element=>{
+      element.onchange = onInputDateChanged;
+})
+
 
 changeVacationDateFormat();
 
-//assignDatePicker();
+assignDatePicker();
 
 assignVacationDelete();
 
@@ -58,6 +59,12 @@ function cardInteraction(){
       cardArray.forEach(element=>{
             console.log(element.childNodes);
       })
+      var months = Array.from(document.getElementsByClassName("calendar-month"));
+      months.forEach(element => {
+            element.onmouseleave = function(e){
+                  hideTooltip(this, 501);
+            };
+      });
 }
 
 dayArray.forEach(element => {
@@ -82,41 +89,11 @@ dayArray.forEach(element => {
       }
 
       element.onmouseover = function (e) {
-            showTooltip(this);
+            showTooltip(this, 500);
       }
 
       element.onmouseleave = function () {
             hideTooltip(this);
-      }
-
-      function showTooltip(element) {
-            toolTip.innerText = element.dataset.today;
-            toolTip.style.left = event.pageX - 100 + 'px';
-            toolTip.style.top = event.pageY - 50 + 'px';
-            if (element.dataset.vacation == "true") {
-                  toolTip.innerText = element.dataset.today + "  Ferien";
-                  toolTip.style.border = '2px solid yellow';
-            }
-            if (element.dataset.holiday != "false"){
-                  var holidayName = element.dataset.holiday.replace ("_", " ");
-                  while (holidayName.includes("_")) {
-                        holidayName = holidayName.replace ("_", " ");
-                  }
-                  toolTip.innerText = element.dataset.today  + " " + holidayName;
-                  toolTip.style.border = '2px solid yellow';
-            }
-
-            setTimeout(function(){
-                  toolTip.style.visibility = "visible";
-                  toolTip.style.opacity = '1';
-            },500);
-            
-            toolTip.style.zIndex = 100;
-      }
-
-      function hideTooltip(element) {
-            toolTip.style.visibility = "hidden";
-            toolTip.style.border = 'none';
       }
 
       var btnAddVacation = document.getElementById("btn-add-vacation");
@@ -124,6 +101,38 @@ dayArray.forEach(element => {
             createVacationForm();
       }
 });
+
+function showTooltip(element, timeout = 0) {
+      toolTip.innerText = element.dataset.today;
+      toolTip.style.left = event.pageX - 100 + 'px';
+      toolTip.style.top = event.pageY - 50 + 'px';
+      if (element.dataset.vacation == "true") {
+            toolTip.innerText = element.dataset.today + "  Ferien";
+            toolTip.style.border = '2px solid yellow';
+      }
+      if (element.dataset.holiday != "false"){
+            var holidayName = element.dataset.holiday.replace ("_", " ");
+            while (holidayName.includes("_")) {
+                  holidayName = holidayName.replace ("_", " ");
+            }
+            toolTip.innerText = element.dataset.today  + " " + holidayName;
+            toolTip.style.border = '2px solid yellow';
+      }
+      toolTip.style.zIndex = 100;
+
+      setTimeout(function(){
+            toolTip.style.visibility = "visible";
+            toolTip.style.opacity = '1';
+      },timeout);
+
+}
+
+function hideTooltip(element, timeout = 0) {
+      setTimeout(() => {
+            toolTip.style.visibility = "hidden";
+            toolTip.style.border = 'none';
+      }, timeout);
+}
 
 function assignDatePicker(){
       $('body').on('focus','.bio-value-datepicker input', function(){
@@ -207,7 +216,7 @@ function setVacationNumber() {
 }
 
 function onInputDateChanged(input){
-      input.value = '2019-01-01';
+      input.target.value = 'qwerty';
       // var vacationCard = $(this).closest('.create-personal-vacation');
       // var vacNum = vacationCard.get(0).dataset.vacationNumber;
       // var startInput = vacationCard.find(`input[name='Start${vacNum}']`);
