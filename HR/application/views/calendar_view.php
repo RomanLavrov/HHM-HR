@@ -120,8 +120,7 @@
                                     name=<?php print htmlentities("End" . $vacationCounter)?>>
                         </div>                     
                         <div class="bio-value-duration">
-                              0 Tage
-                              <!-- <?php print htmlentities((((new DateTime(($vacation->StartDate)))->modify('-1 day'))->diff(new DateTime($vacation->EndDate)))->format('%d Tage'))?> -->
+                              0 
                         </div>
                   </div>
             </div>

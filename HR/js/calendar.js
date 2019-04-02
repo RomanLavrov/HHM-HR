@@ -1,14 +1,18 @@
 // Global variables
 var vacationsPanel = $("#vacations-scroll");
-
 var toolTip = document.createElement("div");
-toolTip.className = "toolTip";
-toolTip.style.position = "absolute";
-toolTip.style.visibility = "hidden";
-document.body.appendChild(toolTip);
 
-initializeVacations();
-initializeCalendar();
+main();
+
+function main(){
+      toolTip.className = "toolTip";
+      toolTip.style.position = "absolute";
+      toolTip.style.visibility = "hidden";
+      document.body.appendChild(toolTip);
+      
+      initializeVacations();
+      initializeCalendar();
+}
 
 //Initializing methods
 function initializeCalendar(){
@@ -66,6 +70,7 @@ function initializeVacations(){
       setVacationNumber();
       setVacationsScroll();
       checkVacationsAmount();
+      assignDurationChange();
 }
 
 function showTooltip(element, timeout = 0) {
@@ -145,11 +150,14 @@ function createVacationForm() {
       vacationsPanel.append($('#vacation').html());
       assignVacationDelete();
       setVacationNumber();
+      assignDurationChange();
+
       $('.input-daterange').datepicker({
             format: "dd-MM-yyyy",
             language: "de",
             clearBtn: true
       });
+
       var noVacDiv =  $('.no-vacations-label');
       if(noVacDiv.length > 0){
             noVacDiv.animate({
@@ -215,6 +223,20 @@ function createNoVacationsLabel(){
       return labelDiv;
 }
 
+function assignDurationChange() {
+      $('.input-daterange').change(function () {
+            let duration = $(this.parentNode).find('.bio-value-duration')[0];
+            let startInput = $(this.parentNode).find('.bio-value')[0];
+            let endInput = $(this.parentNode).find('.bio-value')[1];
+            let startDate = new Date(startInput.value);
+            let endDate = new Date(endInput.value);
+            let diffTime = Math.abs(endDate.getTime() - startDate.getTime());
+            let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            if(isNaN(diffDays))
+                  diffDays = -1;
+            duration.innerText = diffDays + 1 + " Tage";
+      });
+}
 //Additional methods 
 function getFormattedDateString(date){
       return date.toLocaleString('en-us', {

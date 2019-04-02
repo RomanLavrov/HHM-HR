@@ -467,7 +467,8 @@
     display: inline-block;
 }
 
-.bio-description, .bio-value-duration{
+.bio-description, .bio-value-duration, 
+.no-vacations-label{
     -webkit-user-select: none; 
     -moz-user-select: none;     
     -ms-user-select: none;      
