@@ -15,13 +15,26 @@ class Controller_EditSick extends Controller
 
         for ($i = 0; $i < sizeof($dataArray); $i++) {
             //print_r($dataArray[$i]);
-            $sickArray = $dataArray[$i];
+            $vacArray = $dataArray[$i];
 
-            if (isset($sickArray['Start' . ($i + 2)])) {
-                $StartDate = $sickArray['Start' . ($i + 2)];
-                $EndDate   = $sickArray['End' . ($i + 2)];
+            if (sizeof($vacArray) == 2) {
+
+                $start = $end = null;
+                foreach ($vacArray as $key => $value) {
+                    //echo($key);
+                    if (strpos($key, 'Start')!==false) {
+                        $start = $value;
+                    }
+                    if (strpos($key, "End")!==false) {
+                        $end = $value;
+                    }
+
+                }
+                $StartDate = (new DateTime($start))->format("Y-m-d");
+                $EndDate   = (new DateTime($end))->format("Y-m-d");
 
                 $this->model->Insert($idEmployee, $StartDate, $EndDate, $TableName);
+                //echo ("<br>inserted");
             }
         }
 

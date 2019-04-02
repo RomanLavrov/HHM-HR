@@ -193,6 +193,12 @@ function createVacationForm() {
       else{
             scrollToLastVacation();
       }
+      scrollToLastVacation();
+      $('.input-daterange').datepicker({
+            format: "dd-MM-yyyy",
+            language: "de",
+            clearBtn: true
+      });
 }
 
 function assignVacationDelete() {
