@@ -11,13 +11,11 @@ toolTip.style.visibility = "hidden";
 document.body.appendChild(toolTip);
 
 
-
 var che = document.getElementsByClassName("bio-value bio-value-datepicker");
 var array = Array.from(che);
 array.forEach(element=>{
       element.onchange = onInputDateChanged;
 })
-
 
 changeVacationDateFormat();
 
@@ -29,37 +27,7 @@ setVacationNumber();
 
 setVacationsScroll();
 
-//------------------------
-$('.input-daterange').datepicker({
-      language: "de"
-});
-cardInteraction();
-dateSwap();
-//------------------------
-
-function dateSwap(){
-    var input = document.getElementsByClassName("form-control");
-    var inputArray = Array.from(input);
-    inputArray.forEach(element=>{
-          element.onchange = function(){
-                alert(element.value);
-          }
-    })
-}
-
-function cardInteraction(){
-      var card = document.getElementsByClassName("create-personal-vacation");
-      var cardArray = Array.from(card);
-      cardArray.forEach(element=>{
-            console.log(element.childNodes);
-      })
-      var months = Array.from(document.getElementsByClassName("calendar-month"));
-      months.forEach(element => {
-            element.onmouseleave = function(e){
-                  hideTooltip(this, 501);
-            };
-      });
-}
+checkVacationsAmount();
 
 dayArray.forEach(element => {
       if (element.innerText == "0") {
@@ -95,6 +63,41 @@ dayArray.forEach(element => {
             createVacationForm();
       }
 });
+
+//------------------------
+$('.input-daterange').datepicker({
+      language: "de"
+});
+
+cardInteraction();
+
+dateSwap();
+//------------------------
+
+function dateSwap(){
+    var input = document.getElementsByClassName("form-control");
+    var inputArray = Array.from(input);
+    inputArray.forEach(element=>{
+          element.onchange = function(){
+                alert(element.value);
+          }
+    })
+}
+
+function cardInteraction(){
+      var card = document.getElementsByClassName("create-personal-vacation");
+      var cardArray = Array.from(card);
+      cardArray.forEach(element=>{
+            console.log(element.childNodes);
+      })
+      var months = Array.from(document.getElementsByClassName("calendar-month"));
+      months.forEach(element => {
+            element.onmouseleave = function(e){
+                  hideTooltip(this, 501);
+            };
+      });
+}
+
 
 function showTooltip(element, timeout = 0) {
       toolTip.innerText = element.dataset.today;
@@ -178,7 +181,18 @@ function createVacationForm() {
       vacationsPanel.append($('#vacation').html());
       assignVacationDelete();
       setVacationNumber();
-      scrollToLastVacation();
+      var noVacDiv =  $('.no-vacations-label');
+      if(noVacDiv.length > 0)
+      {
+            noVacDiv.animate({
+                  marginTop: -noVacDiv.outerHeight()
+            },400,'linear', function(){
+                  noVacDiv.remove();
+            });
+      }
+      else{
+            scrollToLastVacation();
+      }
 }
 
 function assignVacationDelete() {
@@ -191,6 +205,7 @@ function assignVacationDelete() {
                   var cardHolder = card.parentNode;
                   var div = cardHolder.parentNode;
                   div.parentNode.removeChild(div);
+                  checkVacationsAmount();
             }
       });
 }
@@ -249,4 +264,18 @@ function getFormattedDateString(date){
             month: 'long' ,
             year: 'numeric'
       });
+}
+
+function checkVacationsAmount(){
+      $(function(){
+            if($('.create-personal-vacation').length == 1){
+                        var labelDiv = $('<div>No vacations</div>');
+                        labelDiv.addClass('no-vacations-label');
+                        vacationsPanel.append(labelDiv);
+                  }
+      });
+}
+
+function createNoVacationsLabel(){
+
 }

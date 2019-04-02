@@ -10,14 +10,14 @@
             <div class="bio-description">Vorname</div>
             <div class="bio-value"><?php print htmlentities($this->employee->LastName) ?></div>
         </div>
+
         <form action="/HR/editvacations" method="post">
-            <div class="create-personal-header">Ferien</div>
+        <div class="create-personal-header">Ferien</div>
             <div id="vacations-scroll">
                 <?php $vacationCounter = 1 ?>
                 <?php if (sizeof($this->employee->Vacations) > 0) : ?>
                 <?php foreach ($this->employee->Vacations as $vacation) : ?>
-
-                <div class="create-personal-vacation" style="box-shadow: none;" data-vacation-number=<?php print htmlentities($vacationCounter) ?>>
+                <!-- <div class="create-personal-vacation" style="box-shadow: none;" data-vacation-number=<?php print htmlentities($vacationCounter) ?>>
                     <div class="row" style="padding: 0 10px 0 0;">
                         <div class="col-md-2" style="margin: 0px; padding:0px; ">
                             <div class="vacation-label">
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <?php endforeach; ?>
                 <?php endif; ?>
