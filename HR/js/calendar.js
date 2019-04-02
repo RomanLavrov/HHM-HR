@@ -1,105 +1,72 @@
-var day = document.getElementsByClassName('calendar-day');
-
-var dayArray = Array.from(day);
+// Global variables
 var vacationsPanel = $("#vacations-scroll");
 
 var toolTip = document.createElement("div");
 toolTip.className = "toolTip";
 toolTip.style.position = "absolute";
-
 toolTip.style.visibility = "hidden";
 document.body.appendChild(toolTip);
 
+initializeVacations();
+initializeCalendar();
 
-var che = document.getElementsByClassName("bio-value bio-value-datepicker");
-var array = Array.from(che);
-array.forEach(element=>{
-      element.onchange = onInputDateChanged;
-})
-
-changeVacationDateFormat();
-
-assignDatePicker();
-
-assignVacationDelete();
-
-setVacationNumber();
-
-setVacationsScroll();
-
-checkVacationsAmount();
-
-dayArray.forEach(element => {
-      if (element.innerText == "0") {
-            element.style.visibility = "hidden";
-      }
-
-      if (element.dataset.vacation == "true") {
-            element.className = "calendar-day-vacation";        
-      }
-
-      if (element.dataset.weekday == "6" || element.dataset.weekday == "7") {
-            element.className = "calendar-day-weekend";
-      }
-   
-      if (element.dataset.sickleave == "true"){
-            element.className = "calendar-day-sick";
-      }
-
-      if (element.dataset.holiday != "false"){
-            element.className = "calendar-day-weekend";
-      }
-
-      element.onmouseover = function (e) {
-            showTooltip(this, 500);
-      }
-
-      element.onmouseleave = function () {
-            hideTooltip(this);
-      }
-
-      var btnAddVacation = document.getElementById("btn-add-vacation");
-      btnAddVacation.onclick = function () {
-            createVacationForm();
-      }
-});
-
-//-----------------------
-$('.input-daterange').datepicker({
-      format: "dd-MM-yyyy",
-      language: "de",
-      clearBtn: true
-});
-
-cardInteraction();
-
-dateSwap();
-//------------------------
-
-function dateSwap(){
-    var input = document.getElementsByClassName("form-control");
-    var inputArray = Array.from(input);
-    inputArray.forEach(element=>{
-          element.onchange = function(){
-                alert(element.value);
-          }
-    })
-}
-
-function cardInteraction(){
-      var card = document.getElementsByClassName("create-personal-vacation");
-      var cardArray = Array.from(card);
-      cardArray.forEach(element=>{
-            console.log(element.childNodes);
-      })
+//Initializing methods
+function initializeCalendar(){
+      var day = document.getElementsByClassName('calendar-day');
+      var dayArray = Array.from(day);
+      dayArray.forEach(element => {
+            if (element.innerText == "0") {
+                  element.style.visibility = "hidden";
+            }
+      
+            if (element.dataset.vacation == "true") {
+                  element.className = "calendar-day-vacation";        
+            }
+      
+            if (element.dataset.weekday == "6" || element.dataset.weekday == "7") {
+                  element.className = "calendar-day-weekend";
+            }
+         
+            if (element.dataset.sickleave == "true"){
+                  element.className = "calendar-day-sick";
+            }
+      
+            if (element.dataset.holiday != "false"){
+                  element.className = "calendar-day-weekend";
+            }
+      
+            element.onmouseover = function (e) {
+                  showTooltip(this, 500);
+            }
+      
+            element.onmouseleave = function () {
+                  hideTooltip(this);
+            }
+      
+            var btnAddVacation = document.getElementById("btn-add-vacation");
+            btnAddVacation.onclick = function () {
+                  createVacationForm();
+            }
+      });
       var months = Array.from(document.getElementsByClassName("calendar-month"));
       months.forEach(element => {
             element.onmouseleave = function(e){
                   hideTooltip(this, 501);
             };
       });
+      $('.input-daterange').datepicker({
+            format: "dd-MM-yyyy",
+            language: "de",
+            clearBtn: true
+      });
 }
 
+function initializeVacations(){
+      assignVacationDelete();
+      setVacationNumber();
+      setVacationsScroll();
+      checkVacationsAmount();
+}
 
 function showTooltip(element, timeout = 0) {
       toolTip.innerText = element.dataset.today;
@@ -133,19 +100,7 @@ function hideTooltip(element, timeout = 0) {
       }, timeout);
 }
 
-function assignDatePicker(){
-      $('body').on('focus','.bio-value-datepicker input', function(){
-            $(this).datepicker({
-                  format: 'MM dd, yyyy',
-                  todayHighlight: true,
-                  autoclose: true,
-                  assumeNearbyYear: true,
-                  clearBtn: true,
-                  weekStart: 1
-            });
-        });
-}
-
+// Vacation cards methods
 function setVacationsScroll(){
       vacationsPanel.on('mousewheel', function (e) {
             var neededCard = $("#vacations-scroll > .create-personal-vacation").last();
@@ -226,26 +181,6 @@ function setVacationNumber() {
       });
 }
 
-
-function changeVacationDateFormat(){
-      var array = Array.from($('.bio-value-datepicker input'));
-      array.forEach(element=>{
-            var dateStr = element.value;
-            var date = new Date(dateStr);
-            var dateValue = getFormattedDateString(date);
-            element.value = dateValue;
-            //element.value = `${date.getDay()}-${date.getMonth()}-${date.getFullYear()}`;
-      })
-}
-
-function getFormattedDateString(date){
-      return date.toLocaleString('en-us', {
-            day: '2-digit',
-            month: 'long' ,
-            year: 'numeric'
-      });
-}
-
 function checkVacationsAmount(){
       $(function(){
             if($('.create-personal-vacation').length == 1){
@@ -255,14 +190,25 @@ function checkVacationsAmount(){
 }
 
 function createNoVacationsLabel(){
-      let labelDiv = $('<div></div>');
-      labelDiv.addClass('no-vacations-label');
+
       let cardHeaderText = vacationsPanel.siblings('.create-personal-header').text();
       let labelText = 'Kein';
       if(cardHeaderText.toLowerCase() == 'ferien') {
             labelText += 'e';
       }
       labelText += ` ${cardHeaderText}`;
-      labelDiv.text(labelText);
+      let labelDiv = $('<div/>',{
+            class:'no-vacations-label',
+            text:labelText
+      });
       return labelDiv;
+}
+
+//Additional methods 
+function getFormattedDateString(date){
+      return date.toLocaleString('en-us', {
+            day: '2-digit',
+            month: 'long' ,
+            year: 'numeric'
+      });
 }

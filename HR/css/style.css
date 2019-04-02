@@ -476,8 +476,12 @@
     padding-left: 10px;
     background: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 5px !important;
     display: inline-block;
+}
+input.bio-value{
+    padding-left: 0px;
+    cursor: pointer;
 }
 
 .bio-value-duration {
@@ -857,7 +861,6 @@
 }
 
 /* bootstrap datepicker custom */
-
 /* .datepicker table tr td.active.active{
     background: dodgerblue;
     color:white;

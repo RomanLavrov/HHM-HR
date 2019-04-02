@@ -55,8 +55,6 @@
 
                         <?php endforeach;?>
                         <?php endif;?>
-
-                        <!-- <div id="vacation-parent"></div> -->
                   </div>
                   <input type="hidden" name=<?php print htmlentities("Id")?> id=""
                         value=<?php print htmlentities($this->employee->Id)?>>
@@ -125,7 +123,7 @@
                         <!-- <div class="bio-description">Dauer</div> -->
                         <div class="bio-value-duration">
                               0 Tage
-                              <!-- <?php print htmlentities((((new DateTime(($vacation->StartDate)))->modify('-1 day'))->diff(new DateTime($vacation->EndDate)))->format('%d Tage'))?> -->
+                              <!--<?php print htmlentities((((new DateTime(($vacation->StartDate)))->modify('-1 day'))->diff(new DateTime($vacation->EndDate)))->format('%d Tage'))?> -->
                         </div>
                   </div>
             </div>
