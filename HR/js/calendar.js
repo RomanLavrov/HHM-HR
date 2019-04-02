@@ -183,6 +183,11 @@ function createVacationForm() {
       vacationsPanel.append($('#vacation').html());
       assignVacationDelete();
       setVacationNumber();
+      $('.input-daterange').datepicker({
+            format: "dd-MM-yyyy",
+            language: "de",
+            clearBtn: true
+      });
       var noVacDiv =  $('.no-vacations-label');
       if(noVacDiv.length > 0)
       {
