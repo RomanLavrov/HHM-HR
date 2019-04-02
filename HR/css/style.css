@@ -467,6 +467,13 @@
     display: inline-block;
 }
 
+.bio-description, .bio-value-duration{
+    -webkit-user-select: none; 
+    -moz-user-select: none;     
+    -ms-user-select: none;      
+    user-select: none;  
+}
+
 .bio-value {
     width: 60%;
     height: 40px;
@@ -496,15 +503,12 @@ input.bio-value{
     font-weight: 400;
     font-style: italic;
     border-style: hidden hidden solid hidden;
-    /* border-style: solid; */
     border-width: 2px;
-    /* border-radius: 1em; */
     border-color: white;
-    /* background: white; */
 }
 
 .bio-value-duration:hover {
-    cursor: pointer;
+    cursor: default;
 }
 
 /* bootstrap styles override */

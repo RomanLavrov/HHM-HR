@@ -117,11 +117,12 @@ function setVacationsScroll(){
       }); 
 }
 
-function scrollTo(pixels, speed = 400) {
+function scrollTo(pixels, speed = 400, callback = null) {
             vacationsPanel.animate(
             { scrollTop: pixels },
             speed, 
-            'swing'
+            'swing',
+            callback
       );
 } 
 
@@ -131,7 +132,13 @@ function scrollToLastVacation(){
       var offset = templateCard.outerHeight(true);
       var initPos = vacationsPanel.scrollTop();
       var pixels = allCards.length * offset;
-      scrollTo(pixels);
+      scrollTo(pixels, 400, function(){
+                  vacationsPanel.children()
+                  .last()
+                  .find('input.bio-value')
+                  .first()
+                  .focus();
+      });
 }
 
 function createVacationForm() {
@@ -144,12 +151,16 @@ function createVacationForm() {
             clearBtn: true
       });
       var noVacDiv =  $('.no-vacations-label');
-      if(noVacDiv.length > 0)
-      {
+      if(noVacDiv.length > 0){
             noVacDiv.animate({
                   marginTop: -noVacDiv.outerHeight()
             },400,'linear', function(){
                   noVacDiv.remove();
+                  vacationsPanel.children()
+                  .last()
+                  .find('input.bio-value')
+                  .first()
+                  .focus();
             });
       }
       else{
