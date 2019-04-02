@@ -13,7 +13,7 @@
 
    <link rel="stylesheet" href="/HR/css/bootstrap-datepicker.css">
    <script src="/HR/js/bootstrap-datepicker.js"></script>
-   <script src="/HR/js/bootstrap-datepicker.de.min.js"></script>
+   <!--<script src="/HR/js/bootstrap-datepicker.de.min.js"></script>-->
 
 
 </head>

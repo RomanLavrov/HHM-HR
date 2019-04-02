@@ -30,10 +30,16 @@ setVacationsScroll();
 
 //------------------------
 $('.input-daterange').datepicker({
-      language: "de"
+      format: "dd-MM-yyyy",
+      language: "de",
+      clearBtn: true
 });
+
+
 cardInteraction();
 dateSwap();
+
+
 //------------------------
 
 function dateSwap(){
@@ -41,7 +47,7 @@ function dateSwap(){
     var inputArray = Array.from(input);
     inputArray.forEach(element=>{
           element.onchange = function(){
-                alert(element.value);
+                //alert(element.value);
           }
     })
 }
@@ -170,6 +176,11 @@ function createVacationForm() {
       assignVacationDelete();
       setVacationNumber();
       scrollToLastVacation();
+      $('.input-daterange').datepicker({
+            format: "dd-MM-yyyy",
+            language: "de",
+            clearBtn: true
+      });
 }
 
 function assignVacationDelete() {
