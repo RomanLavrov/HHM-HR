@@ -56,7 +56,7 @@
                         <?php endforeach;?>
                         <?php endif;?>
 
-                        <div id="vacation-parent"></div>
+                        <!-- <div id="vacation-parent"></div> -->
                   </div>
                   <input type="hidden" name=<?php print htmlentities("Id")?> id=""
                         value=<?php print htmlentities($this->employee->Id)?>>

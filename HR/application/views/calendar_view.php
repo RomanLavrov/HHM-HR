@@ -17,8 +17,7 @@
                         <?php if (sizeof($this->employee->Vacations) > 0): ?>
                         <?php foreach ($this->employee->Vacations as $vacation): ?>
                         <?php $vacationCounter++?>
-                        <div class="create-personal-vacation" style="box-shadow: none;"
-                              data-vacation-number=<?php print htmlentities($vacationCounter)?>>
+                        <div class="create-personal-vacation">
                               <div class="row" style="padding: 0 10px 0 0;">
                                     <div class="col-md-2" style="margin: 0px; padding:0px; ">
                                           <div class="vacation-label">
@@ -55,8 +54,6 @@
 
                         <?php endforeach;?>
                         <?php endif;?>
-
-                        <!-- <div  id="vacation-parent"></div> -->
                   </div>
                   <input type="hidden" name=<?php print htmlentities("Id")?> id=""
                         value=<?php print htmlentities($this->employee->Id)?>>
