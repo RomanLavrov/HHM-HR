@@ -244,13 +244,20 @@ function getFormattedDateString(date){
 function checkVacationsAmount(){
       $(function(){
             if($('.create-personal-vacation').length == 1){
-                        var labelDiv = $('<div>No vacations</div>');
-                        labelDiv.addClass('no-vacations-label');
-                        vacationsPanel.append(labelDiv);
+                        vacationsPanel.append(createNoVacationsLabel());
                   }
       });
 }
 
 function createNoVacationsLabel(){
-
+      let labelDiv = $('<div></div>');
+      labelDiv.addClass('no-vacations-label');
+      let cardHeaderText = vacationsPanel.siblings('.create-personal-header').text();
+      let labelText = 'Kein';
+      if(cardHeaderText.toLowerCase() == 'ferien') {
+            labelText += 'e';
+      }
+      labelText += ` ${cardHeaderText}`;
+      labelDiv.text(labelText);
+      return labelDiv;
 }
