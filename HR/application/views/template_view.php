@@ -13,6 +13,7 @@
 
    <link rel="stylesheet" href="/HR/css/bootstrap-datepicker.css">
    <script src="/HR/js/bootstrap-datepicker.js"></script>
+   
    <!--<script src="/HR/js/bootstrap-datepicker.de.min.js"></script>-->
 
 
@@ -20,11 +21,11 @@
 
 <body>
     <div id="header-main" class="row">
-        <div class="col-md-3">
+        <div class="col-md-6">
             <a id="title" href="/HR/main">HHM Mitarbeiter</a>
         </div>
-        <div class="col-md-6">
-            <input class="searchbar" type="text" placeholder="Suche">
+        <div class="col-md-4">
+            <input class="searchbar" type="search" placeholder="Suche">
         </div>
         <div class="col-md-2">
             <div class="dropdown">
@@ -78,4 +79,5 @@
     </div>
 
 </body>
+<script src="/HR/js/search.js"></script>
 </html> 
