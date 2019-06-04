@@ -54,8 +54,7 @@ class Controller_Main extends Controller
 			LEFT JOIN Career ON Employee.id = Career.idEmployee
 			LEFT JOIN ForeignPassport ON Employee.id = ForeignPassport.idEmployee			
 			LEFT JOIN G17 ON Employee.id = G17.idEmployee
-            LEFT JOIN HHM ON Employee.id = HHM.idEmployee
-            LEFT JOIN SwissVisit ON Employee.id = SwissVisit.idEmployee" ;
+            LEFT JOIN HHM ON Employee.id = HHM.idEmployee" ;
 
             if ($query = $pdo->prepare($sql)) {
 
@@ -106,17 +105,18 @@ class Controller_Main extends Controller
 						$employee->HHM_email = $row['HHM_E-Mail'];
                         $employee->HHM_initials = $row['HHM_Initials'];
 
+
                         foreach($visitArray as $visit){
                             if ($row['idEmployee'] == $visit->idEmployee){
                                 $employee->SwissVisit[] = $visit;
                             }
-                        }
-
+                        }                       
                         $empArray[] = $employee;
                     }
                 }
             }
-
+            //echo('<pre>');print_r($empArray);echo('<pre>');
+            
             $this->view->list = $empArray;
 
             $this->view->generate('main_view.php', 'template_view.php');

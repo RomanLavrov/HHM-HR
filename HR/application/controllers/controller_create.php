@@ -1,11 +1,10 @@
 <?php
-
 class Controller_Create extends Controller
 {
     public function action_index()
     {
         require_once "config.php";
-        $user_photo="images/user.png";
+        $user_photo="images/user.png";   
 
         if (isset($_POST['Name'])) {
             $Name = $_POST['Name'];
@@ -47,6 +46,13 @@ class Controller_Create extends Controller
             $ChildLastName3 = $_POST["ChildLastName3"];
             $ChildBirthday3 = $_POST["ChildBirthday3"];
 
+            $VisitStart = $_POST["VisitStart"];
+            $VisitEnd = $_POST["VisitEnd"];
+            $VisitLocation = $_POST["VisitLocation"];
+            $VisitAccommodation = $_POST["VisitAccommodation"];
+            $VisitGoal = $_POST["VisitGoal"];
+            $VisitGroup = $_POST["VisitGroup"];
+
             $id = 0;
             $sql_GetLastId = "SELECT id FROM Employee ORDER BY id DESC LIMIT 1";
             $querySelect = $pdo->prepare($sql_GetLastId);
@@ -58,6 +64,7 @@ class Controller_Create extends Controller
             }
 
             $sql = "START TRANSACTION;
+
 			INSERT INTO `hhmeweme_HR`.`Employee` (`id`, `Name`, `LastName`, `Photo`) VALUES (:id, :Name, :LastName, :Photo);
 
 			INSERT INTO `hhmeweme_HR`.`PersonalData` (`idEmployee`, `BirthDate`, `CivilState`, `Address`, `PLZ`, `Place`, `Phone`) 
@@ -76,10 +83,10 @@ class Controller_Create extends Controller
             INSERT INTO `hhmeweme_HR`.`Children` (`idEmployee`, `ChildName`, `ChildLastName`, `Birth`) VALUES (:idParent2, :ChildName2, :ChildLastName2, :ChildBirthday2);
 
             INSERT INTO `hhmeweme_HR`.`Children` (`idEmployee`, `ChildName`, `ChildLastName`, `Birth`) VALUES (:idParent3, :ChildName3, :ChildLastName3, :ChildBirthday3);
+            
+            INSERT INTO `hhmeweme_HR`.`SwissVisit` (`idEmployee`, `StartDate`, `EndDate`, `Location`, `Accommodation`, `Goal`, `Group`) VALUES (:idVisit, :StartDate, :EndDate, :Location, :Accommodation, :Goal, :Group);
 
 			COMMIT";
-
-			// INSERT INTO `hhmeweme_HR`.`HHM` (`idEmployee`,`HHM_E-Mail`, `GHHM_Initials`) VALUES (:idHHM, :HHM_email, :HHM_initials);
 
             $query = $pdo->prepare($sql);
 
@@ -100,8 +107,7 @@ class Controller_Create extends Controller
             $query->bindParam(":Address", $Address, PDO::PARAM_STR);
 			$query->bindParam(":PLZ", $PLZ, PDO::PARAM_STR);
 			$query->bindParam(":Place", $Place, PDO::PARAM_STR);
-            $query->bindParam(":Phone", $Phone, PDO::PARAM_STR);         
-			
+            $query->bindParam(":Phone", $Phone, PDO::PARAM_STR);			
 			
 			$query->bindParam(":idPass", $id, PDO::PARAM_STR);
 			$query->bindParam(":Pass_Name", $Pass_Name, PDO::PARAM_STR);
@@ -112,7 +118,6 @@ class Controller_Create extends Controller
 			$query->bindParam(":idG17", $id, PDO::PARAM_STR);
 			$query->bindParam(":G17_email", $G17_email, PDO::PARAM_STR);
 			$query->bindParam(":G17_initials", $G17_initials, PDO::PARAM_STR);
-
 			
 			$query->bindParam(":idHHM", $id, PDO::PARAM_STR);
 			$query->bindParam(":HHM_email", $HHM_email, PDO::PARAM_STR);
@@ -132,6 +137,14 @@ class Controller_Create extends Controller
 			$query->bindParam(":ChildName3", $ChildName3, PDO::PARAM_STR);
             $query->bindParam(":ChildLastName3", $ChildLastName3, PDO::PARAM_STR);
             $query->bindParam(":ChildBirthday3", $ChildBirthday3, PDO::PARAM_STR);
+
+            $query->bindParam(":idVisit", $id, PDO::PARAM_STR);            
+            $query->bindParam(":StartDate", $VisitStart, PDO::PARAM_STR);
+            $query->bindParam(":EndDate", $VisitEnd, PDO::PARAM_STR);
+            $query->bindParam(":Location", $VisitLocation, PDO::PARAM_STR);
+            $query->bindParam(":Accommodation", $VisitAccommodation, PDO::PARAM_STR);
+            $query->bindParam(":Goal", $VisitGoal, PDO::PARAM_STR);
+            $query->bindParam(":Group", $VisitGroup, PDO::PARAM_STR);
 
             if ($query->execute()) {
                 header('location: /HR/main');

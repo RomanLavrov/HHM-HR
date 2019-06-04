@@ -1,13 +1,6 @@
 <?php
-
-class Child
-{
-    public $idChild;
-    public $idParent;
-    public $ChildName;
-    public $ChildLastName;
-    public $ChildBirthday;
-}
+include "application/models/Child.php";
+include "application/models/SwissVisit.php";
 
 class Controller_Update extends Controller
 {
@@ -56,9 +49,17 @@ class Controller_Update extends Controller
             $ChildName3 = $_POST["ChildName3"];
             $ChildLastName3 = $_POST["ChildLastName3"];
             $ChildBirthday3 = $_POST["ChildBirthday3"];
+
+            $VisitStart = $_POST["VisitStart"];
+            $VisitEnd = $_POST["VisitEnd"];
+            $VisitLocation = $_POST["VisitLocation"];
+            $VisitAccommodation = $_POST["VisitAccommodation"];
+            $VisitGoal = $_POST["VisitGoal"];
+            $VisitGroup = $_POST["VisitGroup"];
         }
 
         $childArray = array();
+
 
         $sqlChildren = "SELECT * FROM Children where Children.idEmployee = $id";
         if ($queryChildren = $pdo->prepare($sqlChildren)) {
@@ -76,7 +77,28 @@ class Controller_Update extends Controller
                 }
             }
         }
-      
+
+        $visitArray = array();
+
+        $sqlVisit = "SELECT * FROM SwissVisit where SwissVisit.idEmployee = :id";
+        if ($queryVisit = $pdo->prepare($sqlVisit)){
+            $queryVisit->bindParam(":id", $id, PDO::PARAM_STR);
+
+            if ($queryVisit->execute()){
+                while ($rowVisit = $queryVisit->fetch()){
+                    $visit = new SwissVisit();
+                    $visit->idEmployee = $rowVisit['idEmployee'];
+                    $visit->StartDate = $rowVisit['StartDate'];
+                    $visit->EndDate = $rowVisit['EndDate'];
+                    $visit->Location = $rowVisit['Location'];
+                    $visit->Accommodation = $rowVisit['Accommodation'];
+                    $visit->Goal = $rowVisit['Goal'];
+                    $visit->Group = $rowVisit['Group'];
+
+                    $visitArray[] = $visit;
+                }
+            }
+        }      
 
         $sql = "START TRANSACTION;
         UPDATE `hhmeweme_HR`.`Employee` SET `Name`= :Name, `LastName` = :LastName, `Photo`=:Photo WHERE `id` =:id;
@@ -88,6 +110,7 @@ class Controller_Update extends Controller
         UPDATE `hhmeweme_HR`.`Children` SET `ChildName`=:ChildName1, `ChildLastName`=:ChildLastName1, `Birth`=:ChildBirthday1 WHERE `idEmployee`=:id and `idChildren`=:idChild1;
         UPDATE `hhmeweme_HR`.`Children` SET `ChildName`=:ChildName2, `ChildLastName`=:ChildLastName2, `Birth`=:ChildBirthday2 WHERE `idEmployee`=:id and `idChildren`=:idChild2;
         UPDATE `hhmeweme_HR`.`Children` SET `ChildName`=:ChildName3, `ChildLastName`=:ChildLastName3, `Birth`=:ChildBirthday3 WHERE `idEmployee`=:id and `idChildren`=:idChild3;
+        UPDATE `hhmeweme_HR`.`SwissVisit` SET `StartDate`=:StartDate, `EndDate`=:EndDate, `Location`=:Location, `Accommodation`=:Accommodation, `Goal`=:Goal, `Group`=:Group;
         COMMIT;";
 
         $query = $pdo->prepare($sql);
@@ -135,6 +158,14 @@ class Controller_Update extends Controller
         $query->bindParam(":ChildLastName3", $ChildLastName3, PDO::PARAM_STR);
         $query->bindParam(":ChildBirthday3", $ChildBirthday3, PDO::PARAM_STR);
         $query->bindParam(":idChild3", $childArray[2]->idChild, PDO::PARAM_STR);
+
+        $query->bindParam(":idVisit", $id, PDO::PARAM_STR);            
+        $query->bindParam(":StartDate", $VisitStart, PDO::PARAM_STR);
+        $query->bindParam(":EndDate", $VisitEnd, PDO::PARAM_STR);
+        $query->bindParam(":Location", $VisitLocation, PDO::PARAM_STR);
+        $query->bindParam(":Accommodation", $VisitAccommodation, PDO::PARAM_STR);
+        $query->bindParam(":Goal", $VisitGoal, PDO::PARAM_STR);
+        $query->bindParam(":Group", $VisitGroup, PDO::PARAM_STR);
         
 
         if ($query->execute()) {

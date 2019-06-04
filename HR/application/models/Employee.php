@@ -24,10 +24,10 @@ class Employee
     public $Pass_Expired;
 
     public $Children = array();
-
+/*
     public $ChildName;
     public $ChildLastName;
-    public $ChildBirthday;
+    public $ChildBirthday;*/
 
     public $G17_email;
     public $G17_initials;

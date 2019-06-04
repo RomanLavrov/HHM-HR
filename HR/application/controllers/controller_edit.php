@@ -1,50 +1,7 @@
 <?php
-
-class Employee
-{
-    public $Id;
-    public $Name;
-    public $LastName;
-    public $Photo;
-
-    public $BirthDate;
-    public $CivilState;
-    public $Address;
-    public $PLZ;
-    public $Place;
-    public $Phone;
-
-    public $CareerStart;   
-    public $Position;
-    public $Comment;
-    public $Salary;
-
-    public $Pass_Name;
-    public $Pass_LastName;
-    public $Pass_Number;
-    public $Pass_Expired;
-
-    public $Children = array();
-
-    public $ChildName;
-    public $ChildLastName;
-    public $ChildBirthday;
-
-    public $G17_email;
-    public $G17_initials;
-
-    public $HHM_email;
-    public $HHM_initials;
-}
-
-class Child
-{
-    public $idChild;
-    public $idParent;
-    public $ChildName;
-    public $ChildLastName;
-    public $ChildBirthday;
-}
+include "application/models/Employee.php";
+include "application/models/Child.php";
+include "application/models/SwissVisit.php";
 
 class Controller_Edit extends Controller
 {
@@ -64,6 +21,7 @@ class Controller_Edit extends Controller
         }
 
         $childArray = array();
+        $visitArray = array();
 
         $sqlChildren = "SELECT * FROM Children where Children.idEmployee = :id";
         if ($queryChildren = $pdo->prepare($sqlChildren)) {
@@ -83,6 +41,26 @@ class Controller_Edit extends Controller
             }
         }
 
+        $sqlVisit = "SELECT * FROM SwissVisit where SwissVisit.idEmployee = :id";
+        if ($queryVisit = $pdo->prepare($sqlVisit)){
+            $queryVisit->bindParam(":id", $id, PDO::PARAM_STR);
+
+            if ($queryVisit->execute()){
+                while ($rowVisit = $queryVisit->fetch()){
+                    $visit = new SwissVisit();
+                    $visit->idEmployee = $rowVisit['idEmployee'];
+                    $visit->StartDate = $rowVisit['StartDate'];
+                    $visit->EndDate = $rowVisit['EndDate'];
+                    $visit->Location = $rowVisit['Location'];
+                    $visit->Accommodation = $rowVisit['Accommodation'];
+                    $visit->Goal = $rowVisit['Goal'];
+                    $visit->Group = $rowVisit['Group'];
+
+                    $visitArray[] = $visit;
+                }
+            }
+        }
+
         $sql = "SELECT * FROM Employee
             LEFT JOIN PersonalData ON Employee.id = PersonalData.idEmployee
 			Left JOIN Career ON Employee.id = Career.idEmployee
@@ -90,6 +68,7 @@ class Controller_Edit extends Controller
 
 			LEFT JOIN G17 ON Employee.id = G17.idEmployee
             LEFT JOIN HHM ON Employee.id = HHM.idEmployee
+            LEFT JOIN SwissVisit ON Employee.id = SwissVisit.idEmployee
             WHERE Employee.id = :id";
 
         if ($query = $pdo->prepare($sql)) {
@@ -135,6 +114,12 @@ class Controller_Edit extends Controller
                     //-----H17
                     $employee->HHM_email = $row['HHM_E-Mail'];
                     $employee->HHM_initials = $row['HHM_Initials'];
+
+                    foreach ($visitArray as $visit){
+                        if ($row['id'] == $visit->idEmployee){
+                            $employee->SwissVisit[] = $visit;
+                        }
+                    }
 
                     $this->view->employee = $employee;
                 }
