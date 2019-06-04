@@ -15,6 +15,7 @@ class Employee
 
     public $CareerStart;
     public $Position;
+    public $Comment;
     public $Salary;
 
     public $Pass_Name;
@@ -33,4 +34,6 @@ class Employee
 
     public $HHM_email;
     public $HHM_initials;
+
+    public $SwissVisit = array();
 }

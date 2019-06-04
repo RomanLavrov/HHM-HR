@@ -10,7 +10,7 @@
                   <div class="bio-description">Vorname</div>
                   <div class="bio-value"><?php print htmlentities($this->employee->LastName)?></div>
             </div>
-            <form action="/HR/editSick" method="post">
+            <form action="/HR/editsick" method="post">
                   <div class="create-personal-header">Krankenstand</div>
                   <div id="vacations-scroll">
                         <?php $sickLeavesCounter = 1?>

@@ -14,8 +14,9 @@ class Employee
     public $Place;
     public $Phone;
 
-    public $CareerStart;
+    public $CareerStart;   
     public $Position;
+    public $Comment;
     public $Salary;
 
     public $Pass_Name;
@@ -51,7 +52,7 @@ class Controller_Edit extends Controller
     {
         session_start();
         require_once "config.php";
-        echo($_SESSION['employeePhotoSrc']);
+        //echo($_SESSION['employeePhotoSrc']);
 
         $userPhoto = "HR/images/user.png";
         if (isset($_POST['idEmployee'])){
@@ -109,8 +110,9 @@ class Controller_Edit extends Controller
                     $employee->Place = $row['Place'];
                     $employee->Phone = $row['Phone'];
 
-                    //-----Career
+                    //-----Career                    
                     $employee->Position = $row['Position'];
+                    $employee->Comment = $row['Comment'];
                     $employee->StartDate = $row['StartDate'];
                     $employee->Salary = $row['Salary'];
 

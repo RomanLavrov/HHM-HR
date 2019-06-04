@@ -36,6 +36,7 @@ class Controller_Update extends Controller
 
             $CareerStart = $_POST["CareerStart"];
             $Position = $_POST["Position"];
+            $Comment = $_POST["Comment"];
             $Salary = $_POST["Salary"];
 
             $G17_email = $_POST["G17_email"];
@@ -80,7 +81,7 @@ class Controller_Update extends Controller
         $sql = "START TRANSACTION;
         UPDATE `hhmeweme_HR`.`Employee` SET `Name`= :Name, `LastName` = :LastName, `Photo`=:Photo WHERE `id` =:id;
         UPDATE `hhmeweme_HR`.`PersonalData` SET `BirthDate`= :BirthDate, `CivilState`=:CivilState , `Address`=:Address , `PLZ`= :PLZ, `Place` = :Place, `Phone`= :Phone WHERE `idEmployee` =:id ;
-        UPDATE `hhmeweme_HR`.`Career` SET `Position`=:Position, `StartDate` = :CareerStart, `Salary` = :Salary WHERE `idEmployee` =:id;
+        UPDATE `hhmeweme_HR`.`Career` SET `Position`=:Position, `Comment`=:Comment, `StartDate` = :CareerStart, `Salary` = :Salary WHERE `idEmployee` =:id;
         UPDATE `hhmeweme_HR`.`ForeignPassport` SET `PassName`=:Pass_Name, `PassLastName` = :Pass_LastName, `Number`=:Pass_Number, `Valid`=:Pass_Expired WHERE `idEmployee`=:id;
         UPDATE `hhmeweme_HR`.`G17` SET `G17_E-Mail`=:G17_email, `G17_initials`=:G17_initials WHERE `idEmployee`=:id;
         UPDATE `hhmeweme_HR`.`HHM` SET `HHM_E-Mail`=:HHM_email,  `HHM_initials`=:HHM_initials WHERE `idEmployee`=:id;
@@ -104,6 +105,7 @@ class Controller_Update extends Controller
         $query->bindParam(":Phone", $Phone, PDO::PARAM_STR);
 
         $query->bindParam(":Position", $Position, PDO::PARAM_STR);
+        $query->bindParam(":Comment", $Comment, PDO::PARAM_STR);
         $query->bindParam(":CareerStart", $CareerStart, PDO::PARAM_STR);
         $query->bindParam(":Salary", $Salary, PDO::PARAM_STR);
 

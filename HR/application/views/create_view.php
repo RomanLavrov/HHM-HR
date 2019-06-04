@@ -1,5 +1,5 @@
 <div class="create-body">
-    <form action="/HR/uploadPhoto" method="post" enctype="multipart/form-data">
+    <form action="/HR/uploadphoto" method="post" enctype="multipart/form-data">
         <input class="input1" id="imageUpload" type="file" name="fileToUpload">
         <input class="input2" id="imageButton" type="submit" value="Upload Image" name="photo">
     </form>
@@ -36,8 +36,8 @@
                         <input type="text" name="LastName" class="bio-value">
                     </div>
 
-                    <input type="submit" id="btn-add" class="personal-categories-btn" value="Hinzufügen">
-                    <button id="btn-cancel" class="personal-categories-btn">Abbrechen</button>
+                    <input type="submit" id="btn-add" class="personal-categories-btn" value="Speichern">
+                    <a id="btn-cancel" class="personal-categories-btn" href="/HR/main">Abbrechen</a>
                 </div>
             </div>
 
@@ -58,7 +58,7 @@
                                 <input list="CivilStand" name="CivilState" class="bio-value">
                                 <datalist id="CivilStand">
                                     <option value="Ledig">
-                                    <option value="Verheirated">
+                                    <option value="Verheiratet">
                                     <option value="Geschieden">
                                     <option value="Verwitwet">
                                 </datalist>
@@ -111,6 +111,10 @@
                                 <input type="date" name="CareerStart" class="bio-value">
                             </div>
                             <div>
+                                <div class="bio-description">Kommentar</div>
+                                <input type="text" name="Comment" class="bio-value">
+                            </div>
+                            <div>
                                 <div class="bio-description">Position</div>
                                 <input type="text" name="Position" class="bio-value">
                             </div>
@@ -153,7 +157,7 @@
                                 <input type="text" name="ChildName1" class="bio-value">
                             </div>
                             <div>
-                                <div class="bio-description">Kinder Vorame</div>
+                                <div class="bio-description">Kinder Vorname</div>
                                 <input type="text" name="ChildLastName1" class="bio-value">
                             </div>
                             <div>
@@ -169,7 +173,7 @@
                                 <input type="text" name="ChildName2" class="bio-value">
                             </div>
                             <div>
-                                <div class="bio-description">Kinder Vorame</div>
+                                <div class="bio-description">Kinder Vorname</div>
                                 <input type="text" name="ChildLastName2" class="bio-value">
                             </div>
                             <div>
@@ -184,7 +188,7 @@
                                 <input type="text" name="ChildName3" class="bio-value">
                             </div>
                             <div>
-                                <div class="bio-description">Kinder Vorame</div>
+                                <div class="bio-description">Kinder Vorname</div>
                                 <input type="text" name="ChildLastName3" class="bio-value">
                             </div>
                             <div>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-class Controller_UploadPhoto extends Controller
+class Controller_Uploadphoto extends Controller
 {
     public function action_index()
     {

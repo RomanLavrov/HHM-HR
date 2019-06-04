@@ -67,7 +67,7 @@
                     <a class="btn-nav-image" href="/HR/create">
                         <img src="/HR/images/add_employee.png" alt="" />
                     </a>
-                    <div class="btn-nav-text">Add Worker</div>
+                    <div class="btn-nav-text">Hinzufügen</div>
 
                 </div>
 

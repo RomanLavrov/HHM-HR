@@ -2,7 +2,7 @@
     font-family: Helvetica, sans-serif;
 }
 
-.btn-nav-panel{
+.btn-nav-panel {
     background: #222;
     width: 80px;
     height: 80px;
@@ -21,19 +21,19 @@
     left: 0px;
 }
 
-.btn-nav-image img{
-    width:60px;
+.btn-nav-image img {
+    width: 60px;
 }
 
 .btn-nav-panel:hover {
-    color:white;
+    color: white;
     width: 240px;
     padding-left: 80px;
     background-color: #333;
 }
-.btn-nav-panel:hover  .btn-nav-image{
-    background-color: #333;
 
+.btn-nav-panel:hover .btn-nav-image {
+    background-color: #333;
 }
 
 .table-striped td {
@@ -196,6 +196,11 @@
     box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 24px 0 rgba(0, 0, 0, 0.19);
 }
 
+.deleteButton {
+    width: 60px;
+    height: 60px;
+}
+
 .searchbar {
     width: 420px;
     background: white;
@@ -205,9 +210,9 @@
     border-radius: 5px;
     border: none;
     padding-left: 15px;
-   
 }
-.searchbar:focus{
+
+.searchbar:focus {
     box-shadow: 0px 0px 12px 2px lightblue;
 }
 
@@ -291,8 +296,8 @@
 }
 
 .employee-controls button {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     margin-top: 10px;
     margin-right: 5px;
     padding: 0;
@@ -430,6 +435,11 @@
     display: inline-block;
 }
 
+a.personal-categories-btn {
+    text-decoration: none;
+    line-height: 40px;
+}
+
 .personal-categories-btn {
     width: 98%;
     height: 40px;
@@ -472,12 +482,11 @@
     display: inline-block;
 }
 
-.bio-description, .bio-value-duration, 
-.no-vacations-label{
-    -webkit-user-select: none; 
-    -moz-user-select: none;     
-    -ms-user-select: none;      
-    user-select: none;  
+.bio-description, .bio-value-duration, .no-vacations-label {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .bio-value {
@@ -492,7 +501,8 @@
     border-radius: 5px !important;
     display: inline-block;
 }
-input.bio-value{
+
+input.bio-value {
     padding-left: 0px;
     cursor: pointer;
 }
@@ -639,8 +649,6 @@ input.bio-value{
     vertical-align: top;
 }
 
-
-
 .calendar-month h1 {
     background: dodgerblue;
     font-size: 16pt;
@@ -660,6 +668,30 @@ input.bio-value{
     line-height: 20px;
     text-decoration: none;
 }
+
+.tooltip-text {
+    width: auto;
+    height: 20px;
+    line-height: 18px;
+    font-size: 12px;
+    visibility: hidden;
+    margin-top: 30px;
+    padding-left: 5px;
+    padding-right:5px; 
+    background-color: whitesmoke;
+    color: black;
+    text-align: center;   
+    border-radius: 0px;
+    border: 1px solid black;
+    position: absolute;
+    
+    z-index: 1;
+}
+
+.deleteButton:hover .tooltip-text {
+    visibility: visible;
+   
+  }
 
 /* .calendar-day,
 .calendar-day-header,
@@ -834,7 +866,7 @@ input.bio-value{
     margin-bottom: 20px;
 }
 
-.no-vacations-label{
+.no-vacations-label {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -846,7 +878,7 @@ input.bio-value{
     font-weight: 300;
     text-align: center;
     vertical-align: middle;
-    color:white;
+    color: white;
     text-shadow: 1px 2px 7px rgba(0, 0, 0, 0.3);
     /* background: black; */
     /* background-color: #7e7e7e; */
@@ -871,6 +903,7 @@ input.bio-value{
 }
 
 /* bootstrap datepicker custom */
+
 /* .datepicker table tr td.active.active{
     background: dodgerblue;
     color:white;

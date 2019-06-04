@@ -25,6 +25,7 @@ class Controller_Create extends Controller
             $Pass_Expired = $_POST["Pass_Expired"];
 
             $CareerStart = $_POST["CareerStart"];
+            $Comment = $_POST["Comment"];
             $Position = $_POST["Position"];
             $Salary = $_POST["Salary"];
 
@@ -62,7 +63,7 @@ class Controller_Create extends Controller
 			INSERT INTO `hhmeweme_HR`.`PersonalData` (`idEmployee`, `BirthDate`, `CivilState`, `Address`, `PLZ`, `Place`, `Phone`) 
 			VALUES(:idEmployeePersonal, :BirthDate, :CivilState, :Address, :PLZ, :Place, :Phone);
 
-			INSERT INTO `hhmeweme_HR`.`Career` (`idEmployee`, `Position`, `StartDate`, `Salary`) VALUES (:idEmployee, :Position, :CareerStart, :Salary);
+			INSERT INTO `hhmeweme_HR`.`Career` (`idEmployee`, `Position`, `Comment`, `StartDate`, `Salary`) VALUES (:idEmployee, :Position, :Comment, :CareerStart, :Salary);
 
 			INSERT INTO `hhmeweme_HR`.`ForeignPassport` (`idEmployee`, `PassName`, `PassLastName`, `Number`, `Valid`) VALUES (:idPass, :Pass_Name, :Pass_LastName, :Pass_Number, :Pass_Expired);
 
@@ -87,7 +88,8 @@ class Controller_Create extends Controller
             $query->bindParam(":LastName", $LastName, PDO::PARAM_STR);
             $query->bindParam(":Photo", $Photo, PDO::PARAM_STR);
 
-			$query->bindParam(":idEmployee", $id, PDO::PARAM_STR);
+            $query->bindParam(":idEmployee", $id, PDO::PARAM_STR);
+            $query->bindParam(":Comment", $Comment, PDO::PARAM_STR);
             $query->bindParam(":Position", $Position, PDO::PARAM_STR);
             $query->bindParam(":CareerStart", $CareerStart, PDO::PARAM_STR);
 			$query->bindParam(":Salary", $Salary, PDO::PARAM_STR);

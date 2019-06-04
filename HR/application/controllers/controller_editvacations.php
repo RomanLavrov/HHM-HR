@@ -1,5 +1,5 @@
 <?php
-include "application\models\model_sicklist.php";
+include "application/models/model_sicklist.php";
 
 class Controller_Editvacations extends Controller
 {

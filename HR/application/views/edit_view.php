@@ -38,8 +38,8 @@
                         <input type="text" name="LastName" class="bio-value" value=<?php echo($this->employee->LastName);?>>
                     </div>
 
-                    <input type="submit" id="btn-add" class="personal-categories-btn" value="Hinzufügen">
-                    <button id="btn-cancel" class="personal-categories-btn">Abbrechen</button>
+                    <input type="submit" id="btn-add" class="personal-categories-btn" value="Speichern">
+                    <a id="btn-cancel" class="personal-categories-btn" href="/HR/main">Abbrechen</a>
                 </div>
             </div>
 
@@ -59,7 +59,7 @@
                             <input list="CivilStand" name="CivilState" class="bio-value" value=<?php echo $this->employee->CivilState; ?>>
                                 <datalist id="CivilStand">
                                     <option value="Ledig">
-                                    <option value="Verheirated">
+                                    <option value="Verheiratet">
                                     <option value="Geschieden">
                                     <option value="Verwitwet">
                                 </datalist>
@@ -112,6 +112,10 @@
                                 <input type="date" name="CareerStart" class="bio-value" value=<?php echo $this->employee->StartDate; ?>>
                             </div>
                             <div>
+                                <div class="bio-description">Kommentar</div>
+                                <input type="text" name="Comment" class="bio-value" value=<?php echo $this->employee->Comment; ?>>
+                            </div>
+                            <div>
                                 <div class="bio-description">Position</div>
                                 <input type="text" name="Position" class="bio-value" value=<?php echo $this->employee->Position; ?>>
                             </div>
@@ -154,7 +158,7 @@
                                 <input type="text" name="ChildName1" class="bio-value" value=<?php echo $this->employee->Children[0]->ChildName; ?>>
                             </div>
                             <div>
-                                <div class="bio-description">Kinder Vorame</div>
+                                <div class="bio-description">Kinder Vorname</div>
                                 <input type="text" name="ChildLastName1" class="bio-value" value=<?php echo $this->employee->Children[0]->ChildLastName; ?>>
                             </div>
                             <div>
@@ -185,7 +189,7 @@
                                 <input type="text" name="ChildName3" class="bio-value" value=<?php echo $this->employee->Children[2]->ChildName; ?>>
                             </div>
                             <div>
-                                <div class="bio-description">Kinder Vorame</div>
+                                <div class="bio-description">Kinder Vorname</div>
                                 <input type="text" name="ChildLastName3" class="bio-value" value=<?php echo $this->employee->Children[2]->ChildLastName; ?>>
                             </div>
                             <div>

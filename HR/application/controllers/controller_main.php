@@ -1,48 +1,9 @@
 <?php
 session_start();
 
-class Employee
-{
-    public $Id;
-    public $Name;
-    public $LastName;
-    public $Photo;
-
-    public $BirthDate;
-    public $CivilState;
-    public $Address;
-	public $PLZ;
-	public $Place;
-    public $Phone;
-
-    public $CareerStart;
-    public $Position;
-    public $Salary;
-
-    public $Pass_Name;
-    public $Pass_LastName;
-    public $Pass_Number;
-    public $Pass_Expired;
-
-    public $Children = array();
-
-    public $ChildName;
-    public $ChildLastName;
-    public $ChildBirthday;
-
-    public $G17_email;
-    public $G17_initials;
-
-    public $HHM_email;
-    public $HHM_initials;
-}
-
-class Child{
-    public $idParent;
-    public $ChildName;
-    public $ChildLastName;
-    public $ChildBirthday;
-}
+include "application/models/Employee.php";
+include "application/models/Child.php";
+include "application/models/SwissVisit.php";
 
 class Controller_Main extends Controller
 {
@@ -52,6 +13,7 @@ class Controller_Main extends Controller
         require_once "config.php";
         $empArray = array();
         $childArray = array();
+        $visitArray = array();
 
         if (isset($_SESSION['loggedin'])) {
 
@@ -69,13 +31,31 @@ class Controller_Main extends Controller
                 }
             }
 
+            $sqlSwissVisit = "SELECT * FROM SwissVisit";
+            if ($querySwissVisit = $pdo->prepare($sqlSwissVisit)){
+                if ($querySwissVisit->execute()){
+                    while($rowVisit=$querySwissVisit->fetch()){
+                        $visit = new SwissVisit;
+                        $visit->idEmployee = $rowVisit['idEmployee'];
+                        $visit->StartDate = $rowVisit['StartDate'];
+                        $visit->EndDate = $rowVisit['EndDate'];
+                        $visit->Location = $rowVisit['Location'];
+                        $visit->Accommodation = $rowVisit['Accommodation'];
+                        $visit->Goal = $rowVisit['Goal'];
+                        $visit->Group = $rowVisit['Group'];
+
+                        $visitArray[] = $visit;
+                    }
+                }
+            }
+
             $sql = "SELECT * FROM Employee             
             LEFT JOIN PersonalData ON Employee.id = PersonalData.idEmployee
-			Left JOIN Career ON Employee.id = Career.idEmployee
-			LEFT JOIN ForeignPassport ON Employee.id = ForeignPassport.idEmployee
-			
+			LEFT JOIN Career ON Employee.id = Career.idEmployee
+			LEFT JOIN ForeignPassport ON Employee.id = ForeignPassport.idEmployee			
 			LEFT JOIN G17 ON Employee.id = G17.idEmployee
-            LEFT JOIN HHM ON Employee.id = HHM.idEmployee" ;
+            LEFT JOIN HHM ON Employee.id = HHM.idEmployee
+            LEFT JOIN SwissVisit ON Employee.id = SwissVisit.idEmployee" ;
 
             if ($query = $pdo->prepare($sql)) {
 
@@ -98,6 +78,7 @@ class Controller_Main extends Controller
                         //-----Career
                         $employee->Position = $row['Position'];
                         $employee->StartDate = $row['StartDate'];
+                        $employee->Comment = $row['Comment'];
                         $employee->Salary = $row['Salary'];
 
                         //-----Passport
@@ -124,6 +105,12 @@ class Controller_Main extends Controller
 						//-----H17
 						$employee->HHM_email = $row['HHM_E-Mail'];
                         $employee->HHM_initials = $row['HHM_Initials'];
+
+                        foreach($visitArray as $visit){
+                            if ($row['idEmployee'] == $visit->idEmployee){
+                                $employee->SwissVisit[] = $visit;
+                            }
+                        }
 
                         $empArray[] = $employee;
                     }
