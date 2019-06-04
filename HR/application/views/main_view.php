@@ -20,6 +20,10 @@
                         <div>
                               <?php print htmlentities($counter++); ?>
                         </div>
+                        <div style="background:green">
+                              <img src="images/Work.svg" alt="">
+                              <?php print htmlentities($employee->Status)?>
+                        </div>
                   </td>
                   <td class="category-personal border-right">                 
                         <div class="employee-main">

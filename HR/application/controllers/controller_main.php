@@ -79,6 +79,7 @@ class Controller_Main extends Controller
                         $employee->StartDate = $row['StartDate'];
                         $employee->Comment = $row['Comment'];
                         $employee->Salary = $row['Salary'];
+                        $employee->Status = $row['Status'];
 
                         //-----Passport
                         $employee->Pass_Name = $row['PassName'];

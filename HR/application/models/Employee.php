@@ -17,6 +17,7 @@ class Employee
     public $Position;
     public $Comment;
     public $Salary;
+    public $Status;
 
     public $Pass_Name;
     public $Pass_LastName;
