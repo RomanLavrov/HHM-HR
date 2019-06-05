@@ -42,13 +42,28 @@
     <div class="row" style="width: 100%">
         <div>
             <div id="nav-panel">
+
                 <div class="btn-nav-panel">
                     <a class="btn-nav-image" href="/HR/main">
                         <img src="/HR/images/all_employee.png" alt="">
                     </a>
                     <div class="btn-nav-text">Alle Mitarbeiter</div>
-
                 </div>
+
+                <div class="btn-nav-panel">
+                    <a class="btn-nav-image" href="/HR/main">
+                        <img src="/HR/images/Retired.svg" alt="">
+                    </a>
+                    <div class="btn-nav-text">Ausgetreten</div>
+                </div>
+
+                <div class="btn-nav-panel">
+                    <a class="btn-nav-image" href="/HR/main">
+                        <img src="/HR/images/Maternity.svg" alt="" >
+                    </a>
+                    <div class="btn-nav-text">Mutterschaftsurlaub</div>
+                </div>
+
                 <div class="btn-nav-panel">
                     <a class="btn-nav-image" href="/HR/sicklist">
                         <img src="/HR/images/SickList.png" alt="">

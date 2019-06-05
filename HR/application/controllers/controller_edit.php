@@ -91,9 +91,10 @@ class Controller_Edit extends Controller
 
                     //-----Career                    
                     $employee->Position = $row['Position'];
-                    $employee->Comment = $row['Comment'];
-                    $employee->StartDate = $row['StartDate'];
+                    $employee->StartDate = $row['CareerStart'];
+                    $employee->Comment = $row['Comment'];                   
                     $employee->Salary = $row['Salary'];
+                    $employee->Status = $row['Status'];
 
                     //-----Passport
                     $employee->Pass_Name = $row['PassName'];
@@ -120,7 +121,6 @@ class Controller_Edit extends Controller
                             $employee->SwissVisit[] = $visit;
                         }
                     }
-
                     $this->view->employee = $employee;
                 }
             }

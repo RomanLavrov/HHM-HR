@@ -50,11 +50,11 @@ class Controller_Main extends Controller
             }
 
             $sql = "SELECT * FROM Employee             
-            LEFT JOIN PersonalData ON Employee.id = PersonalData.idEmployee
-			LEFT JOIN Career ON Employee.id = Career.idEmployee
-			LEFT JOIN ForeignPassport ON Employee.id = ForeignPassport.idEmployee			
-			LEFT JOIN G17 ON Employee.id = G17.idEmployee
-            LEFT JOIN HHM ON Employee.id = HHM.idEmployee" ;
+            LEFT JOIN PersonalData      ON Employee.id = PersonalData.idEmployee
+			LEFT JOIN Career            ON Employee.id = Career.idEmployee
+			LEFT JOIN ForeignPassport   ON Employee.id = ForeignPassport.idEmployee			
+			LEFT JOIN G17               ON Employee.id = G17.idEmployee
+            LEFT JOIN HHM               ON Employee.id = HHM.idEmployee" ;
 
             if ($query = $pdo->prepare($sql)) {
 
@@ -76,7 +76,7 @@ class Controller_Main extends Controller
 
                         //-----Career
                         $employee->Position = $row['Position'];
-                        $employee->StartDate = $row['StartDate'];
+                        $employee->StartDate = $row['CareerStart'];
                         $employee->Comment = $row['Comment'];
                         $employee->Salary = $row['Salary'];
                         $employee->Status = $row['Status'];

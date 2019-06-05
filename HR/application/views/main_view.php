@@ -19,13 +19,13 @@
                   <td class="category-id">
                         <div>
                               <?php print htmlentities($counter++); ?>
+
+                              <span><img src="images/Work.svg" alt="" style="background:forestgreen">
+                              <?php print htmlentities($employee->Status)?></span>
                         </div>
-                        <div style="background:green">
-                              <img src="images/Work.svg" alt="">
-                              <?php print htmlentities($employee->Status)?>
-                        </div>
+                       
                   </td>
-                  <td class="category-personal border-right">                 
+                  <td class="category-personal border-right">
                         <div class="employee-main">
                               <div class="employee-name">
                                     <img class="employee-photo" src=<?php print htmlentities($employee->Photo); ?>
@@ -117,7 +117,7 @@
                                           <td><?php print htmlentities($employee->Place); ?></td>
                                     </tr>
                                     <tr>
-                                          <td>Telephone</td>
+                                          <td>Telefon</td>
                                           <td><?php print htmlentities($employee->Phone); ?></td>
                                     </tr>
                               </tbody>
