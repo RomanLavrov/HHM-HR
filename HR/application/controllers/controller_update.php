@@ -31,6 +31,7 @@ class Controller_Update extends Controller
             $Position = $_POST["Position"];
             $Comment = $_POST["Comment"];
             $Salary = $_POST["Salary"];
+            $Status = $_POST["Status"];
 
             $G17_email = $_POST["G17_email"];
             $G17_initials = $_POST["G17_initials"];
@@ -99,26 +100,24 @@ class Controller_Update extends Controller
             print_r($VisitArray[$i]);
             echo ("</pre>");
 
-            $sqlVisit = "INSERT INTO `hhmeweme_HR`.`SwissVisit` (`idEmployee`, `StartDate`, `EndDate`, `Location`, `Accommodation`, `Goal`, `Group`) VALUES (:idVisit, :StartDate, :EndDate, :Location, :Accommodation, :Goal, :Group);";
+            $sqlVisit = "INSERT INTO `hhmeweme_HR`.`SwissVisit` (`idEmployee`, `StartDate`, `EndDate`, `Location`, `Accommodation`, `Goal`, `Group`) VALUES (:idVisit, :StartDate, :EndDate, :LocationR, :Accommodation, :Goal, :Group);";
             $queryVisit = $pdo->prepare($sqlVisit);
 
             $queryVisit->bindParam(":idVisit", $id, PDO::PARAM_STR);
             $queryVisit->bindParam(":StartDate",        $VisitArray[$i][0], PDO::PARAM_STR);
             $queryVisit->bindParam(":EndDate",          $VisitArray[$i][1], PDO::PARAM_STR);
-            $queryVisit->bindParam(":Location",         $VisitArray[$i][2], PDO::PARAM_STR);
+            $queryVisit->bindParam(":LocationR",        $VisitArray[$i][2], PDO::PARAM_STR);
             $queryVisit->bindParam(":Accommodation",    $VisitArray[$i][3], PDO::PARAM_STR);
             $queryVisit->bindParam(":Goal",             $VisitArray[$i][4], PDO::PARAM_STR);
             $queryVisit->bindParam(":Group",            $VisitArray[$i][5], PDO::PARAM_STR);
 
             $queryVisit->execute();
-        }
-
-
+        }                 
 
         $sqlVisit = "SELECT * FROM SwissVisit where SwissVisit.idEmployee = :id";
         if ($queryVisit = $pdo->prepare($sqlVisit)) {
             $queryVisit->bindParam(":id", $id, PDO::PARAM_STR);
-
+              
             if ($queryVisit->execute()) {
                 while ($rowVisit = $queryVisit->fetch()) {
                     $visit = new SwissVisit();
@@ -138,14 +137,14 @@ class Controller_Update extends Controller
         $sql = "START TRANSACTION;
         UPDATE `hhmeweme_HR`.`Employee` SET `Name`= :Name, `LastName` = :LastName, `Photo`=:Photo WHERE `id` =:id;
         UPDATE `hhmeweme_HR`.`PersonalData` SET `BirthDate`= :BirthDate, `CivilState`=:CivilState , `Address`=:Address , `PLZ`= :PLZ, `Place` = :Place, `Phone`= :Phone WHERE `idEmployee` =:id ;
-        UPDATE `hhmeweme_HR`.`Career` SET `Position`=:Position, `Comment`=:Comment, `CareerStart` = :CareerStart, `Salary` = :Salary WHERE `idEmployee` =:id;
+        UPDATE `hhmeweme_HR`.`Career` SET `Position`=:Position, `Comment`=:Comment, `CareerStart` = :CareerStart, `Salary` = :Salary, `Status`=:Status WHERE `idEmployee` =:id;
         UPDATE `hhmeweme_HR`.`ForeignPassport` SET `PassName`=:Pass_Name, `PassLastName` = :Pass_LastName, `Number`=:Pass_Number, `Valid`=:Pass_Expired WHERE `idEmployee`=:id;
         UPDATE `hhmeweme_HR`.`G17` SET `G17_E-Mail`=:G17_email, `G17_initials`=:G17_initials WHERE `idEmployee`=:id;
         UPDATE `hhmeweme_HR`.`HHM` SET `HHM_E-Mail`=:HHM_email,  `HHM_initials`=:HHM_initials WHERE `idEmployee`=:id;
         UPDATE `hhmeweme_HR`.`Children` SET `ChildName`=:ChildName1, `ChildLastName`=:ChildLastName1, `Birth`=:ChildBirthday1 WHERE `idEmployee`=:id and `idChildren`=:idChild1;
         UPDATE `hhmeweme_HR`.`Children` SET `ChildName`=:ChildName2, `ChildLastName`=:ChildLastName2, `Birth`=:ChildBirthday2 WHERE `idEmployee`=:id and `idChildren`=:idChild2;
         UPDATE `hhmeweme_HR`.`Children` SET `ChildName`=:ChildName3, `ChildLastName`=:ChildLastName3, `Birth`=:ChildBirthday3 WHERE `idEmployee`=:id and `idChildren`=:idChild3;
-        UPDATE `hhmeweme_HR`.`SwissVisit` SET `StartDate`=:StartDate, `EndDate`=:EndDate, `Location`=:Location, `Accommodation`=:Accommodation, `Goal`=:Goal, `Group`=:Group;
+       
         COMMIT;";
 
         $query = $pdo->prepare($sql);
@@ -166,6 +165,7 @@ class Controller_Update extends Controller
         $query->bindParam(":Comment", $Comment, PDO::PARAM_STR);
         $query->bindParam(":CareerStart", $CareerStart, PDO::PARAM_STR);
         $query->bindParam(":Salary", $Salary, PDO::PARAM_STR);
+        $query->bindParam(":Status", $Status, PDO::PARAM_STR);
 
         $query->bindParam(":Pass_Name", $Pass_Name, PDO::PARAM_STR);
         $query->bindParam(":Pass_LastName", $Pass_LastName, PDO::PARAM_STR);
@@ -202,7 +202,7 @@ class Controller_Update extends Controller
         $query->bindParam(":Goal", $VisitGoal, PDO::PARAM_STR);
         $query->bindParam(":Group", $VisitGroup, PDO::PARAM_STR);
 
-        /*
+        
         if ($query->execute()) {
            echo($id);
            echo($Name);
@@ -210,6 +210,6 @@ class Controller_Update extends Controller
             header('location: /HR/main');
         } else {
             echo ("Error");
-        }*/
+        }
     }
 }

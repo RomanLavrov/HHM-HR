@@ -2,23 +2,24 @@
     font-family: Helvetica, sans-serif;
 }
 
-.btn-nav-panel {    
+.btn-nav-panel {
     background: #222;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     color: transparent;
     transition: 0.5s;
     text-align: center;
-    line-height: 80px;
+    line-height: 60px;
+    margin-bottom:10px;
 }
 
-.btn-nav-panel:first{
-    margin-top:110px;
+.btn-nav-panel:first {
+    margin-top: 110px;
 }
 
 .btn-nav-image {
     background: #222;
-    width: 80px;
+    width: 60px;
     display: inline-block;
     position: fixed;
     transition: 0.5s;
@@ -82,10 +83,10 @@
 }
 
 #nav-panel {
-   padding-top:130px;
+    padding-top: 130px;
     position: fixed;
     display: inline-block;
-    width: 80px;
+    width: 60px;
     background: #222;
     height: 100vh;
     color: white;
@@ -103,12 +104,14 @@
 }
 
 #content {
+    background: #ddd;
     margin-top: 60px;
     top: 60px;
     display: inline-block;
     width: 100%;
+    min-height: 100vh;
     height: auto;
-    margin-left: 80px;
+    margin-left: 60px;
 }
 
 .button-add {
@@ -175,26 +178,26 @@
 }
 
 .mail-card-G17, .mail-card-HHM {
-    color:white;
+    color: white;
     background: slategray;
     padding: 5px;
-    padding-left:10px;
+    padding-left: 10px;
     width: 300px;
     white-space: nowrap;
-    margin-top:10px;
+    margin-top: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     z-index: 100;
 }
 
 .mail-card-HHM {
-    color:white;
-    background: lightslategray;  
-    margin-bottom: 15px; 
+    color: white;
+    background: lightslategray;
+    margin-bottom: 15px;
 }
 
 .deleteButton, .editButton, .vacationButton, .sickButton {
-    background: rgb(218, 57, 49);
+    background: #da3931;
     background-image: url("/HR/images/delete_employee.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -203,13 +206,12 @@
     width: 50px;
     height: 50px;
     color: transparent;
-    border: 1px solid rgb(218, 57, 49);
+    border: 1px solid #da3931;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 10px;
     display: inline-block;
     margin-right: 10px;
     transition: 0.2s;
-    
 }
 
 .deleteButton:hover, .editButton:hover, .vacationButton:hover, .sickButton:hover {
@@ -217,7 +219,6 @@
 }
 
 .deleteButton {
-    
     width: 50px;
     height: 50px;
 }
@@ -253,16 +254,15 @@
 .vacationButton {
     background-image: url("/HR/images/vacation_small.png");
     background-position: center;
-    background-color: dodgerblue;
+    background-color: #036eda;
     background-size: 32px;
-    border: 1px solid dodgerblue;
+    border: 1px solid #036eda;
 }
 
 .sickButton {
     background-image: url("/HR/images/sick_small.png");
     background-position: center;
     background-size: 32px;
-    background-color: red;
 }
 
 .buttonImage {
@@ -274,35 +274,63 @@
     position: absolute;
 }
 
-.employee-photo {
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    background: dodgerblue;
-    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-   */
+.employee-id {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16pt;
+    vertical-align: top;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    height: 50px;
+    width: 50px;
     display: inline-block;
-    padding-left: 0
+    margin-left: -5px;
+    margin-top: -5px;
+    background: rgb(3, 110, 218);
+    border-radius: 10px;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.employee-status-maternity, .employee-status-retired, .employee-status-work {
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
+    height: 20px;
+    width: 20px;
+    background: radial-gradient(circle, rgba(101, 171, 59, 1) 0%, rgb(29, 122, 24) 100%);
+    border-radius: 10px;
+    border: 4px solid #eee;
+    float: right;
+}
+
+.employee-status-retired {
+    background: radial-gradient(circle, rgb(255, 85, 85) 0%, rgb(255, 0, 0) 100%);
+}
+
+.employee-status-maternity {
+    background: radial-gradient(circle, rgb(255, 146, 4) 0%, rgb(252, 146, 8) 100%);
+}
+
+.employee-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background: dodgerblue;
 }
 
 .employee-main {
-    width: 10%;
     vertical-align: top;
     display: inline-block;
-    margin-right: 20px;
 }
 
 .employee-name {
-    color:white;
-    padding-left: 0;
-    vertical-align: middle;
+    color: white;
     width: 300px;
-    height: 50px;
+    height: 70px;
     padding: 5px;
     text-align: left;
     background: dodgerblue;
     display: inline-block;
-    border: 1px solid dodgerblue;
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     transition: box-shadow .2s ease, transform .5s ease, margin-top .2s ease;
@@ -327,6 +355,36 @@
     border: none;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+.main-personal-data {
+    padding:0px;
+    margin-left: 10px;
+    color: white;
+    background: lightslategray;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.bio-header{
+    text-align: center;
+    padding:10px;
+    width:100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px; 
+    background: #23588C;
+    margin:0;
+}
+.bio-title {
+    padding-left: 10px;
+    border-bottom: 1px solid darkgray;
+}
+
+.bio-data {
+    overflow-wrap: nowrap;
+    display: inline-block;
+}
+
+
 
 .input1 {
     display: none;

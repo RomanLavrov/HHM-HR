@@ -36,6 +36,16 @@
                                     <input type="text" name="LastName" class="bio-value">
                               </div>
 
+                              <div>
+                                    <div class="bio-description">Arbeitsstatus</div>                                   
+                                    <input list="WorkStatus" type="text" name="Status" class="bio-value">
+                                    <datalist id="WorkStatus">
+                                          <option value="Arbeitet"></option>
+                                          <option value="Ausgetreten"></option>
+                                          <option value="Mutterschlafsurlaub"></option>
+                                    </datalist>
+                              </div>
+
                               <input type="submit" id="btn-add" class="personal-categories-btn" value="Speichern">
                               <a id="btn-cancel" class="personal-categories-btn" href="/HR/main">Abbrechen</a>
                         </div>

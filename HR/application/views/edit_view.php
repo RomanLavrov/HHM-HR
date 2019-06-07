@@ -40,6 +40,16 @@
                                           value=<?php echo ($this->employee->LastName); ?>>
                               </div>
 
+                              <div>
+                                    <div class="bio-description">Arbeitsstatus</div>                                   
+                                    <input list="WorkStatus" type="text" name="Status" class="bio-value" value="<?php echo($this->employee->Status)?>">
+                                    <datalist id="WorkStatus">
+                                          <option value="Arbeitet"></option>
+                                          <option value="Ausgetreten"></option>
+                                          <option value="Mutterschlafsurlaub"></option>
+                                    </datalist>
+                              </div>
+
                               <input type="submit" id="btn-add" class="personal-categories-btn" value="Speichern">
                               <a id="btn-cancel" class="personal-categories-btn" href="/HR/main">Abbrechen</a>
                         </div>
@@ -255,22 +265,22 @@
                                           <div>
                                                 <div class="bio-description">Standort</div>
                                                 <input type="text" name=<?php print htmlentities("visit[VisitLocation_".$visitCounter."]")?> class="bio-value"
-                                                      value=<?php echo $visit->Location; ?>>
+                                                      value="<?php echo $visit->Location; ?>">
                                           </div>
                                           <div>
                                                 <div class="bio-description">Unterkunft</div>
                                                 <input type="text" name=<?php print htmlentities("visit[VisitAccommodation_".$visitCounter."]")?> class="bio-value"
-                                                      value=<?php echo $visit->Accommodation ?>>
+                                                      value="<?php echo $visit->Accommodation ?>">
                                           </div>
                                           <div>
                                                 <div class="bio-description">Ziel</div>
                                                 <input type="text" name=<?php print htmlentities("visit[VisitGoal_".$visitCounter."]")?> class="bio-value"
-                                                      value=<?php echo $visit->Goal ?>>
+                                                      value="<?php echo $visit->Goal ?>">
                                           </div>
                                           <div>
                                                 <div class="bio-description">Gruppe</div>
                                                 <input type="text" name=<?php print htmlentities("visit[VisitGroup".$visitCounter."]")?> class="bio-value"
-                                                      value=<?php echo $visit->Group ?>>
+                                                      value="<?php echo $visit->Group ?>">
                                           </div>
                                     </div>
                                     <?php endforeach?>

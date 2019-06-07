@@ -27,6 +27,7 @@ class Controller_Create extends Controller
             $Comment = $_POST["Comment"];
             $Position = $_POST["Position"];
             $Salary = $_POST["Salary"];
+            $Status=$_POST["Status"];
 
             $G17_email = $_POST["G17_email"];
             $G17_initials = $_POST["G17_initials"];
@@ -47,17 +48,6 @@ class Controller_Create extends Controller
             $ChildBirthday3 = $_POST["ChildBirthday3"];
 
             $Visit = $_POST["visit"];
-
-           
-           
-
-            /*
-            $VisitStart = $_POST["VisitStart"];
-            $VisitEnd = $_POST["VisitEnd"];
-            $VisitLocation = $_POST["VisitLocation"];
-            $VisitAccommodation = $_POST["VisitAccommodation"];
-            $VisitGoal = $_POST["VisitGoal"];
-            $VisitGroup = $_POST["VisitGroup"];*/
 
             $id = 0;
             $sql_GetLastId = "SELECT id FROM Employee ORDER BY id DESC LIMIT 1";
@@ -99,7 +89,7 @@ class Controller_Create extends Controller
 			INSERT INTO `hhmeweme_HR`.`PersonalData` (`idEmployee`, `BirthDate`, `CivilState`, `Address`, `PLZ`, `Place`, `Phone`) 
 			VALUES(:idEmployeePersonal, :BirthDate, :CivilState, :Address, :PLZ, :Place, :Phone);
 
-			INSERT INTO `hhmeweme_HR`.`Career` (`idEmployee`, `Position`, `Comment`, `CareerStart`, `Salary`) VALUES (:idEmployee, :Position, :Comment, :CareerStart, :Salary);
+			INSERT INTO `hhmeweme_HR`.`Career` (`idEmployee`, `Position`, `Comment`, `CareerStart`, `Salary`, `Status`) VALUES (:idEmployee, :Position, :Comment, :CareerStart, :Salary, :Status);
 
 			INSERT INTO `hhmeweme_HR`.`ForeignPassport` (`idEmployee`, `PassName`, `PassLastName`, `Number`, `Valid`) VALUES (:idPass, :Pass_Name, :Pass_LastName, :Pass_Number, :Pass_Expired);
 
@@ -130,7 +120,8 @@ class Controller_Create extends Controller
             $query->bindParam(":Comment", $Comment, PDO::PARAM_STR);
             $query->bindParam(":Position", $Position, PDO::PARAM_STR);
             $query->bindParam(":CareerStart", $CareerStart, PDO::PARAM_STR);
-			$query->bindParam(":Salary", $Salary, PDO::PARAM_STR);
+            $query->bindParam(":Salary", $Salary, PDO::PARAM_STR);
+            $query->bindParam(":Status", $Status, PDO::PARAM_STR);
 			
 			$query->bindParam(":idEmployeePersonal", $id, PDO::PARAM_STR);
             $query->bindParam(":BirthDate", $BirthDate, PDO::PARAM_STR);

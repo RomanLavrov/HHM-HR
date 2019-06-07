@@ -51,14 +51,21 @@
                 </div>
 
                 <div class="btn-nav-panel">
-                    <a class="btn-nav-image" href="/HR/main">
+                    <a class="btn-nav-image" href="/HR/main/work">
+                        <img src="/HR/images/Work.svg" alt="">
+                    </a>
+                    <div class="btn-nav-text">Arbeitet</div>
+                </div>
+
+                <div class="btn-nav-panel">
+                    <a class="btn-nav-image" href="/HR/main/retired">
                         <img src="/HR/images/Retired.svg" alt="">
                     </a>
                     <div class="btn-nav-text">Ausgetreten</div>
                 </div>
 
                 <div class="btn-nav-panel">
-                    <a class="btn-nav-image" href="/HR/main">
+                    <a class="btn-nav-image" href="/HR/main/maternity">
                         <img src="/HR/images/Maternity.svg" alt="" >
                     </a>
                     <div class="btn-nav-text">Mutterschaftsurlaub</div>
@@ -66,7 +73,7 @@
 
                 <div class="btn-nav-panel">
                     <a class="btn-nav-image" href="/HR/sicklist">
-                        <img src="/HR/images/SickList.png" alt="">
+                        <img src="/HR/images/SickList.svg" alt="">
                     </a>
                     <div class="btn-nav-text">Krankenstand</div>
 
