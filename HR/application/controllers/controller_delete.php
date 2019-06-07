@@ -9,7 +9,18 @@ class Controller_Delete extends Controller
         $id = $_POST['idEmployee'];
         echo($id);
       
-        $sql="DELETE FROM Employee WHERE id = :idEmployee;";        
+        $sql="START TRANSACTION;
+        
+        DELETE FROM Employee WHERE id = :idEmployee;
+        DELETE FROM PersonalData WHERE idEmployee = :idEmployee;
+        DELETE FROM Career WHERE idEmployee = :idEmployee;
+        DELETE FROM ForeignPassport WHERE idEmployee = :idEmployee;
+        DELETE FROM G17 WHERE idEmployee = :idEmployee;
+        DELETE FROM HHM WHERE idEmployee = :idEmployee;
+        DELETE FROM HHM WHERE idEmployee = :idEmployee;
+        DELETE FROM SwissVisit WHERE idEmployee =:idEmployee;
+
+        COMMIT";
         
         $query = $pdo->prepare($sql);
         $query->bindParam(":idEmployee", $id, PDO::PARAM_STR);

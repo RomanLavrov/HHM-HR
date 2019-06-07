@@ -27,6 +27,7 @@ class Controller_Create extends Controller
             $Comment = $_POST["Comment"];
             $Position = $_POST["Position"];
             $Salary = $_POST["Salary"];
+            $Status=$_POST["Status"];
 
             $G17_email = $_POST["G17_email"];
             $G17_initials = $_POST["G17_initials"];
@@ -46,21 +47,39 @@ class Controller_Create extends Controller
             $ChildLastName3 = $_POST["ChildLastName3"];
             $ChildBirthday3 = $_POST["ChildBirthday3"];
 
-            $VisitStart = $_POST["VisitStart"];
-            $VisitEnd = $_POST["VisitEnd"];
-            $VisitLocation = $_POST["VisitLocation"];
-            $VisitAccommodation = $_POST["VisitAccommodation"];
-            $VisitGoal = $_POST["VisitGoal"];
-            $VisitGroup = $_POST["VisitGroup"];
+            $Visit = $_POST["visit"];
 
             $id = 0;
             $sql_GetLastId = "SELECT id FROM Employee ORDER BY id DESC LIMIT 1";
             $querySelect = $pdo->prepare($sql_GetLastId);
+
             if ($querySelect->execute()) {
                 $row = $querySelect->fetch();
-                echo ($row['id']);
-                echo intval($row['id']) + 1;
+                //echo ($row['id']);
+                //echo intval($row['id']) + 1;
                 $id = intval($row['id']) + 1;
+            }
+
+
+            $VisitArray = array_chunk($Visit, 6);
+
+            for ($i=0; $i < count($VisitArray); $i++) { 
+                echo("<pre>");
+                print_r($VisitArray[$i]);                
+                echo("</pre>");
+
+                $sqlVisit = "INSERT INTO `hhmeweme_HR`.`SwissVisit` (`idEmployee`, `StartDate`, `EndDate`, `Location`, `Accommodation`, `Goal`, `Group`) VALUES (:idVisit, :StartDate, :EndDate, :Location, :Accommodation, :Goal, :Group);";
+                $queryVisit = $pdo->prepare($sqlVisit);
+
+                $queryVisit->bindParam(":idVisit", $id, PDO::PARAM_STR);            
+                $queryVisit->bindParam(":StartDate",        $VisitArray[$i][0], PDO::PARAM_STR);
+                $queryVisit->bindParam(":EndDate",          $VisitArray[$i][1], PDO::PARAM_STR);
+                $queryVisit->bindParam(":Location",         $VisitArray[$i][2], PDO::PARAM_STR);
+                $queryVisit->bindParam(":Accommodation",    $VisitArray[$i][3], PDO::PARAM_STR);
+                $queryVisit->bindParam(":Goal",             $VisitArray[$i][4], PDO::PARAM_STR);
+                $queryVisit->bindParam(":Group",            $VisitArray[$i][5], PDO::PARAM_STR);
+
+                $queryVisit->execute();    
             }
 
             $sql = "START TRANSACTION;
@@ -70,7 +89,7 @@ class Controller_Create extends Controller
 			INSERT INTO `hhmeweme_HR`.`PersonalData` (`idEmployee`, `BirthDate`, `CivilState`, `Address`, `PLZ`, `Place`, `Phone`) 
 			VALUES(:idEmployeePersonal, :BirthDate, :CivilState, :Address, :PLZ, :Place, :Phone);
 
-			INSERT INTO `hhmeweme_HR`.`Career` (`idEmployee`, `Position`, `Comment`, `StartDate`, `Salary`) VALUES (:idEmployee, :Position, :Comment, :CareerStart, :Salary);
+			INSERT INTO `hhmeweme_HR`.`Career` (`idEmployee`, `Position`, `Comment`, `CareerStart`, `Salary`, `Status`) VALUES (:idEmployee, :Position, :Comment, :CareerStart, :Salary, :Status);
 
 			INSERT INTO `hhmeweme_HR`.`ForeignPassport` (`idEmployee`, `PassName`, `PassLastName`, `Number`, `Valid`) VALUES (:idPass, :Pass_Name, :Pass_LastName, :Pass_Number, :Pass_Expired);
 
@@ -84,9 +103,11 @@ class Controller_Create extends Controller
 
             INSERT INTO `hhmeweme_HR`.`Children` (`idEmployee`, `ChildName`, `ChildLastName`, `Birth`) VALUES (:idParent3, :ChildName3, :ChildLastName3, :ChildBirthday3);
             
-            INSERT INTO `hhmeweme_HR`.`SwissVisit` (`idEmployee`, `StartDate`, `EndDate`, `Location`, `Accommodation`, `Goal`, `Group`) VALUES (:idVisit, :StartDate, :EndDate, :Location, :Accommodation, :Goal, :Group);
 
-			COMMIT";
+            COMMIT";
+            
+            //            INSERT INTO `hhmeweme_HR`.`SwissVisit` (`idEmployee`, `StartDate`, `EndDate`, `Location`, `Accommodation`, `Goal`, `Group`) VALUES (:idVisit, :StartDate, :EndDate, :Location, :Accommodation, :Goal, :Group);
+
 
             $query = $pdo->prepare($sql);
 
@@ -99,7 +120,8 @@ class Controller_Create extends Controller
             $query->bindParam(":Comment", $Comment, PDO::PARAM_STR);
             $query->bindParam(":Position", $Position, PDO::PARAM_STR);
             $query->bindParam(":CareerStart", $CareerStart, PDO::PARAM_STR);
-			$query->bindParam(":Salary", $Salary, PDO::PARAM_STR);
+            $query->bindParam(":Salary", $Salary, PDO::PARAM_STR);
+            $query->bindParam(":Status", $Status, PDO::PARAM_STR);
 			
 			$query->bindParam(":idEmployeePersonal", $id, PDO::PARAM_STR);
             $query->bindParam(":BirthDate", $BirthDate, PDO::PARAM_STR);
@@ -138,14 +160,18 @@ class Controller_Create extends Controller
             $query->bindParam(":ChildLastName3", $ChildLastName3, PDO::PARAM_STR);
             $query->bindParam(":ChildBirthday3", $ChildBirthday3, PDO::PARAM_STR);
 
+            /*
             $query->bindParam(":idVisit", $id, PDO::PARAM_STR);            
             $query->bindParam(":StartDate", $VisitStart, PDO::PARAM_STR);
             $query->bindParam(":EndDate", $VisitEnd, PDO::PARAM_STR);
             $query->bindParam(":Location", $VisitLocation, PDO::PARAM_STR);
             $query->bindParam(":Accommodation", $VisitAccommodation, PDO::PARAM_STR);
             $query->bindParam(":Goal", $VisitGoal, PDO::PARAM_STR);
-            $query->bindParam(":Group", $VisitGroup, PDO::PARAM_STR);
+            $query->bindParam(":Group", $VisitGroup, PDO::PARAM_STR);*/
 
+            //echo("<pre>");print_r($_POST);echo("<pre>");
+
+            
             if ($query->execute()) {
                 header('location: /HR/main');
             }

@@ -1,7 +1,7 @@
 <?php
 include "application\models\model_sicklist.php";
 
-class Controller_Editsick extends Controller
+class Controller_EditSick extends Controller
 {
     public function action_index()
     {

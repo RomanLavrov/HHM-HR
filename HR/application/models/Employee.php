@@ -12,9 +12,9 @@ class Employee
 	public $PLZ;
 	public $Place;
     public $Phone;
-
-    public $CareerStart;
+   
     public $Position;
+    public $StartDate;
     public $Comment;
     public $Salary;
     public $Status;
@@ -25,10 +25,6 @@ class Employee
     public $Pass_Expired;
 
     public $Children = array();
-/*
-    public $ChildName;
-    public $ChildLastName;
-    public $ChildBirthday;*/
 
     public $G17_email;
     public $G17_initials;

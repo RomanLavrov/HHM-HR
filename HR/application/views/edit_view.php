@@ -40,6 +40,16 @@
                                           value=<?php echo ($this->employee->LastName); ?>>
                               </div>
 
+                              <div>
+                                    <div class="bio-description">Arbeitsstatus</div>                                   
+                                    <input list="WorkStatus" type="text" name="Status" class="bio-value" value="<?php echo($this->employee->Status)?>">
+                                    <datalist id="WorkStatus">
+                                          <option value="Arbeitet"></option>
+                                          <option value="Ausgetreten"></option>
+                                          <option value="Mutterschlafsurlaub"></option>
+                                    </datalist>
+                              </div>
+
                               <input type="submit" id="btn-add" class="personal-categories-btn" value="Speichern">
                               <a id="btn-cancel" class="personal-categories-btn" href="/HR/main">Abbrechen</a>
                         </div>
@@ -69,10 +79,10 @@
                                                 </datalist>
 
                                           </div>
-                                          <div>
+                                          <div>                                                
                                                 <div class="bio-description">Wohnadresse</div>
                                                 <input type="text" name="Address" class="bio-value"
-                                                      value=<?php echo $this->employee->Address; ?>>
+                                                      value="<?php print htmlentities($this->employee->Address) ?>">
                                           </div>
                                           <div>
                                                 <div class="bio-description">PLZ</div>
@@ -82,7 +92,7 @@
                                           <div>
                                                 <div class="bio-description">Ort</div>
                                                 <input type="text" name="Place" class="bio-value"
-                                                      value=<?php echo $this->employee->Place; ?>>
+                                                      value="<?php echo $this->employee->Place; ?>">
                                           </div>
                                           <div>
                                                 <div class="bio-description">Telefonnummer</div>
@@ -106,18 +116,20 @@
                                           <div>
                                                 <div class="bio-description">Pass Nummer</div>
                                                 <input type="text" name="Pass_Number" class="bio-value"
-                                                      value=<?php echo $this->employee->Pass_Number; ?>>
+                                                      value="<?php echo $this->employee->Pass_Number; ?>">
                                           </div>
                                           <div>
                                                 <div class="bio-description">Gültigkeit:</div>
                                                 <input type="date" name="Pass_Expired" class="bio-value"
-                                                      value=<?php echo $this->employee->Pass_Expired; ?>>
+                                                      value="<?php echo $this->employee->Pass_Expired; ?>">
                                           </div>
                                     </div>
 
                                     <div class="create-personal-short">
                                           <div class="create-personal-header">Karriere</div>
                                           <div>
+                                               
+
                                                 <div class="bio-description">Eintrittsdatum</div>
                                                 <input type="date" name="CareerStart" class="bio-value"
                                                       value=<?php echo $this->employee->StartDate; ?>>
@@ -125,17 +137,17 @@
                                           <div>
                                                 <div class="bio-description">Kommentar</div>
                                                 <input type="text" name="Comment" class="bio-value"
-                                                      value=<?php echo $this->employee->Comment; ?>>
+                                                      value="<?php echo $this->employee->Comment; ?>">
                                           </div>
                                           <div>
                                                 <div class="bio-description">Position</div>
                                                 <input type="text" name="Position" class="bio-value"
-                                                      value=<?php echo $this->employee->Position; ?>>
+                                                      value="<?php echo $this->employee->Position; ?>">
                                           </div>
                                           <div>
                                                 <div class="bio-description">Lohn</div>
                                                 <input type="text" name="Salary" class="bio-value"
-                                                      value=<?php echo $this->employee->Salary; ?>>
+                                                      value="<?php echo $this->employee->Salary; ?>">
                                           </div>
                                     </div>
 
@@ -148,7 +160,7 @@
                                           <div>
                                                 <div class="bio-description">G17 E-Mail</div>
                                                 <input type="mail" name="G17_email" class="bio-value"
-                                                      value=<?php echo $this->employee->G17_email; ?>>
+                                                      value="<?php echo $this->employee->G17_email; ?>">
                                           </div>
                                           <div>
                                                 <div class="bio-description">G17 Kürzel</div>
@@ -229,53 +241,88 @@
                               </div>
 
                               <div class="col-md-4">
+                              <div id="visitPlaceholder"> 
                                     <?php $visitCounter = 0?>
                                     <?php if (isset($this->employee->SwissVisit[0])) : ?>
                                     <?php foreach($this->employee->SwissVisit as $visit):?>
                                     <?php $visitCounter++?>
                                     <div class="create-personal-short">
-                                          <div class="create-personal-header" style="margin-bottom:15px">
-                                          <?php print htmlentities($visitCounter)?>
-                                                Schweiz-Aufenthalte</div>
+                                          <div class="create-personal-header"><div style="margin-bottom:15px; display:inline-block">
+                                          Schweiz-Aufenthalte</div>
+                                          <button id="btnVisitRemove" class="btn btn-danger" type="button" onclick="DeleteVisit(this)" style="height:30px; line-height:10px; vertical-align:middle;  margin-left:80px; display:inline-block">Entfernen</button>
+                                          </div>
                                           <div>
                                                 <div class="bio-description">Reisebeginn</div>
 
-                                                <input type="date" name=<?php print htmlentities("VisitStart".$visitCounter)?> class="bio-value"
+                                                <input type="date" name=<?php print htmlentities("visit[VisitStart_".$visitCounter."]")?> class="bio-value"
                                                       value=<?php echo $visit->StartDate; ?>>
                                           </div>
                                           <div>
                                                 <div class="bio-description">Reiseende</div>
-                                                <input type="date" name=<?php print htmlentities("VisitEnd".$visitCounter)?> class="bio-value"
+                                                <input type="date" name=<?php print htmlentities("visit[VisitEnd_".$visitCounter."]")?> class="bio-value"
                                                       value=<?php echo $visit->EndDate; ?>>
                                           </div>
                                           <div>
                                                 <div class="bio-description">Standort</div>
-                                                <input type="text" name=<?php print htmlentities("VisitLocation".$visitCounter)?> class="bio-value"
-                                                      value=<?php echo $visit->Location; ?>>
+                                                <input type="text" name=<?php print htmlentities("visit[VisitLocation_".$visitCounter."]")?> class="bio-value"
+                                                      value="<?php echo $visit->Location; ?>">
                                           </div>
                                           <div>
                                                 <div class="bio-description">Unterkunft</div>
-                                                <input type="text" name=<?php print htmlentities("VisitAccommodation".$visitCounter)?> class="bio-value"
-                                                      value=<?php echo $visit->Accommodation ?>>
+                                                <input type="text" name=<?php print htmlentities("visit[VisitAccommodation_".$visitCounter."]")?> class="bio-value"
+                                                      value="<?php echo $visit->Accommodation ?>">
                                           </div>
                                           <div>
                                                 <div class="bio-description">Ziel</div>
-                                                <input type="text" name=<?php print htmlentities("VisitGoal".$visitCounter)?> class="bio-value"
-                                                      value=<?php echo $visit->Goal ?>>
+                                                <input type="text" name=<?php print htmlentities("visit[VisitGoal_".$visitCounter."]")?> class="bio-value"
+                                                      value="<?php echo $visit->Goal ?>">
                                           </div>
                                           <div>
                                                 <div class="bio-description">Gruppe</div>
-                                                <input type="text" name=<?php print htmlentities("VisitGroup".$visitCounter)?> class="bio-value"
-                                                      value=<?php echo $visit->Group ?>>
+                                                <input type="text" name=<?php print htmlentities("visit[VisitGroup".$visitCounter."]")?> class="bio-value"
+                                                      value="<?php echo $visit->Group ?>">
                                           </div>
                                     </div>
                                     <?php endforeach?>
                                     <?php endif; ?>
                               </div>
+                              <button id="btnAddVisit" type="button" class="btn btn-success">Neues Reisen</button>
+
+                              </div>
                         </div>
                   </div>
             </div>
       </form>
+</div>
+
+<div id="visitTemplate" class="create-personal-short" style="visibility:hidden">
+      <div class="create-personal-header">Schweiz-Aufenthalte
+            <button id="btnVisitRemove" class="btn btn-danger" type="button" onclick="DeleteVisit(this)" style="height:30px; line-height:10px; margin-left:80px; display:inline-block">Entfernen</button>
+      </div>
+      <div>
+            <div class="bio-description">Reisebeginn</div>
+            <input type="date" name="visit[VisitStart_1]" class="bio-value">
+      </div>
+      <div>
+            <div class="bio-description">Reiseende</div>
+            <input type="date" name="visit[VisitEnd_1]" class="bio-value">
+      </div>
+      <div>
+            <div class="bio-description">Standort</div>
+            <input type="text" name="visit[VisitLocation_1]" class="bio-value">
+      </div>
+      <div>
+            <div class="bio-description">Unterkunft</div>
+            <input type="text" name="visit[VisitAccommodation_1]" class="bio-value">
+      </div>
+      <div>
+            <div class="bio-description">Ziel</div>
+            <input type="text" name="visit[VisitGoal_1]" class="bio-value">
+      </div>
+      <div>
+            <div class="bio-description">Gruppe</div>
+            <input type="text" name="visit[VisitGroup_1]" class="bio-value">
+      </div>
 </div>
 
 <script src="js/employeeCreate.js">

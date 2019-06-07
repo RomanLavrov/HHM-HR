@@ -36,6 +36,16 @@
                                     <input type="text" name="LastName" class="bio-value">
                               </div>
 
+                              <div>
+                                    <div class="bio-description">Arbeitsstatus</div>                                   
+                                    <input list="WorkStatus" type="text" name="Status" class="bio-value">
+                                    <datalist id="WorkStatus">
+                                          <option value="Arbeitet"></option>
+                                          <option value="Ausgetreten"></option>
+                                          <option value="Mutterschlafsurlaub"></option>
+                                    </datalist>
+                              </div>
+
                               <input type="submit" id="btn-add" class="personal-categories-btn" value="Speichern">
                               <a id="btn-cancel" class="personal-categories-btn" href="/HR/main">Abbrechen</a>
                         </div>
@@ -122,10 +132,10 @@
                                           </div>
                                     </div>
 
-                              </div>                            
+                              </div>
 
                               <div class="col-md-4">
-                                    <div class="create-personal-short">
+                                    <div class="create-personal-short">                       
                                           <div class="create-personal-header">G17</div>
                                           <div>
                                                 <div class="bio-description">G17 E-Mail</div>
@@ -163,8 +173,8 @@
                                                 <div class="bio-description">Geburtsdatum</div>
                                                 <input type="date" name="ChildBirthday1" class="bio-value">
                                           </div>
-
                                     </div>
+
                                     <div class="create-personal">
                                           <div class="create-personal-header">Kinder</div>
                                           <div>
@@ -180,6 +190,7 @@
                                                 <input type="date" name="ChildBirthday2" class="bio-value">
                                           </div>
                                     </div>
+
                                     <div class="create-personal">
                                           <div class="create-personal-header">Kinder</div>
                                           <div>
@@ -198,39 +209,76 @@
                               </div>
 
                               <div class="col-md-4">
-                                    <div class="create-personal-short">
-                                          <div class="create-personal-header">Schweiz-Aufenthalte</div>
-                                          <div>
-                                                <div class="bio-description">Reisebeginn</div>
-                                                <input type="date" name="VisitStart" class="bio-value">
-                                          </div>
-                                          <div>
-                                                <div class="bio-description">Reiseende</div>
-                                                <input type="date" name="VisitEnd" class="bio-value">
-                                          </div>
-                                          <div>
-                                                <div class="bio-description">Standort</div>
-                                                <input type="text" name="VisitLocation" class="bio-value">
-                                          </div>
-                                          <div>
-                                                <div class="bio-description">Unterkunft</div>
-                                                <input type="text" name="VisitAccommodation" class="bio-value">
-                                          </div>
-                                          <div>
-                                                <div class="bio-description">Ziel</div>
-                                                <input type="text" name="VisitGoal" class="bio-value">
-                                          </div>
-                                          <div>
-                                                <div class="bio-description">Gruppe</div>
-                                                <input type="text" name="VisitGroup" class="bio-value">
+                                    <div id="visitPlaceholder">                                    
+                                          <div class="create-personal-short" >
+                                                <div class="create-personal-header"><div style="display:inline-block">Schweiz-Aufenthalte</div>
+                                                <button id="btnVisitRemove" class="btn btn-danger" type="button" onclick="DeleteVisit(this)" style="height:30px; line-height:10px; vertical-align:middle;  margin-left:80px; display:inline-block">Entfernen</button>
+                                                </div>
+                                                
+                                                <div>
+                                                      <div class="bio-description">Reisebeginn</div>
+                                                      <input type="date" name="visit[VisitStart_1]" class="bio-value">
+                                                </div>
+                                                <div>
+                                                      <div class="bio-description">Reiseende</div>
+                                                      <input type="date" name="visit[VisitEnd_1]" class="bio-value">
+                                                </div>
+                                                <div>
+                                                      <div class="bio-description">Standort</div>
+                                                      <input type="text" name="visit[VisitLocation_1]" class="bio-value">
+                                                </div>
+                                                <div>
+                                                      <div class="bio-description">Unterkunft</div>
+                                                      <input type="text" name="visit[VisitAccommodation_1]" class="bio-value">
+                                                </div>                                                                                                                                                                                                                       
+                                                <div>
+                                                      <div class="bio-description">Ziel</div>
+                                                      <input type="text" name="visit[VisitGoal_1]" class="bio-value">
+                                                </div>
+                                                <div>
+                                                      <div class="bio-description">Gruppe</div>
+                                                      <input type="text" name="visit[VisitGroup_1]" class="bio-value">
+                                                </div>
                                           </div>
                                     </div>
+                                    <button id="btnAddVisit" type="button" class="btn btn-success">Neues Reisen</button>
                               </div>
+
                         </div>
                   </div>
             </div>
-</div>
+      </div>
 </form>
+
+
+<div id="visitTemplate" class="create-personal-short" style="visibility:hidden">
+      <div class="create-personal-header">Schweiz-Aufenthalte
+            <button id="btnVisitRemove" class="btn btn-danger" type="button" onclick="DeleteVisit(this)" style="height:30px; line-height:10px; margin-left:80px; display:inline-block">Entfernen</button>
+      </div>
+      <div>
+            <div class="bio-description">Reisebeginn</div>
+            <input type="date" name="visit[VisitStart_1]" class="bio-value">
+      </div>
+      <div>
+            <div class="bio-description">Reiseende</div>
+            <input type="date" name="visit[VisitEnd_1]" class="bio-value">
+      </div>
+      <div>
+            <div class="bio-description">Standort</div>
+            <input type="text" name="visit[VisitLocation_1]" class="bio-value">
+      </div>
+      <div>
+            <div class="bio-description">Unterkunft</div>
+            <input type="text" name="visit[VisitAccommodation_1]" class="bio-value">
+      </div>
+      <div>
+            <div class="bio-description">Ziel</div>
+            <input type="text" name="visit[VisitGoal_1]" class="bio-value">
+      </div>
+      <div>
+            <div class="bio-description">Gruppe</div>
+            <input type="text" name="visit[VisitGroup_1]" class="bio-value">
+      </div>
 </div>
 
 <script src="js/employeeCreate.js">
