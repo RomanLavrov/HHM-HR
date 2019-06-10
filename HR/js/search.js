@@ -17,15 +17,20 @@ $(".searchbar").keydown(function () {
 
 $(document).ready(calculateExpirience);
 
+$(".employee-name").click(function(){
+     /* console.log (this.parentNode.submit());*/
+});
 
 function calculateExpirience() {
       var today = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
       var experienceDiv = Array.from($(".experience"));
       //console.log(experienceDiv);
       experienceDiv.forEach(element => {
-            element.innerText;
-            var table = element.closest(".main-personal-data");
-            var stringDate = (($(table).find(".workStartDate").text()).replace(/\s/g, ''));
+            console.log(element.innerText);
+            var table = element.closest(".col-md.main-personal-data");
+            //console.log(table);
+            var stringDate = (($(table).find(".col-md.bio-data.workStartDate").text()).replace(/\s/g, ''));
+            console.log(stringDate);
             var splitDate = stringDate.split("-");
             var startDate = new Date(splitDate[2] + "-" + splitDate[1] + "-" + splitDate[0]);
             //console.log(startDate);
