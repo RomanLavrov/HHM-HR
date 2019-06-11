@@ -10,7 +10,7 @@
     transition: 0.5s;
     text-align: center;
     line-height: 60px;
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
 
 .btn-nav-panel:first {
@@ -112,6 +112,7 @@
     min-height: 100vh;
     height: auto;
     margin-left: 60px;
+    transition: 500ms;
 }
 
 .button-add {
@@ -179,7 +180,7 @@
 
 .mail-card-G17, .mail-card-HHM {
     color: white;
-    background: slategray;
+    background: #4F78A0;
     padding: 5px;
     padding-left: 10px;
     width: 300px;
@@ -192,8 +193,7 @@
 
 .mail-card-HHM {
     color: white;
-    background: lightslategray;
-    margin-bottom: 15px;
+    background: #4F78A0;
 }
 
 .deleteButton, .editButton, .vacationButton, .sickButton {
@@ -273,6 +273,20 @@
     margin-left: 6px;
     position: absolute;
 }
+#container{
+    transition: 1s;
+}
+.employee-card {
+    background: #fff;
+    padding-top: 15px;
+    padding-right: 10px;
+    width: 100%;
+}
+
+.employee-separator{
+    height: 2px;
+    background: linear-gradient(to left,#4F78A0,  rgb(110, 164, 219), #4F78A0)
+}
 
 .employee-id {
     font-family: Arial, Helvetica, sans-serif;
@@ -300,7 +314,7 @@
     background: radial-gradient(circle, rgba(101, 171, 59, 1) 0%, rgb(29, 122, 24) 100%);
     border-radius: 10px;
     border: 4px solid #eee;
-    float: right;
+    /*float: right;*/
 }
 
 .employee-status-retired {
@@ -338,7 +352,6 @@
 }
 
 .employee-name:hover {
-    background: dodgerblue;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.35), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -356,36 +369,80 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.employee-table th{
+    font-weight: 100;
+    background-color: red;
+}
+
+
+.table-dark td{
+    background-color: #4F78A0;
+    border-color: #ccc;
+}
+
+.table .thead-dark th{
+    background-color: rgb(29, 70, 110);
+    border-color:rgb(29, 70, 110);
+}
+
 .main-personal-data {
-    padding:0px;
+    padding: 0px;
     margin-left: 10px;
     color: white;
-    background: lightslategray;
+    background: #4F78A0;
     border-radius: 10px;
     margin-bottom: 15px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.bio-header{
+
+.bio-header {
     text-align: center;
-    padding:10px;
-    width:100%;
+    padding: 10px;
+    width: 100%;
     border-top-left-radius: 10px;
-    border-top-right-radius: 10px; 
+    border-top-right-radius: 10px;
     background: #23588C;
-    margin:0;
+    margin: 0;
 }
+
+.separator-personal, .separator-work, .separator-pass, .separator-children, .separator-visit{
+    height: 1px;
+}
+
+.separator-personal{
+    background:linear-gradient(to left, rgb(12, 199, 12) , rgb(27, 248, 82));
+}
+
+.separator-work{
+    background:linear-gradient(to left, lightcoral , orange);
+}
+
+.separator-pass{
+    background:linear-gradient(to left, rgb(201, 243, 50) , rgb(200, 255, 0));
+}
+
+.separator-children{
+    background:linear-gradient(to left, rgb(89, 212, 250) , rgb(83, 172, 255));
+}
+
+.separator-visit{
+    background:linear-gradient(to left, rgb(253, 95, 95) , rgb(253, 61, 77));
+}
+
+.main-personal-data .row {
+    padding: 5px 0px;
+    border-bottom: 1px solid #bbb;
+    width: 100%;
+}
+
 .bio-title {
     padding-left: 10px;
-    border-bottom: 1px solid darkgray;
 }
 
 .bio-data {
     overflow-wrap: nowrap;
     display: inline-block;
-    border-bottom: 1px solid darkgray;
 }
-
-
 
 .input1 {
     display: none;
@@ -413,7 +470,7 @@
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     line-height: 38px;
-    float: left;
+    /*float: left;*/
 }
 
 .input-label-upload {
@@ -751,7 +808,7 @@ input.bio-value {
 }
 
 .tooltip-text {
-    width: auto;
+    width: 100px;
     height: 20px;
     line-height: 18px;
     font-size: 12px;
@@ -765,6 +822,7 @@ input.bio-value {
     border-radius: 0px;
     border: 1px solid black;
     position: absolute;
+    
     z-index: 1;
 }
 
@@ -903,7 +961,7 @@ input.bio-value {
 }
 
 .vacation-bucket {
-    float: left;
+    /*float: left;*/
     height: 0px;
     background-image: url("/HR/images/delete.png");
     background: rgb(190, 75, 75);
