@@ -1,17 +1,18 @@
-$(".searchbar").keydown(function () {
+$(".searchbar").on("change paste keyup", function () {
       var employee = $(".employee-name");
       var employeeArray = Array.from(employee);
 
       employeeArray.forEach(element => {
-            if (this.value.length > 2) {
-                  if (element.innerText.toLowerCase().includes(this.value.toLowerCase())) {
-                        //console.log(element.innerText);
-                        element.closest("tr").style.visibility = "visible";
-                  } else {
-                        element.closest("tr").style.visibility = "collapse";
-                  }
-            } else
-                  element.closest("tr").style.visibility = "visible";
+     
+            if (element.innerText.toLowerCase().includes(this.value.toLowerCase())){
+                  //console.log(element.innerText);
+
+                  
+                  element.closest("#container").className = "";
+            }
+            else{
+                  element.closest("#container").className = "collapse";
+            }           
       });
 });
 
@@ -26,11 +27,11 @@ function calculateExpirience() {
       var experienceDiv = Array.from($(".experience"));
       //console.log(experienceDiv);
       experienceDiv.forEach(element => {
-            console.log(element.innerText);
+            //console.log(element.innerText);
             var table = element.closest(".col-md.main-personal-data");
             //console.log(table);
             var stringDate = (($(table).find(".col-md.bio-data.workStartDate").text()).replace(/\s/g, ''));
-            console.log(stringDate);
+            //console.log(stringDate);
             var splitDate = stringDate.split("-");
             var startDate = new Date(splitDate[2] + "-" + splitDate[1] + "-" + splitDate[0]);
             //console.log(startDate);

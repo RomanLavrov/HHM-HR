@@ -193,7 +193,6 @@
 .mail-card-HHM {
     color: white;
     background: #4F78A0;
-    margin-bottom: 15px;
 }
 
 .deleteButton, .editButton, .vacationButton, .sickButton {
@@ -274,6 +273,10 @@
     position: absolute;
 }
 
+#container {
+    transition: 1s;
+}
+
 .employee-card {
     background: #fff;
     padding-top: 15px;
@@ -281,9 +284,9 @@
     width: 100%;
 }
 
-.employee-separator{
+.employee-separator {
     height: 2px;
-    background: linear-gradient(to left,#4F78A0,  rgb(110, 164, 219), #4F78A0)
+    background: linear-gradient(to left, #4F78A0, rgb(110, 164, 219), #4F78A0)
 }
 
 .employee-id {
@@ -312,7 +315,7 @@
     background: radial-gradient(circle, rgba(101, 171, 59, 1) 0%, rgb(29, 122, 24) 100%);
     border-radius: 10px;
     border: 4px solid #eee;
-    float: right;
+    /*float: right;*/
 }
 
 .employee-status-retired {
@@ -367,20 +370,19 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.employee-table th{
+.employee-table th {
     font-weight: 100;
     background-color: red;
 }
 
-
-.table-dark td{
+.table-dark td {
     background-color: #4F78A0;
     border-color: #ccc;
 }
 
-.table .thead-dark th{
+.table .thead-dark th {
     background-color: rgb(29, 70, 110);
-    border-color:rgb(29, 70, 110);
+    border-color: rgb(29, 70, 110);
 }
 
 .main-personal-data {
@@ -403,28 +405,28 @@
     margin: 0;
 }
 
-.separator-personal, .separator-work, .separator-pass, .separator-children, .separator-visit{
+.separator-personal, .separator-work, .separator-pass, .separator-children, .separator-visit {
     height: 1px;
 }
 
-.separator-personal{
-    background:linear-gradient(to left, rgb(12, 199, 12) , rgb(27, 248, 82));
+.separator-personal {
+    background: linear-gradient(to left, rgb(12, 199, 12), rgb(27, 248, 82));
 }
 
-.separator-work{
-    background:linear-gradient(to left, lightcoral , orange);
+.separator-work {
+    background: linear-gradient(to left, lightcoral, orange);
 }
 
-.separator-pass{
-    background:linear-gradient(to left, rgb(201, 243, 50) , rgb(200, 255, 0));
+.separator-pass {
+    background: linear-gradient(to left, rgb(201, 243, 50), rgb(200, 255, 0));
 }
 
-.separator-children{
-    background:linear-gradient(to left, rgb(89, 212, 250) , rgb(83, 172, 255));
+.separator-children {
+    background: linear-gradient(to left, rgb(89, 212, 250), rgb(83, 172, 255));
 }
 
-.separator-visit{
-    background:linear-gradient(to left, rgb(253, 95, 95) , rgb(253, 61, 77));
+.separator-visit {
+    background: linear-gradient(to left, rgb(253, 95, 95), rgb(253, 61, 77));
 }
 
 .main-personal-data .row {
@@ -468,7 +470,7 @@
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     line-height: 38px;
-    float: left;
+    /*float: left;*/
 }
 
 .input-label-upload {
@@ -806,7 +808,7 @@ input.bio-value {
 }
 
 .tooltip-text {
-    width: auto;
+    width: 100px;
     height: 20px;
     line-height: 18px;
     font-size: 12px;
@@ -958,7 +960,7 @@ input.bio-value {
 }
 
 .vacation-bucket {
-    float: left;
+    /*float: left;*/
     height: 0px;
     background-image: url("/HR/images/delete.png");
     background: rgb(190, 75, 75);
@@ -1021,6 +1023,54 @@ input.bio-value {
     -webkit-background-clip: text;
        -moz-background-clip: text;
             background-clip: text; */
+}
+
+
+
+.pdf-header-main, .pdf-header {
+    color: white;
+    background: #23588C;
+    text-align: center;
+    line-height: 60px;
+    font-size: 16pt;
+    height:60px;
+    margin-bottom:15px
+}
+
+.pdf-header {
+    height: 40px;
+    line-height: 40px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.pdf-parameter-card{
+    width:280px;
+    display:inline-block;
+    margin-left:15px;
+    vertical-align:top;
+    background:white;
+}
+
+.pdf-selection-card {
+    height: 30px;
+    background: #4F78A0;
+    margin-bottom: 5px;
+    color: white;
+    border-radius: 5px;
+}
+
+.pdf-checkbox{
+    display:inline-block; width:24px; padding-left:10px;
+}
+
+.pdf-value{
+    display:inline-block; line-height:30px
+}
+
+.pdf-button{
+    
+    width:120px;
 }
 
 /*-----Animated Background-----*/

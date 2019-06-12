@@ -1,14 +1,18 @@
 <?php $counter = 1 ?>
 <?php foreach ($this->list as $employee) : ?>
+<div id="container">
+
+
 <div class="row employee-card">
       <div class="col-md">
-            <div class="employee-main" >
+            <div class="employee-main">
                   <form action="/HR/edit" method="post">
                         <input type="hidden" name="idEmployee" value=<?php print htmlentities($employee->Id); ?>>
                         <div class="employee-name" data-status="<?php print htmlentities($employee->Status); ?>"
                               onclick="this.parentNode.submit()">
                               <div style="display:inline-block; vertical-align:top">
-                                    <img class="employee-photo" src=<?php print htmlentities($employee->Photo); ?> />
+                                    <img class="employee-photo" src=<?php print htmlentities($employee->Photo); ?>
+                                          alt="" />
                               </div>
                               <div style="display:inline-block; vertical-align:middle; padding-top:10px;">
                                     <div style="display:inline-block; font-size: 18px; margin-top:-3px;">
@@ -29,32 +33,6 @@
                               </div>
                         </div>
                   </form>
-            </div>
-
-            <div class="row" style=" width:300px; z-index=-10">
-            <!--
-                  <div class="col-md-3">
-                        <form action="/HR/edit" method="post">
-                              <input type="hidden" name="idEmployee" value=<?php print htmlentities($employee->Id); ?>>
-                              <input class="editButton" type="submit" title="Daten bearbeiten">
-                        </form>
-                  </div>-->
-                  <div class="col-md-3" style="margin-left: 0px;">
-                        <form action="/HR/calendar" method="post">
-                              <input type="hidden" name="idEmployee" value=<?php print htmlentities($employee->Id); ?>>
-                              <input class="vacationButton" type="submit" title="Urlaubskalender">
-                        </form>
-                  </div>
-                  <div class="col-md-3">
-                        <form action="/HR/sick" method="post">
-                              <input type="hidden" name="idEmployee" value=<?php print htmlentities($employee->Id); ?>>
-                              <input class="sickButton" type="submit" title="Krankheitsurlaub">
-                        </form>
-                  </div>
-                  <div class="col-md-3">
-                        <button class="deleteButton" data-toggle="modal" data-target="#bucketModalDelete">Test
-                              <span class="tooltip-text"> Daten löschen </span></button>
-                  </div>
             </div>
 
             <div class="mail-card-G17">
@@ -81,6 +59,33 @@
                   <div class="row">
                         <div class="col-md-4 bio-title">HHM Kürzel:</div>
                         <div class="col-md bio-data"><?php print htmlentities($employee->HHM_initials) ?></div>
+                  </div>
+            </div>
+
+            <div class="row" style="margin-left:0px; margin-bottom:15px">
+                  <!--
+                  <div class="col-md-3">
+                        
+                        <form action="/HR/edit" method="post">
+                              <input type="hidden" name="idEmployee" value=<?php print htmlentities($employee->Id); ?>>
+                              <input class="editButton" type="submit" title="Daten bearbeiten">
+                        </form>
+                  </div>-->
+                  <div class="col-md-3" style="margin-left: 0px; padding-left:0px;">
+                        <form action="/HR/calendar" method="post">
+                              <input type="hidden" name="idEmployee" value=<?php print htmlentities($employee->Id); ?>>
+                              <input class="vacationButton" type="submit" title="Urlaubskalender">
+                        </form>
+                  </div>
+                  <div class="col-md-3" style="margin-left: 0px; padding-left:0px;">
+                        <form action="/HR/sick" method="post">
+                              <input type="hidden" name="idEmployee" value=<?php print htmlentities($employee->Id); ?>>
+                              <input class="sickButton" type="submit" title="Krankheitsurlaub">
+                        </form>
+                  </div>
+                  <div class="col-md-3" style="margin-left: 0px; padding-left:0px;">
+                        <button class="deleteButton" data-toggle="modal" data-target="#bucketModalDelete">Test
+                              <span class="tooltip-text"> Daten löschen </span></button>
                   </div>
             </div>
 
@@ -145,7 +150,7 @@
             </div>
             <div class="row">
                   <div class="col-md-5 bio-title">Lohn</div>
-                  <div class="col-md-7 bio-data"><?php print htmlentities($employee->Salary); ?></div>
+                  <div class="col-md-7 bio-data" id=<?php print htmlentities($employee->Name.$employee->LastName); ?>><?php print htmlentities($employee->Salary); ?></div>
             </div>
       </div>
 
@@ -253,8 +258,11 @@
       </div>
 </div>
 <div class="employee-separator"></div>
+</div>
 
 <?php endforeach; ?>
+
+
 
 <div class="modal fade" id="bucketModalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
       aria-hidden="true">

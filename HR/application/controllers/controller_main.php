@@ -83,7 +83,6 @@ class Controller_Main extends Controller
             LEFT JOIN G17               ON Employee.id = G17.idEmployee
             LEFT JOIN HHM               ON Employee.id = HHM.idEmployee";
 
-
             $this->view->list = $this->getData($sql);
             $this->view->generate('main_view.php', 'template_view.php');
         } else {
