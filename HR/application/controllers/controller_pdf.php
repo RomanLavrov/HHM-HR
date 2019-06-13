@@ -11,9 +11,7 @@ class Controller_Pdf extends Controller
       public function action_index()
       {
             if (isset($_SESSION['loggedin'])) {
-                  $sql = "SELECT * FROM Employee";
 
-                  //$empArray = ($this->getData($sql));
 
                   /*
                   echo ('<pre>');

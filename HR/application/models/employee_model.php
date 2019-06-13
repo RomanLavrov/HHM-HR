@@ -49,7 +49,6 @@ class Employee_Model extends Model{
                         }
                   }
 
-
                   $sqlSwissVisit = "SELECT * FROM SwissVisit";
                   if ($querySwissVisit = $this->PDO->prepare($sqlSwissVisit)) {
                         if ($querySwissVisit->execute()) {
