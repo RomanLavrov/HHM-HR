@@ -187,7 +187,7 @@
                                                 <table class="table table-sm table-stripped">
                                                       <thead>
                                                             <tr>
-                                                                  <td>Name</td>
+                                                                  <td>Kinder Name</td>
                                                                   <td>Vorname</td>
                                                                   <td>Geburtstag</td>
                                                             </tr>
