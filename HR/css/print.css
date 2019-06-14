@@ -1,66 +1,26 @@
-      body{
-            width:210mm;
-      }
-      
-      #content{
-            background: green;
-            width:200mm;
-      }
-      
+
       .pdf-header, .pdf-filters, .pdf-header-main, #header-main, #nav-panel {
-            
             display: none !important;
       }
 
       .pdf-preview {
             background: blue;
-            width: 200mm;
+            width:100%;
             margin-left: 30mm;
             margin-right: 0;
-            padding-right:0;
-            font-size: 14pt;
-      }
-      .employee-photo{
-            width: 60px;
-    height: 60px;
-    border-radius: 30px;
-    background: dodgerblue;
-      }
-      .print-employee {
-            width: 100%;
-            border: 1px solid #777;
-      }
-
-      .print-id, .print-personal, .print-career, .print-pass, .print-children, .print-visit {
+            padding-right: 0;
             font-size: 12pt;
-            border-right: 1px solid #777;
-            padding: 2mm 2mm;
-            border-bottom: 1px solid #777;
       }
 
-      .print-id, .print-personal div, .print-career div, .print-pass div {
-            border-bottom: 1px solid #ccc;
+      .employee-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            background: dodgerblue;
       }
 
-      .print-id, .print-personal div:last-child, .print-career div:last-child, .print-pass div:last-child {
-            border-bottom: 0px;
-      }
 
-      .row .print-employee {
-            width: 190mm;
-      }
 
-      .print-id {}
 
-      .print-personal {}
 
-      .print-career {}
 
-      .print-pass {}
-
-      .print-children {
-            background: #111;
-            border: 0px
-      }
-
-      .print-visit {}

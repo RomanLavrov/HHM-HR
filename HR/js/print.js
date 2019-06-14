@@ -1,24 +1,50 @@
 var checkboxes = $("input:checkbox").toArray();
 
-$("#btn-select-employee").click(function(){
+$("#btn-select-employee").click(function () {
 
-      checkboxes.forEach(element=>{
-            if (element.name.includes("Id")){
-                  if (element.checked == false){
-                        element.checked = true;
+      checkboxes.forEach(element => {
+            if (element.name.includes("Id")) {
+                  if (element.checked == false) {
+                        //element.checked = true;
+                        element.click();
                   }
-            }            
+            }
       })
 })
 
-$("#btn-unselect-employee").click(function(){
-      checkboxes.forEach(element=>{
-            if (element.name.includes("Id")){
-            if (element.checked == true){
-                  element.checked = false;
-            }}
+$("#btn-unselect-employee").click(function () {
+      checkboxes.forEach(element => {
+            if (element.name.includes("Id")) {
+                  if (element.checked == true) {
+                        element.click();
+                        //element.checked = false;
+                  }
+            }
       })
 })
+
+$("#btn-select-categories").click(function(){
+      
+      checkboxes.forEach(element=>{
+            if (!element.name.includes("Id")){
+                  if (element.checked == false){
+                        element.click();
+                  }
+            }
+      })
+});
+
+$("#btn-unselect-categories").click(function(){
+      
+      checkboxes.forEach(element=>{
+            if (!element.name.includes("Id")){
+                  if (element.checked == true){
+                        element.click();
+                  }
+            }
+      })
+});
+
 
 checkboxes.forEach(element => {
       console.log(element);
@@ -56,11 +82,10 @@ checkboxes.forEach(element => {
 });
 
 function updatePersonalData() {
-
       if (this.checked) {
-            ($(".print-personal")).removeClass("collapse");
+            ($(".col-md.print-personal")).removeClass("collapse");
       } else {
-            $(".print-personal").addClass("collapse");
+            $(".col-md.print-personal").addClass("collapse");
       }
 }
 
@@ -100,9 +125,9 @@ function updateVisitData() {
 
 function updateList() {
       if (this.name.includes("Id") && !this.checked) {
-            console.log($("#" + this.value + ".row.print-employee").addClass("collapse"));
+            console.log($("#" + this.value + ".print-employee").addClass("collapse"));
       } else {
-            $("#" + this.value + ".row.print-employee").removeClass("collapse");
+            $("#" + this.value + ".print-employee").removeClass("collapse");
       }
 
       /*

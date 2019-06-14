@@ -2,6 +2,11 @@
     font-family: Helvetica, sans-serif;
 }
 
+#salaryFile {
+    background: green;
+    width: 50px;
+}
+
 .btn-nav-panel {
     background: #222;
     width: 60px;
@@ -337,7 +342,7 @@
     vertical-align: top;
     display: inline-block;
 }
-           
+
 .employee-name {
     color: white;
     width: 300px;
@@ -1025,121 +1030,167 @@ input.bio-value {
             background-clip: text; */
 }
 
-
-
-.pdf-header-main, .pdf-header {
+.pdf-header-main, .pdf-header, .pdf-header-preview {
     color: white;
     background: #23588C;
     text-align: center;
     line-height: 60px;
     font-size: 16pt;
-    height:60px;
-    margin-bottom:15px
+    height: 60px;
+    /*margin-bottom: 15px*/
 }
 
 .pdf-header {
+    background: #23588C;
     height: 40px;
     line-height: 40px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 0;
 }
 
-.pdf-parameter-card{
-    width:280px;
-    margin:  0px 10px 10px 10px;
-    vertical-align:top;
-    background:white;
+.pdf-parameter-card {
+    margin: 0px 15px 15px 15px;
+    vertical-align: top;  
+    background:seashell;
+    border-radius:10px;
+    padding-bottom: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.pdf-parameter-card-employee {
+    padding: 10px;
+    background:whitesmoke;
+    height: 44vh;
+    overflow-y: scroll;  
+    padding-bottom: 10px; 
+    margin-top:0px;
+    margin-bottom: 0px; 
 }
 
 .pdf-selection-card {
     height: 30px;
     background: #4F78A0;
-    margin:10px;
+    margin: 5px;
     color: white;
     border-radius: 5px;
 }
 
-.pdf-preview{
-    background: lightcyan;
-    vertical-align: top;
-    display:inline-block;
-    width:80%;
-    height:80vh;
-}
-
-.pdf-checkbox{
-    display:inline-block; width:24px; padding-left:10px;
-}
-
-.pdf-value{
-    display:inline-block; line-height:30px
-}
-
-.pdf-button{    
-    width:120px;
-}
-
-.print-employee{
-    border: 1px solid black;
+.pdf-preview-container{
     width:100%;
+    display:inline-block;
+    height:785px;
+    background: #777;
+    overflow-y: scroll;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.print-id, .print-career, .print-personal, .print-pass, .print-children, .print-visit{
-    display: inline-block;
-    height:100%;
-    margin: 5px 5px 5px 5px;
-    border-right:1px solid black;   
-    font-size: 10pt; 
+.pdf-header-preview{
     vertical-align: top;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
-.print-id{
-    border-right:1px solid black;
+.pdf-preview {
+    display: block;
+    width:200mm;
+    background: white;
+    margin:20px 0;
+    padding:20px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size:12pt;
 }
 
-.print-personal{
-    
-    width:20%;
+
+
+.pdf-checkbox {
+    display: inline-block;
+    width: 24px;
+    padding-left: 10px;
 }
 
-.print-career{
-    width:15%;
+.pdf-value {
+    display: inline-block;
+    line-height: 30px
 }
 
-.print-pass{
-    width:13%;
+.pdf-button {
+    width: 100%;
+    margin: 0;
+    padding: 3px;
 }
 
-.print-children{
-    /*border:1px solid black;*/
-    margin-left:0px;
-    width:25%;
+.pdf-print {
+    width: 100%;
+    margin: 15px 15px 0 0;
 }
 
-.print-children .row{
-    margin:0;
+.print-employee {
+    border: 1px solid black;
+    width: 100%;
 }
 
-.print-children .row .col-md-4{
+.print-id, .print-career, .print-personal, .print-pass, .print-children, .print-visit {
+    display: inline-block;
+    height: auto;
+    margin: 0;
+    vertical-align: top;
+    /*border:1px solid #333;*/
+    border-left: 1px solid black;
+}
+
+.print-id div, .print-career div, .print-personal div, .print-pass div, .print-children div, .print-visit div{
+    border-bottom: 1px solid #ccc;
+}
+
+
+.print-id {
+    border-right: 1px solid black;
+}
+
+.print-children {
+    border:1px solid black;
+    margin-left: 0px;
+}
+
+.print-children .row {
+    margin: 0;
+}
+
+.print-children .row .col-md-4 {
     margin: 0;
     padding: 2px;
 }
 
-.print-visit{
-    border-right:0px ;   
-    width:20%;  
-    margin:0px;
+.print-visit {
+    border-right: 0px;
+    border-top: 1px solid black;
+    margin: 0px;
 }
 
-.print-visit .row{
-    margin:0;
+.print-visit .row {
+    margin: 0;
 }
 
-.print-visit .row .col-md-2, .print-visit .row .col-md-3{
-    margin:0;
-    padding:0;
+.print-visit .row .col-md-2, .print-visit .row .col-md-3 {
+    margin: 0;
+    padding: 0;
     text-align: left;
 }
+
+.row.pdf-print-data{
+    
+}
+
+.row.pdf-print-data .col-md-2, .row.pdf-print-data .col-md-3{
+    background:lightgreen;
+    padding:0;
+    border:1px solid darkgray;
+}
+
 /*-----Animated Background-----*/
 
 .login-body {
