@@ -2,7 +2,7 @@
 
 define('DB_SERVER', 'hhmeweme.mysql.db.hostpoint.ch');
 define('DB_USERNAME', 'hhmeweme_lavrov');
-define('DB_PASSWORD', 'PassHHM_201');
+define('DB_PASSWORD', 'IraLavrova198');
 define('DB_NAME', 'hhmeweme_HR');
 
 try {

@@ -12,7 +12,7 @@
       <script lang="javascript" src="dist/xlsx.full.min.js"></script>
 
       <script src="/HR/js/bootstrap-datepicker.js"></script>
-
+      <!--script src="/HR/js/bootstrap-datepicker.de.min.js"></script-->
 
       <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
@@ -110,8 +110,8 @@
 
                         <div class="btn-nav-panel" >
                               <div class="btn-nav-image">
-                              <input type="file"  id="salaryFile" , name="Salary" style="position:absolute; opacity: 0.0; ">
-                                    <img src="/HR/images/Salary.svg" alt=""></div>
+                              <input class="btn-nav-salary" type="file"  id="salaryFile" , name="Salary" style="position:absolute; opacity: 0.0; ">
+                                    <img src="/HR/images/Salary.svg" style="width:42px;"></div>
                               <div class="btn-nav-text">Lohn</div>
                               <!-- <input type="file" hidden id="salaryFile" , name="Salary">-->
                         </div>

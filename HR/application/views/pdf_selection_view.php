@@ -129,7 +129,7 @@
                                     </div>
                               </div>
 
-                              <div style="display:inline-block; vertical-align:top; width:79%">
+                              <div style="display:inline-block; vertical-align:top; width:79%; ">
                                     <div class="row pdf-print-data" style="width:100%">
                                           <div class="col-md print-personal">
                                                 <div>
@@ -187,7 +187,7 @@
                                                 <table class="table table-sm table-stripped">
                                                       <thead>
                                                             <tr>
-                                                                  <td>Kinder Name</td>
+                                                                  <td>Name</td>
                                                                   <td>Vorname</td>
                                                                   <td>Geburtstag</td>
                                                             </tr>

@@ -19,6 +19,7 @@ class Controller_Delete extends Controller
         DELETE FROM HHM WHERE idEmployee = :idEmployee;
         DELETE FROM HHM WHERE idEmployee = :idEmployee;
         DELETE FROM SwissVisit WHERE idEmployee =:idEmployee;
+        DELETE FROM Vacations WHERE idEmployee=:idEmployee;
 
         COMMIT";
         

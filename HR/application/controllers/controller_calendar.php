@@ -31,13 +31,14 @@ class Holiday
     public $Public;
 }
 
-class Employee
+class EmployeeCalendar
 {
     public $Id;
     public $Photo;
     public $Name;
     public $LastName;
     public $Vacations;
+    public $Duration;
 }
 
 class Vacation
@@ -55,15 +56,16 @@ class Controller_Calendar extends Controller
 
     public function action_index()
     {
-        $employee = new Employee;
+        $employee = new EmployeeCalendar;
         require_once "config.php";
-        $employeeId;
+        $employeeId;      
+
         if (isset($_POST['idEmployee'])) {
             $employee->Id = $_POST['idEmployee'];
             $employeeId   = $_POST['idEmployee'];
         }
+        $sqlVacations = "SELECT * FROM Vacations WHERE idEmployee = $employee->Id";
 
-        $sqlVacations = "SELECT * FROM `hhmeweme_HR`.`Vacations` WHERE idEmployee = $employee->Id";
         $vacArray     = array();
         if ($queryVacation = $pdo->prepare($sqlVacations)) {
             if ($queryVacation->execute()) {
@@ -73,19 +75,20 @@ class Controller_Calendar extends Controller
                     $vacation->idVacation = $rowVacation['idVacations'];
                     $vacation->idEmployee = $rowVacation['idEmployee'];
                     $vacation->StartDate  = $rowVacation['StartDate'];
-                    $vacation->EndDate    = $rowVacation['EndDate'];
+                    $vacation->EndDate    = $rowVacation['EndDate'];    
                     $vacArray[]           = $vacation;
                 }
             }
         }
 
-        $sqlEmployee = "SELECT * FROM `hhmeweme_HR`.`Employee` WHERE id = $employee->Id";
+        $sqlEmployee = "SELECT Employee.*, Career.VacationDuration FROM Employee INNER JOIN Career ON Employee.id=Career.idEmployee WHERE Employee.id = $employee->Id";
         if ($queryEmployee = $pdo->prepare($sqlEmployee)) {
             if ($queryEmployee->execute()) {
                 while ($rowEmployee = $queryEmployee->fetch()) {
                     $employee->Name     = $rowEmployee["Name"];
                     $employee->LastName = $rowEmployee["LastName"];
                     $employee->Photo    = $rowEmployee["Photo"];
+                    $employee->Duration = $rowEmployee["VacationDuration"];
                 }
             }
         }

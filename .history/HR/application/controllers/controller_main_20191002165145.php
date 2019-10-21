@@ -34,7 +34,7 @@ class Controller_Main extends Controller
             
         if (isset($_SESSION['loggedin'])) {
 
-            $sql = "SELECT * FROM Employee
+            $sql = "SELECT * FROM Employee             
             LEFT JOIN PersonalData      ON Employee.id = PersonalData.idEmployee
             JOIN Career            ON Employee.id = Career.idEmployee AND Career.Status='Arbeitet'
             LEFT JOIN ForeignPassport   ON Employee.id = ForeignPassport.idEmployee			

@@ -1,4 +1,4 @@
-console.log("Test");
+// SheetJS https://github.com/SheetJS
 $.getScript("https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.6/xlsx.core.min.js")
 $.getScript("https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.js")
 
@@ -37,8 +37,7 @@ function processFile(evt) {
                   console.log(element.Salary);
 
                   console.log($('#'+element.LastName+element.Name).html(element.Salary + " " + element.Currency));
-            });
-           
+            });           
       }  
 
 }

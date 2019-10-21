@@ -17,6 +17,9 @@
     line-height: 60px;
     margin-bottom: 10px;
 }
+.btn-nav-text{
+    pointer-events:none
+}
 
 .btn-nav-panel:first {
     margin-top: 110px;
@@ -34,6 +37,8 @@
 .btn-nav-image img {
     width: 50px;
 }
+
+
 
 .btn-nav-panel:hover {
     color: white;
@@ -88,7 +93,7 @@
 }
 
 #nav-panel {
-    padding-top: 130px;
+    padding-top: 60px;
     position: fixed;
     display: inline-block;
     width: 60px;
@@ -252,21 +257,22 @@
     background-image: url("/HR/images/edit_employee.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 80%;
+    background-size: 100%;
 }
 
 .vacationButton {
-    background-image: url("/HR/images/vacation_small.png");
+    background-image: url("/HR/images/Vacations.svg");
     background-position: center;
     background-color: #036eda;
-    background-size: 32px;
+    background-size: 42px;
     border: 1px solid #036eda;
 }
 
 .sickButton {
-    background-image: url("/HR/images/sick_small.png");
-    background-position: center;
-    background-size: 32px;
+    background-image: url("/HR/images/SickList.svg");
+    background-position: bottom center;
+    background-size: 42px;
+    background-color: rgb(230, 83, 11);
 }
 
 .buttonImage {
@@ -349,16 +355,17 @@
     height: 70px;
     padding: 5px;
     text-align: left;
-    background: dodgerblue;
+    background: #23588C;
     display: inline-block;
     border-radius: 10px;
+    border:0;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transition: box-shadow .2s ease, transform .5s ease, margin-top .2s ease;
+    /*transition: box-shadow .2s ease, transform .5s ease, margin-top .2s ease;*/
     cursor: pointer;
 }
 
 .employee-name:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.35), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.35), 0 12px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .employee-controls {
@@ -770,6 +777,7 @@ input.bio-value {
     transition: 1s;
     background-image: url("/HR/images/delete.png");
     background-position: center;
+    float:left;
 }
 
 .calendar-year {
@@ -798,7 +806,7 @@ input.bio-value {
     margin-top: 0px;
 }
 
-.calendar-day, .calendar-day-header, .calendar-day-weekend, .calendar-day-vacation, .calendar-day-sick {
+.calendar-day, .calendar-day-header, .calendar-day-weekend, .calendar-day-vacation, .calendar-day-sick, .calendar-day-weekend-vacation , .calendar-day-holiday-vacation{
     display: inline-block;
     width: 11%;
     height: 20px;
@@ -811,6 +819,8 @@ input.bio-value {
     line-height: 20px;
     text-decoration: none;
 }
+
+
 
 .tooltip-text {
     width: 100px;
@@ -863,10 +873,19 @@ input.bio-value {
     background: white;
 }
 
-.calendar-day-vacation, .calendar-day-sick {
+.calendar-day-vacation, .calendar-day-sick, .calendar-day-weekend-vacation , .calendar-day-holiday-vacation{
     background: #219b21;
     line-height: 18px;
     border: 1px solid lightgreen
+}
+
+.calendar-day-weekend-vacation{
+    background: #333;
+}
+
+.calendar-day-holiday-vacation{
+    color: rgb(238, 90, 90);
+    background: #333;
 }
 
 .calendar-day-sick {
@@ -1135,7 +1154,7 @@ input.bio-value {
 
 .print-id, .print-career, .print-personal, .print-pass, .print-children, .print-visit {
     display: inline-block;
-    height: auto;
+   /* height: auto;*/
     margin: 0;
     vertical-align: top;
     /*border:1px solid #333;*/
@@ -1152,7 +1171,8 @@ input.bio-value {
 }
 
 .print-children {
-    border:1px solid black;
+   /* border:1px solid black;*/
+   border-top:1px solid black;
     margin-left: 0px;
 }
 
