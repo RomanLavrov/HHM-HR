@@ -55,14 +55,14 @@ class Controller_Create extends Controller
 
             if ($querySelect->execute()) {
                 $row = $querySelect->fetch();
-                echo ($row['id']);
-                echo intval($row['id']) + 1;
+                //echo ($row['id']);
+                //echo intval($row['id']) + 1;
                 $id = intval($row['id']) + 1;
             }
 
 
             $VisitArray = array_chunk($Visit, 6);
-
+/*
             for ($i=0; $i < count($VisitArray); $i++) { 
                 echo("<pre>");
                 print_r($VisitArray[$i]);                
@@ -100,8 +100,6 @@ class Controller_Create extends Controller
             INSERT INTO `hhmeweme_HR`.`Children` (`idEmployee`, `ChildName`, `ChildLastName`, `Birth`) VALUES (:idParent1, :ChildName1, :ChildLastName1, :ChildBirthday1);
 
             INSERT INTO `hhmeweme_HR`.`Children` (`idEmployee`, `ChildName`, `ChildLastName`, `Birth`) VALUES (:idParent2, :ChildName2, :ChildLastName2, :ChildBirthday2);
-
-            INSERT INTO `hhmeweme_HR`.`Children` (`idEmployee`, `ChildName`, `ChildLastName`, `Birth`) VALUES (:idParent3, :ChildName3, :ChildLastName3, :ChildBirthday3);
 
             INSERT INTO `hhmeweme_HR`.`Children` (`idEmployee`, `ChildName`, `ChildLastName`, `Birth`) VALUES (:idParent3, :ChildName3, :ChildLastName3, :ChildBirthday3);
             
@@ -162,16 +160,16 @@ class Controller_Create extends Controller
             $query->bindParam(":ChildLastName3", $ChildLastName3, PDO::PARAM_STR);
             $query->bindParam(":ChildBirthday3", $ChildBirthday3, PDO::PARAM_STR);
 
-            
+            /*
             $query->bindParam(":idVisit", $id, PDO::PARAM_STR);            
             $query->bindParam(":StartDate", $VisitStart, PDO::PARAM_STR);
             $query->bindParam(":EndDate", $VisitEnd, PDO::PARAM_STR);
             $query->bindParam(":Location", $VisitLocation, PDO::PARAM_STR);
             $query->bindParam(":Accommodation", $VisitAccommodation, PDO::PARAM_STR);
             $query->bindParam(":Goal", $VisitGoal, PDO::PARAM_STR);
-            $query->bindParam(":Group", $VisitGroup, PDO::PARAM_STR);
+            $query->bindParam(":Group", $VisitGroup, PDO::PARAM_STR);*/
 
-            echo("<pre>");print_r($_POST);echo("<pre>");
+            //echo("<pre>");print_r($_POST);echo("<pre>");
 
             
             if ($query->execute()) {
