@@ -1,9 +1,9 @@
 <?php
 
 define('DB_SERVER', 'hhmeweme.mysql.db.hostpoint.ch');
-define('DB_USERNAME', 'hhmeweme_trehub');
-define('DB_PASSWORD', 'NjGhGR4C');
-define('DB_NAME', 'hhmeweme_hrDev');
+define('DB_USERNAME', 'hhmeweme_tergub');
+define('DB_PASSWORD', 'IraLavrova198');
+define('DB_NAME', 'hhmeweme_HR');
 
 try {
     $pdo = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD, null);

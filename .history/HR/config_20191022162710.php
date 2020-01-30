@@ -1,8 +1,8 @@
 <?php
 
 define('DB_SERVER', 'hhmeweme.mysql.db.hostpoint.ch');
-define('DB_USERNAME', 'hhmeweme_trehub');
-define('DB_PASSWORD', 'NjGhGR4C');
+define('DB_USERNAME', 'hhmeweme_admin ');
+define('DB_PASSWORD', 'IraLavrova198');
 define('DB_NAME', 'hhmeweme_hrDev');
 
 try {
