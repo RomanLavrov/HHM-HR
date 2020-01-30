@@ -1,23 +1,25 @@
 <?php
+
 class Route
 {
     public static function start()
     {
+        
         $controller_name = 'Main';
         $action_name = 'index';
 
         $routes = explode('/', $_SERVER['REQUEST_URI']);
-
-        if (!empty($routes[2])) {
+        
+        if (!empty($routes[1])) {
             //echo ("<br>First level: ");
             //echo ($routes[2]);
-            $controller_name = $routes[2];
+            $controller_name = $routes[1];
         }
 
-        if (!empty($routes[3])) {
+        if (!empty($routes[2])) {
             //echo ("<br>Second level: ");
             //echo ($routes[3]);
-            $action_name = $routes[3];
+            $action_name = $routes[2];
         }
 
         $model_name = 'Model_' . $controller_name;
@@ -31,7 +33,7 @@ class Route
         $model_file = strtolower($model_name) . '.php';
         $model_path = "application/models/" . $model_file;
         if (file_exists($model_path)) {
-            include "application/models/" . $model_file;
+            include $_SERVER["DOCUMENT_ROOT"] . "/application/models/" . $model_file;
         }
 
         $controller_file = strtolower($controller_name) . '.php';
@@ -39,11 +41,12 @@ class Route
 
         if (file_exists($controller_path)) {
             //echo ("<br>Controller exists");
-            include "application/controllers/" . $controller_file;
+           
+            include $_SERVER["DOCUMENT_ROOT"] ."/application/controllers/" . $controller_file;
         } else {
             //TODO Exception
-            echo("Controller not found");
-            Route::ErrorPage404();
+            echo("Controller was not found");
+            //Route::ErrorPage404();
         }
 
         $controller = new $controller_name;
@@ -60,7 +63,8 @@ class Route
 
     public function ErrorPage404()
     {
-        $host = 'http://' . $_SERVER['HTTP_HOST'] . '/HR/';
+        //echo("404");
+        $host = 'http://' . $_SERVER['HTTP_HOST'];
         header('HTTP/1.1 404 Not Found');
         header("Status: 404 Not Found");
         header('Location:' . $host . '404');

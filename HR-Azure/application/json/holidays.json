@@ -1,0 +1,114 @@
+{
+      "holidays": [
+            {
+                  "name": "Neues_Jahr",
+                  "date": "2019-01-01",
+                  "observed": "2019-01-01",
+                  "public": true
+            },
+            {
+                  "name": "Orthodoxe Weihnachten",
+                  "date": "2019-01-07",
+                  "observed": "2019-01-07",
+                  "public": true
+            },
+            {
+                  "name": "Православний Новий рік",
+                  "date": "2019-01-14",
+                  "observed": "2019-01-14",
+                  "public": false
+            },
+            {
+                  "name": "День народної єдності українського",
+                  "date": "2019-01-22",
+                  "observed": "2019-01-22",
+                  "public": false
+            },
+            {
+                  "name": "Internationaler_Frauentag",
+                  "date": "2019-03-08",
+                  "observed": "2019-03-08",
+                  "public": true
+            },
+            {
+                  "name": "Ostern",
+                  "date": "2019-04-28",
+                  "observed": "2019-04-28",
+                  "public": false
+            },
+            {
+                  "name": "Ostermontag",
+                  "date": "2019-04-29",
+                  "observed": "2019-04-29",
+                  "public": true
+            },
+            {
+                  "name": "Tag_der_Arbeit",
+                  "date": "2019-05-01",
+                  "observed": "2019-05-01",
+                  "public": true
+            },
+            {
+                  "name": "День міжнародної солідарності трудящих",
+                  "date": "2019-05-02",
+                  "observed": "2019-05-02",
+                  "public": false
+            },
+            {
+                  "name": "Tag_der_Befreiung",
+                  "date": "2019-05-09",
+                  "observed": "2019-05-09",
+                  "public": true
+            },
+            {
+                  "name": "Pfingstmontag",
+                  "date": "2019-06-17",
+                  "observed": "2019-06-17",
+                  "public": true
+            },
+            {
+                  "name": "Tag_der_Verfassung",
+                  "date": "2019-06-28",
+                  "observed": "2019-06-28",
+                  "public": true
+            },
+            {
+                  "name": "Tag_der_Unabhängigkeit_Montag",
+                  "date": "2019-08-26",
+                  "observed": "2019-08-24",
+                  "public": true
+            },
+            {
+                  "name": "Tag_des_Verteidigers_der_Ukraine",
+                  "date": "2019-10-14",
+                  "observed": "2019-10-14",
+                  "public": true
+            },
+            {
+                  "name": "Гідність і День свободи",
+                  "date": "2019-11-21",
+                  "observed": "2019-11-21",
+                  "public": false
+            },
+            {
+                  "name": "День Збройних Сил",
+                  "date": "2019-12-06",
+                  "observed": "2019-12-06",
+                  "public": false
+            },
+            {
+                  "name": "День Святого Миколая",
+                  "date": "2019-12-19",
+                  "observed": "2019-12-19",
+                  "public": false
+            },
+
+            {                  
+                  "name": "Weihnachten",
+                  "date": "2019-12-25",
+                  "observed": "2019-12-25",
+                  "public": true
+            }
+            
+      ]
+}

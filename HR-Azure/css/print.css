@@ -1,0 +1,37 @@
+
+      .pdf-header, .pdf-filters, .pdf-header-main, #header-main, #nav-panel, .pdf-header-preview {
+            display: none !important;
+      }
+
+      .pdf-preview {
+            width:100%;
+            margin-left: 30mm;
+            margin-right: 0;
+            padding-right: 0;
+            font-size: 12pt;
+      }
+
+      .employee-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            background: dodgerblue;
+      }
+
+      .print-employee{
+            border:1px solid black;
+      }
+
+      .print-personal, .print-career, .print-pass, .print-children, .print-visit{
+            border-left: 1px solid black;
+      }
+
+      .print-children, .print-visit{
+            border-top:1px solid black;
+      }
+
+
+
+
+
+
